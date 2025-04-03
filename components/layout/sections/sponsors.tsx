@@ -1,41 +1,41 @@
 "use client";
 
-import { Icon } from "@/components/ui/icon";
+import Image from "next/image";
 import { Marquee } from "@devnomic/marquee";
 import "@devnomic/marquee/dist/index.css";
-import { icons } from "lucide-react";
-interface sponsorsProps {
-  icon: string;
+
+interface SponsorProps {
+  imageUrl: string;
   name: string;
 }
 
-const sponsors: sponsorsProps[] = [
+const sponsors: SponsorProps[] = [
   {
-    icon: "Crown",
+    imageUrl: "/images/sponsors/dwd.svg",
     name: "Acmebrand",
   },
   {
-    icon: "Vegan",
+    imageUrl: "/images/sponsors/eta.svg",
     name: "Acmelogo",
   },
   {
-    icon: "Ghost",
+    imageUrl: "/images/sponsors/vdfv.svg",
     name: "Acmesponsor",
   },
   {
-    icon: "Puzzle",
+    imageUrl: "/images/sponsors/vxfv.svg",
     name: "Acmeipsum",
   },
   {
-    icon: "Squirrel",
+    imageUrl: "/images/sponsors/warv`s.svg",
     name: "Acme",
   },
   {
-    icon: "Cookie",
+    imageUrl: "/images/sponsors/zxfv.svg",
     name: "Accmee",
   },
   {
-    icon: "Drama",
+    imageUrl: "/images/sponsors/dwd.svg",
     name: "Acmetech",
   },
 ];
@@ -54,18 +54,20 @@ export const SponsorsSection = () => {
           innerClassName="gap-[3rem]"
           pauseOnHover
         >
-          {sponsors.map(({ icon, name }) => (
+          {sponsors.map(({ imageUrl, name }) => (
             <div
               key={name}
-              className="flex items-center text-xl md:text-2xl font-medium"
+              className="flex items-center"
             >
-              <Icon
-                name={icon as keyof typeof icons}
-                size={32}
-                color="white"
-                className="mr-2"
-              />
-              {name}
+              <div className="relative w-[128px] h-[128px]">
+                <Image
+                  src={imageUrl}
+                  alt={`${name} logo`}
+                  width={128}
+                  height={128}
+                  className="object-contain"
+                />
+              </div>
             </div>
           ))}
         </Marquee>

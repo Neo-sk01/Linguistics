@@ -10,33 +10,35 @@ enum ProService {
   YES = 1,
   NO = 0,
 }
+
 interface ServiceProps {
   title: string;
   pro: ProService;
   description: string;
 }
+
 const serviceList: ServiceProps[] = [
   {
-    title: "Custom Domain Integration",
+    title: "Professional Translation",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit adipisicing.",
-    pro: 0,
-  },
-  {
-    title: "Social Media Integrations",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae, dicta.",
-    pro: 0,
-  },
-  {
-    title: "Email Marketing Integrations",
-    description: "Lorem dolor sit amet adipisicing.",
-    pro: 0,
-  },
-  {
-    title: "SEO Optimization",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+      "Expert document translation services with precision and attention to cultural nuances in multiple languages.",
     pro: 1,
+  },
+  {
+    title: "Interpretation Services",
+    description:
+      "Real-time interpretation for conferences, meetings, and events with certified linguists.",
+    pro: 1,
+  },
+  {
+    title: "Content Localization",
+    description: "Adapt your content for specific markets and cultures to ensure maximum engagement.",
+    pro: 1,
+  },
+  {
+    title: "Educational Language Services",
+    description: "Custom language training programs, curriculum development, and educational consulting.",
+    pro: 0,
   },
 ];
 
@@ -48,11 +50,11 @@ export const ServicesSection = () => {
       </h2>
 
       <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-        Grow Your Business
+        Premium Language Services
       </h2>
       <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-        From marketing and sales to operations and strategy, we have the
-        expertise to help you achieve your goals.
+        From translation and interpretation to content localization and language education, 
+        we offer expert linguistic solutions to help you communicate effectively on a global scale.
       </h3>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 
@@ -71,7 +73,7 @@ export const ServicesSection = () => {
               variant="secondary"
               className="absolute -top-2 -right-3 data-[pro=false]:hidden"
             >
-              PRO
+              PREMIUM
             </Badge>
           </Card>
         ))}
