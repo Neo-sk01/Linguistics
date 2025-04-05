@@ -1,0 +1,100 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Large binary files (for Git LFS)
+*.node
+*.mp4
+*.mov
+*.avi
+*.wmv
+*.flv
+*.mp3
+*.wav
+*.psd
+*.ai
+*.sketch
+*.fig
+*.xd
+*.rar
+*.zip
+*.7z
+*.tar
+*.gz
+*.iso
+*.dmg
+
+# Cache directories
+.cache/
+.next/
+.nuxt/
+dist/
+.turbo
+.vercel
+
+# Package manager directories
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.npm
+
+# Logs
+logs
+*.log
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
