@@ -16,6 +16,10 @@ export const Particles = () => {
       id="tsparticles"
       init={particlesInit}
       options={{
+        fullScreen: {
+          enable: false,
+          zIndex: -1
+        },
         "particles": {
           "number": {
             "value": 80,

@@ -4,14 +4,18 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { HeroParticles } from "@/components/hero-particles";
 
 export const HeroSection = () => {
   const { theme } = useTheme();
   return (
-    <section className="container relative w-full min-h-[75vh] flex items-center">
+    <section className="container relative w-full min-h-[75vh] flex items-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <HeroParticles />
+      </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[50vh] bg-primary/20 rounded-full blur-[120px] -z-10"></div>
       
-      <div className="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32 w-full">
+      <div className="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32 w-full z-10">
         <div className="text-center space-y-10 max-w-3xl mx-auto">
           <Badge variant="outline" className="text-sm py-2">
             <span className="mr-2 text-primary">
