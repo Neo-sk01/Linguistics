@@ -1,5 +1,5 @@
 "use client";
-import { ChevronsDown, Menu } from "lucide-react";
+import { ChevronsDown, Menu, FileText, Headphones, Languages } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import {
   Sheet,
@@ -29,6 +29,13 @@ interface RouteProps {
   label: string;
 }
 
+interface ServiceItemProps {
+  href: string;
+  label: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
 const routeList: RouteProps[] = [
   {
     href: "/",
@@ -49,6 +56,27 @@ const routeList: RouteProps[] = [
   {
     href: "#contact",
     label: "Contact Us",
+  },
+];
+
+const servicesItems: ServiceItemProps[] = [
+  {
+    href: "/transcription",
+    label: "Transcription",
+    description: "Professional linguistic transcription services",
+    icon: <FileText className="h-5 w-5 text-primary" />
+  },
+  {
+    href: "/interpreting",
+    label: "Interpreting",
+    description: "Expert interpreting services for multiple languages",
+    icon: <Languages className="h-5 w-5 text-primary" />
+  },
+  {
+    href: "/conference-equipment",
+    label: "Conference Equipment",
+    description: "High-quality equipment for professional events",
+    icon: <Headphones className="h-5 w-5 text-primary" />
   },
 ];
 
@@ -120,15 +148,44 @@ export const Navbar = () => {
 
               <div className="flex flex-col gap-2">
                 {routeList.map(({ href, label }) => (
-                  <Button
-                    key={href}
-                    onClick={() => setIsOpen(false)}
-                    asChild
-                    variant="ghost"
-                    className="justify-start text-base"
-                  >
-                    <Link href={href}>{label}</Link>
-                  </Button>
+                  label === "Services" ? (
+                    <div key={href} className="flex flex-col">
+                      <Button
+                        onClick={() => {}}
+                        variant="ghost"
+                        className="justify-start text-base flex items-center"
+                      >
+                        <span>{label}</span>
+                        <ChevronsDown className="ml-2 h-4 w-4 transition-transform duration-200" />
+                      </Button>
+                      <div className="ml-4 flex flex-col gap-2 border-l pl-4 border-primary/20">
+                        {servicesItems.map((item) => (
+                          <Button
+                            key={item.href}
+                            onClick={() => setIsOpen(false)}
+                            asChild
+                            variant="ghost"
+                            className="justify-start text-base group"
+                          >
+                            <Link href={item.href} className="flex items-center gap-2">
+                              <span className="text-primary/80">{item.icon}</span>
+                              <span className="group-hover:text-foreground transition-colors">{item.label}</span>
+                            </Link>
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Button
+                      key={href}
+                      onClick={() => setIsOpen(false)}
+                      asChild
+                      variant="ghost"
+                      className="justify-start text-base"
+                    >
+                      <Link href={href}>{label}</Link>
+                    </Button>
+                  )
                 ))}
               </div>
             </div>
@@ -144,16 +201,51 @@ export const Navbar = () => {
 
       {/* <!-- Desktop --> */}
       <NavigationMenu className="hidden lg:block mx-auto">
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            {routeList.map(({ href, label }) => (
-              <NavigationMenuLink key={href} asChild>
-                <Link href={href} className="text-base px-2">
-                  {label}
-                </Link>
-              </NavigationMenuLink>
-            ))}
-          </NavigationMenuItem>
+        <NavigationMenuList className="space-x-1">
+          {routeList.map(({ href, label }) => (
+            label === "Services" ? (
+              <NavigationMenuItem key={href}>
+                <NavigationMenuTrigger className="bg-transparent hover:bg-primary/10 data-[state=open]:bg-primary/10 rounded-lg transition-colors">
+                  <span className="data-[state=open]:text-primary hover:text-primary transition-colors font-medium">{label}</span>
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-5 md:grid-cols-1">
+                    {servicesItems.map((item) => (
+                      <li key={item.href}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={item.href}
+                            className="block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group"
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className="p-2 rounded-md bg-muted group-hover:bg-primary/10 transition-colors">
+                                {item.icon}
+                              </div>
+                              <div>
+                                <div className="text-sm font-semibold leading-none mb-1.5 group-hover:text-primary/90 transition-colors">{item.label}</div>
+                                <p className="text-xs leading-snug text-muted-foreground group-hover:text-foreground transition-colors">{item.description}</p>
+                              </div>
+                            </div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            ) : (
+              <NavigationMenuItem key={href}>
+                <NavigationMenuLink asChild>
+                  <Link 
+                    href={href} 
+                    className="px-4 py-2 text-base hover:text-primary transition-colors rounded-lg hover:bg-primary/10 inline-flex"
+                  >
+                    {label}
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            )
+          ))}
         </NavigationMenuList>
       </NavigationMenu>
 

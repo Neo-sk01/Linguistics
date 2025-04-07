@@ -12,10 +12,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/transcription/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/transcription/page.js"
+    ],
     "/pricing/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pricing/page.js"
+    ],
+    "/conference-equipment/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/conference-equipment/page.js"
     ]
   }
 }
