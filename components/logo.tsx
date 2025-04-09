@@ -18,7 +18,7 @@ export function Logo() {
           className="mr-2"
         />
       ) : (
-        <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
+        <ChevronsDown className="bg-gradient-to-tr border-secondary from-blue-600 via-blue-500 to-blue-400 rounded-lg w-9 h-9 mr-2 border text-white" />
       )}
       <span className="font-bold text-lg">IMPERIUM LINGUISTICS</span>
     </div>

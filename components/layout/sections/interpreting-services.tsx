@@ -12,58 +12,6 @@ interface ServiceCategory {
 }
 
 export const InterpretingServicesSection = () => {
-  const interpretingCategories: ServiceCategory[] = [
-    {
-      title: "LEGAL INTERPRETING",
-      items: [
-        "Court Hearings",
-        "Depositions",
-        "Attorney-Client Meetings",
-        "Witness Statements",
-        "Legal Consultations"
-      ],
-      className: "bg-gradient-to-br from-[#916c18]/20 to-[#916c18]/5 dark:from-[#916c18]/10 dark:to-[#916c18]/5 border-[#916c18]/30 dark:border-[#916c18]/20",
-      icon: MessageSquareText
-    },
-    {
-      title: "BUSINESS INTERPRETING",
-      items: [
-        "Conferences",
-        "Business Meetings",
-        "Negotiations",
-        "Corporate Events",
-        "Trade Shows",
-        "International Calls"
-      ],
-      className: "bg-gradient-to-br from-gray-50/40 to-white dark:from-gray-900/20 dark:to-gray-900/10 border-gray-200/50 dark:border-gray-700/30",
-      icon: Building2
-    },
-    {
-      title: "EDUCATIONAL INTERPRETING",
-      items: [
-        "Academic Conferences",
-        "Lectures",
-        "Student Services",
-        "Parent-Teacher Meetings",
-        "Research Discussions"
-      ],
-      className: "bg-gradient-to-br from-[#916c18]/20 to-[#916c18]/5 dark:from-[#916c18]/10 dark:to-[#916c18]/5 border-[#916c18]/30 dark:border-[#916c18]/20",
-      icon: GraduationCap
-    },
-    {
-      title: "MEDICAL INTERPRETING",
-      items: [
-        "Doctor Appointments",
-        "Medical Procedures",
-        "Patient Consultations",
-        "Mental Health Services",
-        "Healthcare Conferences"
-      ],
-      className: "bg-gradient-to-br from-gray-50/40 to-white dark:from-gray-900/20 dark:to-gray-900/10 border-gray-200/50 dark:border-gray-700/30",
-      icon: Globe
-    }
-  ];
-
   const fadeInUp = {
     initial: { y: 20, opacity: 0 },
     animate: { y: 0, opacity: 1 },
@@ -83,6 +31,18 @@ export const InterpretingServicesSection = () => {
       <section className="py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium rounded-full bg-blue-600/10 text-blue-600 tracking-wider">SESSION 9</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200">IMPERIUM LINGUISTICS</h2>
+            <div className="w-20 h-1 bg-blue-600/50 mx-auto mt-6 rounded-full"></div>
+          </motion.div>
+
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -95,56 +55,20 @@ export const InterpretingServicesSection = () => {
             </p>
           </motion.div>
 
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-6 mb-20"
-          >
-            {interpretingCategories.map((category, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className={cn(
-                  "rounded-xl p-6 border hover:shadow-lg transition-all relative group",
-                  category.className
-                )}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-white dark:bg-gray-800 shadow-md">
-                    <category.icon className="w-6 h-6 text-[#916c18]" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold mb-3">{category.title}</h3>
-                    <ul className="space-y-2">
-                      {category.items.map((item, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <ChevronRight className="w-4 h-4 mr-2 text-[#916c18]" />
-                          <span className="text-gray-700 dark:text-gray-300">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-[#916c18]/30 dark:border-[#916c18]/20 hover:border-[#916c18]/70 dark:hover:border-[#916c18]/40 transition-colors relative overflow-hidden"
+              className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-blue-600/30 dark:border-blue-600/20 hover:border-blue-600/70 dark:hover:border-blue-600/40 transition-colors relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#916c18]/70 via-[#916c18] to-[#916c18]/70"></div>
-              <div className="absolute -bottom-14 -left-14 w-28 h-28 bg-[#916c18]/10 rounded-full"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600/70 via-blue-600 to-blue-600/70"></div>
+              <div className="absolute -bottom-14 -left-14 w-28 h-28 bg-blue-600/10 rounded-full"></div>
               
-              <Languages className="w-12 h-12 text-[#916c18] mb-4 mx-auto" />
+              <Languages className="w-12 h-12 text-blue-600 mb-4 mx-auto" />
               
-              <h3 className="text-2xl font-bold text-[#916c18] mb-6 text-center uppercase">
+              <h3 className="text-2xl font-bold text-blue-600 mb-6 text-center uppercase">
                 Simultaneous interpreting
               </h3>
               
@@ -161,7 +85,7 @@ export const InterpretingServicesSection = () => {
               </p>
               
               <div className="flex justify-end mt-8">
-                <div className="flex items-center text-sm text-[#916c18] font-medium group cursor-pointer">
+                <div className="flex items-center text-sm text-blue-600 font-medium group cursor-pointer">
                   <span>Learn More</span>
                   <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -173,14 +97,14 @@ export const InterpretingServicesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-[#916c18]/30 dark:border-[#916c18]/20 hover:border-[#916c18]/70 dark:hover:border-[#916c18]/40 transition-colors relative overflow-hidden"
+              className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-blue-600/30 dark:border-blue-600/20 hover:border-blue-600/70 dark:hover:border-blue-600/40 transition-colors relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#916c18]/70 via-[#916c18] to-[#916c18]/70"></div>
-              <div className="absolute -bottom-14 -right-14 w-28 h-28 bg-[#916c18]/10 rounded-full"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600/70 via-blue-600 to-blue-600/70"></div>
+              <div className="absolute -bottom-14 -right-14 w-28 h-28 bg-blue-600/10 rounded-full"></div>
               
-              <Mic className="w-12 h-12 text-[#916c18] mb-4 mx-auto" />
+              <Mic className="w-12 h-12 text-blue-600 mb-4 mx-auto" />
               
-              <h3 className="text-2xl font-bold text-[#916c18] mb-6 text-center uppercase">
+              <h3 className="text-2xl font-bold text-blue-600 mb-6 text-center uppercase">
                 Consecutive interpreting
               </h3>
               
@@ -196,7 +120,7 @@ export const InterpretingServicesSection = () => {
               </p>
               
               <div className="flex justify-end mt-8">
-                <div className="flex items-center text-sm text-[#916c18] font-medium group cursor-pointer">
+                <div className="flex items-center text-sm text-blue-600 font-medium group cursor-pointer">
                   <span>Learn More</span>
                   <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -209,13 +133,13 @@ export const InterpretingServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-20 bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-[#916c18]/30 dark:border-[#916c18]/20"
+            className="mt-20 bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-blue-600/30 dark:border-blue-600/20"
           >
             <h2 className="text-3xl font-bold mb-8 text-center">Our Interpreting Equipment</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-md transition-shadow">
-                <Headphones className="w-12 h-12 text-[#916c18] mb-4" />
+                <Headphones className="w-12 h-12 text-blue-600 mb-4" />
                 <h3 className="text-xl font-bold mb-3">Wireless Receivers</h3>
                 <p className="text-gray-700 dark:text-gray-300">
                   Our high-quality digital wireless receivers provide crystal-clear audio for simultaneous interpreting, with comfortable headsets and long battery life.
@@ -223,7 +147,7 @@ export const InterpretingServicesSection = () => {
               </div>
               
               <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-md transition-shadow">
-                <Mic className="w-12 h-12 text-[#916c18] mb-4" />
+                <Mic className="w-12 h-12 text-blue-600 mb-4" />
                 <h3 className="text-xl font-bold mb-3">Interpreter Consoles</h3>
                 <p className="text-gray-700 dark:text-gray-300">
                   Professional interpreting consoles with intuitive controls allow our interpreters to deliver seamless translations in real-time.
@@ -237,45 +161,45 @@ export const InterpretingServicesSection = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-20 grid md:grid-cols-2 gap-8 bg-white dark:bg-gray-900 p-8 rounded-xl shadow-xl border border-[#916c18]/20"
+            className="mt-20 grid md:grid-cols-2 gap-8 bg-white dark:bg-gray-900 p-8 rounded-xl shadow-xl border border-blue-600/20"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-[#916c18]">Contact Us</h3>
+              <h3 className="text-2xl font-bold mb-6 text-blue-600">Contact Us</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Phone className="w-5 h-5 text-[#916c18] mr-3" />
+                  <Phone className="w-5 h-5 text-blue-600 mr-3" />
                   <span className="text-gray-700 dark:text-gray-300">+27 12 345 6789</span>
                 </div>
                 <div className="flex items-center">
-                  <Mail className="w-5 h-5 text-[#916c18] mr-3" />
+                  <Mail className="w-5 h-5 text-blue-600 mr-3" />
                   <span className="text-gray-700 dark:text-gray-300">info@imperiumlinguistics.com</span>
                 </div>
                 <div className="flex items-center">
-                  <Clock className="w-5 h-5 text-[#916c18] mr-3" />
+                  <Clock className="w-5 h-5 text-blue-600 mr-3" />
                   <span className="text-gray-700 dark:text-gray-300">Monday - Friday: 8am - 5pm</span>
                 </div>
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 text-[#916c18] mr-3 mt-1" />
-                  <span className="text-gray-700 dark:text-gray-300">123 Main Street, Pretoria, South Africa</span>
+                  <MapPin className="w-5 h-5 text-blue-600 mr-3 mt-1" />
+                  <span className="text-gray-700 dark:text-gray-300">ERF1472/39 Muirfield Blvd, Silver Lakes Golf Estate, 0081</span>
                 </div>
               </div>
               
               <div className="mt-8">
                 <div className="flex items-center mb-2">
-                  <CalendarDays className="w-5 h-5 text-[#916c18] mr-2" />
+                  <CalendarDays className="w-5 h-5 text-blue-600 mr-2" />
                   <h4 className="font-bold">Book an Appointment</h4>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                   Schedule a consultation to discuss your interpreting needs.
                 </p>
-                <button className="px-6 py-2 bg-[#916c18] text-white rounded-md hover:bg-[#916c18]/90 transition-colors">
+                <button className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
                   Contact Us
                 </button>
               </div>
             </div>
             
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-[#916c18]">Languages Supported</h3>
+              <h3 className="text-2xl font-bold mb-4 text-blue-600">Languages Supported</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 We support all official languages for your interpretation needs.
               </p>
@@ -287,7 +211,7 @@ export const InterpretingServicesSection = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: i * 0.05, duration: 0.2 }}
                     viewport={{ once: true }}
-                    className="px-3 py-1 bg-[#916c18]/10 rounded-full text-sm text-center text-[#916c18]"
+                    className="px-3 py-1 bg-blue-600/10 rounded-full text-sm text-center text-blue-600"
                   >
                     {lang}
                   </motion.div>
@@ -312,7 +236,7 @@ export const InterpretingServicesSection = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-3 bg-[#916c18] hover:bg-[#916c18]/90 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all"
+                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all"
                 >
                   Request a Quote
                 </motion.button>

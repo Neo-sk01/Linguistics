@@ -8,8 +8,8 @@ export const AboutSection = () => {
       title: "Reliable",
       description: "We deliver precise and timely language solutions, ensuring seamless communication in legal and corporate settings.",
       icon: BookOpen,
-      color: "from-amber-600 to-amber-400",
-      shadowColor: "shadow-amber-500/20"
+      color: "from-blue-400 to-blue-300",
+      shadowColor: "shadow-blue-400/20"
     },
     {
       title: "Trustworthy",
@@ -22,15 +22,15 @@ export const AboutSection = () => {
       title: "Transparent",
       description: "Clear communication and honest service ensure no hidden fees—just high-quality solutions tailored to your needs.",
       icon: Lightbulb,
-      color: "from-blue-500 to-cyan-400",
-      shadowColor: "shadow-blue-500/20"
+      color: "from-sky-500 to-blue-400",
+      shadowColor: "shadow-sky-500/20"
     },
     {
       title: "Client-Centric",
       description: "Your needs come first. We customize our services to provide the best interpreting, translation, and transcription support.",
       icon: Users,
-      color: "from-purple-600 to-purple-400",
-      shadowColor: "shadow-purple-500/20"
+      color: "from-indigo-600 to-blue-500",
+      shadowColor: "shadow-indigo-500/20"
     }
   ];
 
@@ -51,15 +51,14 @@ export const AboutSection = () => {
 
       <div className="mb-20 max-w-4xl mx-auto">
         <div className="relative z-10">
-          <div className="relative bg-card p-8 rounded-xl border border-border/50 shadow-xl">
-            <div className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-br from-primary to-amber-500 rounded-lg rotate-12 opacity-80"></div>
+          <div className="relative bg-blue-600 p-8 rounded-xl border border-blue-500 shadow-xl text-white">
             <div className="relative">
-              <p className="text-xl font-medium text-foreground/90 mb-6 leading-relaxed">
+              <p className="text-xl font-medium text-white mb-6 leading-relaxed">
                 Founded in 2017, Imperium Linguistics has been dedicated to being a one-stop language solution
                 for attorneys and law firms, ensuring they meet their clients' expectations efficiently and
                 seamlessly.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-blue-100 leading-relaxed">
                 Over the years, we have specialized in simultaneous and consecutive interpreting,
                 non-literal translation, and precise transcriptions—eliminating language barriers to success.
                 Today, we continue to provide high-quality conference and meeting equipment, delivering
@@ -67,9 +66,9 @@ export const AboutSection = () => {
                 time.
               </p>
               <div className="mt-8 flex justify-start">
-                <div className="bg-muted/50 px-4 py-3 rounded-lg inline-flex items-center">
-                  <span className="text-2xl font-bold mr-2">6+ Years</span> 
-                  <span className="text-muted-foreground">of expertise in language services</span>
+                <div className="bg-blue-700/50 px-4 py-3 rounded-lg inline-flex items-center">
+                  <span className="text-2xl font-bold mr-2 text-white">6+ Years</span> 
+                  <span className="text-blue-100">of expertise in language services</span>
                 </div>
               </div>
             </div>

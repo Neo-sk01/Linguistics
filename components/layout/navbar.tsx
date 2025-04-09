@@ -54,7 +54,7 @@ const routeList: RouteProps[] = [
     label: "Pricing",
   },
   {
-    href: "#contact",
+    href: "/contact",
     label: "Contact Us",
   },
 ];
@@ -107,7 +107,7 @@ export const Navbar = () => {
   }, [lastScrollY]);
   
   return (
-    <header className={`shadow-inner w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-background/30 backdrop-blur-sm transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20 pointer-events-none'}`}>
+    <header className={`shadow-inner w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-gray-200 z-40 rounded-2xl flex justify-between items-center p-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20 pointer-events-none'}`}>
       <Link href="/" className="font-bold text-lg flex items-center">
         <Image 
           src="/2.svg" 

@@ -17,15 +17,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/transcription/page.js"
     ],
+    "/interpreting/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/interpreting/page.js"
+    ],
     "/pricing/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pricing/page.js"
     ],
-    "/conference-equipment/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/conference-equipment/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

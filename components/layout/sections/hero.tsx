@@ -13,12 +13,12 @@ export const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <HeroParticles />
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[50vh] bg-primary/20 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[50vh] bg-blue-500/20 rounded-full blur-[120px] -z-10"></div>
       
       <div className="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32 w-full z-10">
         <div className="text-center space-y-10 max-w-3xl mx-auto">
           <Badge variant="outline" className="text-sm py-2">
-            <span className="mr-2 text-primary">
+            <span className="mr-2 text-blue-600">
               <Badge>Premium</Badge>
             </span>
             <span> Language Services </span>
@@ -27,7 +27,7 @@ export const HeroSection = () => {
           <div className="max-w-screen-md mx-auto text-center text-4xl md:text-6xl font-bold">
             <h1>
               Experience
-              <span className="text-transparent px-2 bg-gradient-to-r from-primary to-primary bg-clip-text">
+              <span className="text-transparent px-2 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text">
                 IMPERIUM LINGUISTICS
               </span>
             </h1>
@@ -38,7 +38,7 @@ export const HeroSection = () => {
           </p>
 
           <div className="space-y-4 md:space-y-0 md:space-x-4 pt-6">
-            <Button className="w-5/6 md:w-1/3 lg:w-1/4 font-bold group/arrow py-6">
+            <Button className="w-5/6 md:w-1/3 lg:w-1/4 font-bold group/arrow py-6 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600">
               Get Started
               <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
             </Button>
