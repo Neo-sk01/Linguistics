@@ -95,14 +95,14 @@ export const TranscriptionServicesSection = () => {
     
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
-        <div className="relative bg-white dark:bg-gray-900 p-6 rounded-lg shadow-2xl max-w-[800px]">
-          <h3 className="text-xl font-bold text-blue-600 mb-4 text-center">{hoveredButton}</h3>
+        <div className="relative bg-white dark:bg-gray-900 p-4 rounded-lg shadow-2xl max-w-[400px]">
+          <h3 className="text-lg font-bold text-blue-600 mb-2 text-center">{hoveredButton}</h3>
           <div>
             <Image 
               src="/images/Transcribers-certificate/transcribers-certificate.jpeg"
               alt="Transcribers Certificate" 
-              width={600} 
-              height={800}
+              width={360} 
+              height={480}
               className="mx-auto rounded"
             />
           </div>
@@ -113,29 +113,139 @@ export const TranscriptionServicesSection = () => {
 
   return (
     <>
-      {/* Main Header Section */}
-      <section className="container pt-24 sm:pt-32 pb-10 relative overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="flex flex-col items-center text-center mb-16"
-        >
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-blue-600/10 text-blue-600 tracking-wider">PROFESSIONAL SERVICE</span>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-            TRANSCRIPTION <br />
-            <span className="text-blue-600 relative">
-              SERVICES
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-600/30"></span>
-            </span>
-          </h1>
-          <p className="mt-8 text-xl md:text-2xl font-medium text-muted-foreground max-w-2xl">
-            <span className="text-blue-600 font-semibold">SAME DAY. NEXT DAY.</span> YOU NAME IT!
-          </p>
-          <div className="flex items-center justify-center mt-4 space-x-1 text-sm text-muted-foreground">
-            <span className="inline-block h-1 w-12 bg-blue-600/70"></span>
+      {/* Video Section with a similar layout to the contact section */}
+      <section className="py-10 md:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 relative">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-600/70 to-transparent"></div>
+        
+        <div className="container px-4 mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="mb-10 text-center"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold">
+              TRANSCRIPTION <span className="text-blue-600">SERVICES</span>
+            </h2>
+            <div className="w-16 h-0.5 bg-blue-600/50 mx-auto mt-3"></div>
+          </motion.div>
+          
+          <div className="flex justify-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="w-full max-w-6xl"
+            >
+              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-6 shadow-lg overflow-hidden">
+                <div className="flex flex-col">
+                  {/* Video at the top */}
+                  <div className="w-full max-w-3xl mx-auto aspect-video bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 mb-6">
+                    <video 
+                      className="w-full h-full object-cover"
+                      controls
+                      poster="/images/transcription_video_poster.jpg"
+                    >
+                      <source src="/videos/transcription_page.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  
+                  <div className="text-center mb-8">
+                    <span className="inline-block px-3 py-1 bg-blue-600/10 text-blue-600 text-sm font-medium rounded">
+                      Watch Our Transcription Process
+                    </span>
+                  </div>
+                  
+                  {/* Process Description below video */}
+                  <div className="mb-6">
+                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-blue-600 relative inline-block">
+                      Our Transcription Process
+                      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600/30"></span>
+                    </h3>
+                    
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm max-w-3xl">
+                      Audio is transcribed using advanced AI software for accuracy instead of manual transcription, 
+                      which has associated risks of typographical errors, and a secondary human for review.
+                    </p>
+                  </div>
+
+                  {/* Process Steps in a row with arrows */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                    {/* Step 1 */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.3 }}
+                      className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-md border border-blue-600/20 relative"
+                    >
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-medium py-1 px-2 rounded-full">
+                        STEP 1
+                      </div>
+                      <div className="h-12 w-12 bg-blue-600/10 dark:bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <AudioWaveform className="h-6 w-6 text-blue-600" />
+                      </div>
+                      <h4 className="font-medium text-blue-600 mb-1 text-sm text-center">FIRST STEP OF THE PROCESS</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 text-center">
+                        Place an AUDIO file into the AI software for transcription, with the assistance of a Human.
+                      </p>
+                      
+                      {/* Arrow pointing to next step - visible only on desktop */}
+                      <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2">
+                        <ArrowRight className="h-5 w-5 text-blue-600" />
+                      </div>
+                    </motion.div>
+
+                    {/* Step 2 */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.4 }}
+                      className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-md border border-blue-600/20 relative"
+                    >
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-medium py-1 px-2 rounded-full">
+                        STEP 2
+                      </div>
+                      <div className="h-12 w-12 bg-blue-600/10 dark:bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <FileText className="h-6 w-6 text-blue-600" />
+                      </div>
+                      <h4 className="font-medium text-blue-600 mb-1 text-sm text-center">SECOND STEP OF THE PROCESS</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 text-center">
+                        The editor, after comparing the transcript with the recording, transfer them to the proof reading department.
+                      </p>
+                      
+                      {/* Arrow pointing to next step - visible only on desktop */}
+                      <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2">
+                        <ArrowRight className="h-5 w-5 text-blue-600" />
+                      </div>
+                    </motion.div>
+
+                    {/* Step 3 */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.5 }}
+                      className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-md border border-blue-600/20 relative"
+                    >
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-medium py-1 px-2 rounded-full">
+                        STEP 3
+                      </div>
+                      <div className="h-12 w-12 bg-blue-600/10 dark:bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <MessageSquareText className="h-6 w-6 text-blue-600" />
+                      </div>
+                      <h4 className="font-medium text-blue-600 mb-1 text-sm text-center">FINAL STEP OF THE PROCESS</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 text-center">
+                        Transcripts will then be proof read, then a soft copy gets to be sent to the client.
+                      </p>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Verbatim Transcription Types Section */}

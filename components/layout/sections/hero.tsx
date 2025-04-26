@@ -1,5 +1,4 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -9,49 +8,18 @@ import { HeroParticles } from "@/components/hero-particles";
 export const HeroSection = () => {
   const { theme } = useTheme();
   return (
-    <section className="container relative w-full min-h-[75vh] flex items-center overflow-hidden">
+    <section className="relative w-full min-h-[75vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <HeroParticles />
       </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[50vh] bg-blue-500/20 rounded-full blur-[120px] -z-10"></div>
       
-      <div className="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32 w-full z-10">
-        <div className="text-center space-y-10 max-w-3xl mx-auto">
-          <Badge variant="outline" className="text-sm py-2">
-            <span className="mr-2 text-blue-600">
-              <Badge>Premium</Badge>
-            </span>
-            <span> Language Services </span>
-          </Badge>
-
-          <div className="max-w-screen-md mx-auto text-center text-4xl md:text-6xl font-bold">
-            <h1>
-              Experience
-              <span className="text-transparent px-2 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text">
-                IMPERIUM LINGUISTICS
-              </span>
+      <div className="w-full py-20 md:py-32 z-10">
+        <div className="text-center space-y-16 w-full mx-auto">
+          <div className="w-screen left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] relative">
+            <h1 className="text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-white bg-clip-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-none">
+              We are the first to be different
             </h1>
-          </div>
-
-          <p className="max-w-screen-sm mx-auto text-xl text-muted-foreground">
-            {`We're more than just translators, we're a team of language experts dedicated to excellence. Get access to premium translation, interpretation, and linguistic services.`}
-          </p>
-
-          <div className="space-y-4 md:space-y-0 md:space-x-4 pt-6">
-            <Button className="w-5/6 md:w-1/3 lg:w-1/4 font-bold group/arrow py-6 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600">
-              Get Started
-              <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
-            </Button>
-
-            <Button
-              asChild
-              variant="secondary"
-              className="w-5/6 md:w-1/3 lg:w-1/4 font-bold py-6"
-            >
-              <Link href="#contact">
-                Contact Us
-              </Link>
-            </Button>
           </div>
         </div>
       </div>

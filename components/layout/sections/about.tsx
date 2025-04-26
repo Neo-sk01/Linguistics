@@ -1,6 +1,7 @@
 "use client";
 import { CheckCircle2, BookOpen, Shield, Lightbulb, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Globe } from "@/components/Globe";
 
 export const AboutSection = () => {
   const coreValues = [
@@ -49,16 +50,47 @@ export const AboutSection = () => {
         </h3>
       </div>
 
-      <div className="mb-20 max-w-4xl mx-auto">
-        <div className="relative z-10">
-          <div className="relative bg-blue-600 p-8 rounded-xl border border-blue-500 shadow-xl text-white">
+      <div className="grid md:grid-cols-2 gap-12 mb-20 max-w-6xl mx-auto">
+        <div className="relative h-[400px] md:h-auto flex items-center justify-center order-2 md:order-1">
+          <div className="w-full h-full relative">
+            <Globe 
+              className="!relative"
+              config={{
+                width: 500,
+                height: 500,
+                onRender: () => {},
+                devicePixelRatio: 2,
+                phi: 0,
+                theta: 0.3,
+                dark: 0,
+                diffuse: 0.4,
+                mapSamples: 16000,
+                mapBrightness: 1.2,
+                baseColor: [1, 1, 1],
+                markerColor: [0, 102/255, 204/255],
+                glowColor: [1, 1, 1],
+                markers: [
+                  { location: [-33.9249, 18.4241], size: 0.1 },  // Cape Town, South Africa
+                  { location: [-1.2921, 36.8219], size: 0.1 },   // Nairobi, Kenya
+                  { location: [30.0444, 31.2357], size: 0.1 },   // Cairo, Egypt
+                  { location: [6.5244, 3.3792], size: 0.1 },     // Lagos, Nigeria
+                  { location: [-26.2041, 28.0473], size: 0.1 },  // Johannesburg, South Africa 
+                  { location: [14.6928, -17.4467], size: 0.1 }   // Dakar, Senegal
+                ]
+              }}
+            />
+          </div>
+        </div>
+        
+        <div className="relative z-10 order-1 md:order-2 opacity-50">
+          <div className="relative bg-transparent p-8 rounded-xl border border-gray-300 shadow-xl text-gray-800 dark:text-white h-full">
             <div className="relative">
-              <p className="text-xl font-medium text-white mb-6 leading-relaxed">
+              <p className="text-xl font-medium text-gray-800 dark:text-white mb-6 leading-relaxed">
                 Founded in 2017, Imperium Linguistics has been dedicated to being a one-stop language solution
                 for attorneys and law firms, ensuring they meet their clients' expectations efficiently and
                 seamlessly.
               </p>
-              <p className="text-blue-100 leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Over the years, we have specialized in simultaneous and consecutive interpreting,
                 non-literal translation, and precise transcriptions—eliminating language barriers to success.
                 Today, we continue to provide high-quality conference and meeting equipment, delivering
@@ -66,9 +98,9 @@ export const AboutSection = () => {
                 time.
               </p>
               <div className="mt-8 flex justify-start">
-                <div className="bg-blue-700/50 px-4 py-3 rounded-lg inline-flex items-center">
-                  <span className="text-2xl font-bold mr-2 text-white">6+ Years</span> 
-                  <span className="text-blue-100">of expertise in language services</span>
+                <div className="bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-lg inline-flex items-center">
+                  <span className="text-2xl font-bold mr-2 text-gray-800 dark:text-white">6+ Years</span> 
+                  <span className="text-gray-700 dark:text-gray-300">of expertise in language services</span>
                 </div>
               </div>
             </div>

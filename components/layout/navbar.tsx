@@ -54,6 +54,10 @@ const routeList: RouteProps[] = [
     label: "Pricing",
   },
   {
+    href: "/faq",
+    label: "FAQ",
+  },
+  {
     href: "/contact",
     label: "Contact Us",
   },
@@ -107,14 +111,14 @@ export const Navbar = () => {
   }, [lastScrollY]);
   
   return (
-    <header className={`shadow-inner w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-gray-200 z-40 rounded-2xl flex justify-between items-center p-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20 pointer-events-none'}`}>
-      <Link href="/" className="font-bold text-lg flex items-center">
+    <header className={`shadow-inner w-[85%] md:w-[90%] lg:w-[95%] top-5 mx-auto sticky border border-gray-200 z-40 rounded-xl flex justify-between items-center py-0 px-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20 pointer-events-none'}`}>
+      <Link href="/" className="font-bold text-sm flex items-center">
         <Image 
-          src="/2.svg" 
+          src="/noBG.png" 
           alt="IMPERIUM LINGUISTICS Logo" 
-          width={150} 
-          height={150} 
-          className="mr-2"
+          width={180} 
+          height={180} 
+          className="ml-0 mr-1 -my-5"
         />
       </Link>
       {/* <!-- Mobile --> */}
@@ -123,7 +127,7 @@ export const Navbar = () => {
           <SheetTrigger asChild>
             <Menu
               onClick={() => setIsOpen(!isOpen)}
-              className="cursor-pointer lg:hidden"
+              className="cursor-pointer lg:hidden h-5 w-5 mr-2"
             />
           </SheetTrigger>
 
@@ -136,11 +140,11 @@ export const Navbar = () => {
                 <SheetTitle className="flex items-center">
                   <Link href="/" className="flex items-center">
                     <Image 
-                      src="/2.svg" 
+                      src="/noBG.png" 
                       alt="IMPERIUM LINGUISTICS Logo" 
-                      width={150} 
-                      height={150} 
-                      className="mr-2"
+                      width={180} 
+                      height={180} 
+                      className="mr-1 -my-1"
                     />
                   </Link>
                 </SheetTitle>
@@ -181,7 +185,7 @@ export const Navbar = () => {
                       onClick={() => setIsOpen(false)}
                       asChild
                       variant="ghost"
-                      className="justify-start text-base"
+                      className="justify-start text-sm"
                     >
                       <Link href={href}>{label}</Link>
                     </Button>
@@ -205,7 +209,7 @@ export const Navbar = () => {
           {routeList.map(({ href, label }) => (
             label === "Services" ? (
               <NavigationMenuItem key={href}>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-primary/10 data-[state=open]:bg-primary/10 rounded-lg transition-colors">
+                <NavigationMenuTrigger className="bg-transparent hover:bg-primary/10 data-[state=open]:bg-primary/10 rounded-lg transition-colors text-sm py-0 h-7">
                   <span className="data-[state=open]:text-primary hover:text-primary transition-colors font-medium">{label}</span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -238,7 +242,7 @@ export const Navbar = () => {
                 <NavigationMenuLink asChild>
                   <Link 
                     href={href} 
-                    className="px-4 py-2 text-base hover:text-primary transition-colors rounded-lg hover:bg-primary/10 inline-flex"
+                    className="px-3 py-0 h-7 text-sm hover:text-primary transition-colors rounded-lg hover:bg-primary/10 inline-flex items-center"
                   >
                     {label}
                   </Link>

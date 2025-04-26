@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { icons } from "lucide-react";
+import Image from "next/image";
 
 interface BenefitsProps {
   icon: string;
@@ -11,27 +12,15 @@ interface BenefitsProps {
 const benefitList: BenefitsProps[] = [
   {
     icon: "Blocks",
-    title: "Build Brand Trust",
+    title: "",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Our legal system is inundated with matters as they are postponed on a daily, due to scarcity of interpreters which has resulted in major inadequacies.",
   },
   {
     icon: "LineChart",
-    title: "More Leads",
+    title: "",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, natus consectetur.",
-  },
-  {
-    icon: "Wallet",
-    title: "Higher Conversions",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consectetur. A odio velit cum aliquam",
-  },
-  {
-    icon: "Sparkle",
-    title: "Test Marketing Ideas",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Due to the immense pressure on the legal system there is a backlog which causes extreme delay in the application of obtaining court transcripts.",
   },
 ];
 
@@ -40,45 +29,50 @@ export const BenefitsSection = () => {
     <section id="benefits" className="container py-24 sm:py-32">
       <div className="grid lg:grid-cols-2 place-items-center lg:gap-24">
         <div>
-          <h2 className="text-lg text-primary mb-2 tracking-wider">Benefits</h2>
-
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Your Shortcut to Success
+            Our Aim
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non
-            ducimus reprehenderit architecto rerum similique facere odit
-            deleniti necessitatibus quo quae.
+            We help our clients accomplish their business
+            goals by providing them with legal
+            transcriptions and legal Interpreting services
+            they can rely on.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-4 w-full">
           {benefitList.map(({ icon, title, description }, index) => (
             <Card
-              key={title}
+              key={title || index}
               className="bg-muted/50 dark:bg-card hover:bg-background transition-all delay-75 group/number"
             >
-              <CardHeader>
-                <div className="flex justify-between">
-                  <Icon
-                    name={icon as keyof typeof icons}
-                    size={32}
-                    color="hsl(var(--primary))"
-                    className="mb-6 text-primary"
-                  />
-                  <span className="text-5xl text-muted-foreground/15 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30">
-                    0{index + 1}
-                  </span>
-                </div>
-
-                <CardTitle>{title}</CardTitle>
-              </CardHeader>
-
-              <CardContent className="text-muted-foreground">
+              <CardContent className="text-muted-foreground pt-6">
                 {description}
               </CardContent>
             </Card>
           ))}
+          
+          <div className="relative rounded-lg overflow-hidden h-full aspect-square">
+            <Image
+              src="/handcuffs.jpg"
+              alt="Legal handcuffs"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-4">
+            </div>
+          </div>
+          
+          <div className="relative rounded-lg overflow-hidden h-full aspect-square">
+            <Image
+              src="/magistrate.jpg"
+              alt="Magistrate Court"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-4">
+            </div>
+          </div>
         </div>
       </div>
     </section>
