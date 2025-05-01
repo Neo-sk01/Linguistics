@@ -58,6 +58,10 @@ const routeList: RouteProps[] = [
     label: "FAQ",
   },
   {
+    href: "/upload-test",
+    label: "Upload Files",
+  },
+  {
     href: "/contact",
     label: "Contact Us",
   },
