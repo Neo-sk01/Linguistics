@@ -146,9 +146,8 @@ export const TranscriptionServicesSection = () => {
                     <video 
                       className="w-full h-full object-cover"
                       controls
-                      poster="/images/transcription_video_poster.jpg"
                     >
-                      <source src="/videos/transcription_page.mp4" type="video/mp4" />
+                      <source src="/Untitled design.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -556,7 +555,7 @@ export const TranscriptionServicesSection = () => {
           </motion.div>
           
           <div className="mt-16 text-center text-gray-600 dark:text-gray-400 text-sm">
-            <p>© {new Date().getFullYear()} Imperium Linguistics. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Imperium Linguistics. All rights reserved.</p>
           </div>
         </div>
       </section>
