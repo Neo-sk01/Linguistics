@@ -40,20 +40,6 @@ export default function FaqPage() {
                 Can't find what you're looking for? <span className="text-blue-600 font-medium">Contact us</span> for personalized assistance.
               </p>
             </div>
-            
-            <div className="hidden md:block relative w-60 h-60 lg:w-80 lg:h-80">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-2xl rotate-6 opacity-20"></div>
-              <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl border border-blue-200 dark:border-blue-800 shadow-xl p-6 flex items-center justify-center">
-                <Image
-                  src="/images/question-mark.svg" 
-                  alt="FAQ Illustration"
-                  width={200}
-                  height={200}
-                  className="w-40 h-40 lg:w-60 lg:h-60 object-contain"
-                  priority
-                />
-              </div>
-            </div>
           </div>
         </div>
       </div>

@@ -37,8 +37,6 @@ export const InterpretingServicesSection = () => {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium rounded-full bg-blue-600/10 text-blue-600 tracking-wider">SESSION 9</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200">IMPERIUM LINGUISTICS</h2>
             <div className="w-20 h-1 bg-blue-600/50 mx-auto mt-6 rounded-full"></div>
           </motion.div>
 
@@ -83,13 +81,6 @@ export const InterpretingServicesSection = () => {
                 is a combination of highly talented conference interpreters and wireless electronic equipment
                 to transmit the interpreters' words to the appropriate listeners.
               </p>
-              
-              <div className="flex justify-end mt-8">
-                <div className="flex items-center text-sm text-blue-600 font-medium group cursor-pointer">
-                  <span>Learn More</span>
-                  <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
             </motion.div>
 
             <motion.div 
@@ -118,43 +109,8 @@ export const InterpretingServicesSection = () => {
                 Imperium Linguistics has provided this service for oral depositions and other needs in more than 11 languages,
                 for attorneys, law firms, court reporters and government organizations.
               </p>
-              
-              <div className="flex justify-end mt-8">
-                <div className="flex items-center text-sm text-blue-600 font-medium group cursor-pointer">
-                  <span>Learn More</span>
-                  <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
             </motion.div>
           </div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-20 bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-blue-600/30 dark:border-blue-600/20"
-          >
-            <h2 className="text-3xl font-bold mb-8 text-center">Our Interpreting Equipment</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-md transition-shadow">
-                <Headphones className="w-12 h-12 text-blue-600 mb-4" />
-                <h3 className="text-xl font-bold mb-3">Wireless Receivers</h3>
-                <p className="text-gray-700 dark:text-gray-300">
-                  Our high-quality digital wireless receivers provide crystal-clear audio for simultaneous interpreting, with comfortable headsets and long battery life.
-                </p>
-              </div>
-              
-              <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-md transition-shadow">
-                <Mic className="w-12 h-12 text-blue-600 mb-4" />
-                <h3 className="text-xl font-bold mb-3">Interpreter Consoles</h3>
-                <p className="text-gray-700 dark:text-gray-300">
-                  Professional interpreting consoles with intuitive controls allow our interpreters to deliver seamless translations in real-time.
-                </p>
-              </div>
-            </div>
-          </motion.div>
 
           <motion.div 
             initial={{ opacity: 0 }}
@@ -172,7 +128,7 @@ export const InterpretingServicesSection = () => {
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700 dark:text-gray-300">info@imperiumlinguistics.com</span>
+                  <span className="text-gray-700 dark:text-gray-300">nkuna@imperiumlinguistics.com</span>
                 </div>
                 <div className="flex items-center">
                   <Clock className="w-5 h-5 text-blue-600 mr-3" />
@@ -245,7 +201,7 @@ export const InterpretingServicesSection = () => {
           </div>
           
           <div className="mt-16 text-center text-gray-600 dark:text-gray-400 text-sm">
-            <p>© {new Date().getFullYear()} Imperium Linguistics. All rights reserved.</p>
+            <p> {new Date().getFullYear()} Imperium Linguistics. All rights reserved.</p>
           </div>
         </div>
       </section>

@@ -37,10 +37,6 @@ export const AboutSection = () => {
 
   return (
     <section id="about" className="container py-24 sm:py-32 relative">
-      {/* Background decorative elements */}
-      <div className="absolute -z-10 top-1/3 -left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl opacity-70"></div>
-      <div className="absolute -z-10 bottom-1/4 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl opacity-70"></div>
-      
       <div className="text-center mb-16">
         <h2 className="inline-block text-lg text-primary mb-2 tracking-wider px-3 py-1 bg-primary/10 rounded-full">
           About Us
