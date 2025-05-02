@@ -1,6 +1,5 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/transcription/page": "app/transcription/page.js",
-  "/pricing/page": "app/pricing/page.js",
-  "/conference-equipment/page": "app/conference-equipment/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }
