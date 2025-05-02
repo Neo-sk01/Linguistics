@@ -305,7 +305,7 @@ export default function PoliciesPage() {
                         </div>
                         <div>
                           <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                          <p className="font-medium">policies@imperiumlinguistics.com</p>
+                          <p className="font-medium">nkuna@imperiumlinguistics.com</p>
                         </div>
                       </div>
                     </div>
