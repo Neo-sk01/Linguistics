@@ -1,17 +1,3 @@
-import { icons } from "lucide-react";
-
-export const Icon = ({
-  name,
-  color,
-  size,
-  className,
-}: {
-  name: keyof typeof icons;
-  color: string;
-  size: number;
-  className?: string;
-}) => {
-  const LucideIcon = icons[name as keyof typeof icons];
-
-  return <LucideIcon color={color} size={size} className={className} />;
-};
+version https://git-lfs.github.com/spec/v1
+oid sha256:e57c35ab6f9ae9c28f8f98251c412eb4994a282063d64ca4b5b592985c216650
+size 329

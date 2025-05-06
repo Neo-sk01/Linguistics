@@ -1,15 +1,3 @@
-import { Metadata } from "next";
-import UploadTestComponent from "@/components/layout/sections/upload-test";
-
-export const metadata: Metadata = {
-  title: "Upload Test | IMPERIUM LINGUISTICS",
-  description: "Test page for file upload functionality",
-};
-
-export default function UploadTestPage() {
-  return (
-    <main className="min-h-screen">
-      <UploadTestComponent />
-    </main>
-  );
-} 
+version https://git-lfs.github.com/spec/v1
+oid sha256:25a2eef32e804f1c2b054666e5562845d4eac72ac61b06eaea44dd387df73204
+size 394

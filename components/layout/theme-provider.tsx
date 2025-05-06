@@ -1,9 +1,3 @@
-"use client";
-
-import * as React from "react";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { type ThemeProviderProps } from "next-themes/dist/types";
-
-export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:131818bc33a5eac2a0cbb00a66306555c35b0c8ebe07fd439567c429d276e659
+size 332

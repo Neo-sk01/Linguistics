@@ -1,21 +1,3 @@
-"use client";
-
-import { useTheme } from "next-themes";
-import Image from "next/image";
-
-export function Logo() {
-  const { theme } = useTheme();
-  
-  return (
-    <div className="flex items-center">
-      <Image 
-        src="/noBG.png" 
-        alt="IMPERIUM LINGUISTICS Logo" 
-        width={72} 
-        height={72} 
-        className="mr-2"
-      />
-      <span className="font-bold text-lg">IMPERIUM LINGUISTICS</span>
-    </div>
-  );
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6d7aa78a393663e667d587da9f9a858c45499adafb78edcc3c53edd244a05c2e
+size 442

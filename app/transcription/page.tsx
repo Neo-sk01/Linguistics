@@ -1,15 +1,3 @@
-import { Metadata } from "next";
-import { TranscriptionServicesSection } from "@/components/layout/sections/transcription-services";
-
-export const metadata: Metadata = {
-  title: "Transcription Services | IMPERIUM LINGUISTICS",
-  description: "Professional transcription services - Same day, next day, you name it!",
-};
-
-export default function TranscriptionPage() {
-  return (
-    <main className="min-h-screen">
-      <TranscriptionServicesSection />
-    </main>
-  );
-} 
+version https://git-lfs.github.com/spec/v1
+oid sha256:f5b822920b89ae528caddad864e5cf2bac256ec38f562b41fca2223901ed80ed
+size 472
