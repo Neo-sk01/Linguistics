@@ -1,17 +1,17 @@
-# Text files should have normalized line endings
-*.ts text
-*.tsx text
-*.js text
-*.jsx text
-*.json text
-*.md text
-*.css text
-*.scss text
-*.html text
-*.yml text
-*.yaml text
+# Text files with normalized line endings
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
 
-# Binary files should be stored as binary
+# Binary files - stored as regular Git files
 *.jpg binary
 *.mp4 binary
 *.svg binary
