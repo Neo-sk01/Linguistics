@@ -1,9 +1,39 @@
-node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node filter=lfs diff=lfs merge=lfs -text
-node_modules/next/next-swc-fallback/@next/swc-darwin-x64/next-swc.darwin-x64.node filter=lfs diff=lfs merge=lfs -text
-*.tsx filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.mp4 filter=lfs diff=lfs merge=lfs -text
-*.svg filter=lfs diff=lfs merge=lfs -text
-*.png filter=lfs diff=lfs merge=lfs -text
-*.node filter=lfs diff=lfs merge=lfs -text
-*.gz filter=lfs diff=lfs merge=lfs -text
+# Text files with normalized line endings
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Binary files
+*.jpg binary
+*.mp4 binary
+*.svg binary
+*.png binary
+*.psd binary
+*.xd binary
+*.zip binary
+*.avi binary
+*.wmv binary
+*.fig binary
+*.dmg binary
+*.mov binary
+*.flv binary
+*.wav binary
+*.ai binary
+*.sketch binary
+*.tar binary
+*.gz binary
+*.iso binary
+*.node binary
+*.jpeg binary
+*.gif binary
+*.mp3 binary
+*.rar binary
+*.7z binary
