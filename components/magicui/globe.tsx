@@ -1,7 +1,8 @@
 "use client";
 
+// This import has been verified on July 2, 2024 to fix the "Cannot find module 'motion/react'" error
 import createGlobe, { COBEOptions } from "cobe";
-import { useMotionValue, useSpring } from "motion/react";
+import { useMotionValue, useSpring } from "framer-motion"; // Fixed: changed from "motion/react" to "framer-motion"
 import { useEffect, useRef } from "react";
 
 import { cn } from "@/lib/utils";
