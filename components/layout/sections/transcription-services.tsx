@@ -248,8 +248,8 @@ export const TranscriptionServicesSection = () => {
       </section>
 
       {/* Verbatim Transcription Types Section */}
-      <section className="py-12 bg-background relative overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="bg-background relative overflow-hidden">
+        <div className="w-full">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -276,7 +276,7 @@ export const TranscriptionServicesSection = () => {
             </div>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-0">
             {/* Clean Verbatim */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -285,7 +285,7 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-white dark:bg-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-600/30 dark:border-blue-600/20">
+              <div className="bg-white dark:bg-gray-900 p-8 relative z-10 flex flex-col items-center h-full">
                 <h3 className="text-xl font-bold text-blue-600 mb-2">CLEAN VERBATIM</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">(Standard/Default)</p>
                 
@@ -295,7 +295,7 @@ export const TranscriptionServicesSection = () => {
                   </p>
                 </div>
                 
-                <div className="w-full pt-4 border-t border-gray-200 dark:border-gray-800 mt-auto">
+                <div className="w-full pt-4 mt-auto">
                   <button 
                     className="w-full py-2 text-blue-500 font-medium hover:text-blue-700 transition-colors text-sm"
                     onMouseEnter={() => handleMouseEnter("Clean Verbatim Sample")}
@@ -315,7 +315,7 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-white dark:bg-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-600/30 dark:border-blue-600/20">
+              <div className="bg-white dark:bg-gray-900 p-8 relative z-10 flex flex-col items-center h-full">
                 <h3 className="text-xl font-bold text-blue-600 mb-2">FULL VERBATIM</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-4"></p>
                 
@@ -328,7 +328,7 @@ export const TranscriptionServicesSection = () => {
                   </p>
                 </div>
                 
-                <div className="w-full pt-4 border-t border-gray-200 dark:border-gray-800 mt-auto">
+                <div className="w-full pt-4 mt-auto">
                   <button 
                     className="w-full py-2 text-blue-500 font-medium hover:text-blue-700 transition-colors text-sm"
                     onMouseEnter={() => handleMouseEnter("Full Verbatim Sample")}
@@ -348,7 +348,7 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-white dark:bg-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-600/30 dark:border-blue-600/20">
+              <div className="bg-white dark:bg-gray-900 p-8 relative z-10 flex flex-col items-center h-full">
                 <h3 className="text-xl font-bold text-blue-600 mb-2">TIME STAMPS</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-4"></p>
                 
@@ -358,7 +358,7 @@ export const TranscriptionServicesSection = () => {
                   </p>
                 </div>
                 
-                <div className="w-full pt-4 border-t border-gray-200 dark:border-gray-800 mt-auto">
+                <div className="w-full pt-4 mt-auto">
                   <button 
                     className="w-full py-2 text-blue-500 font-medium hover:text-blue-700 transition-colors text-sm"
                     onMouseEnter={() => handleMouseEnter("Time Stamps Sample (Every 2 Minutes)")}
@@ -378,7 +378,7 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-white dark:bg-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-600/30 dark:border-blue-600/20">
+              <div className="bg-white dark:bg-gray-900 p-8 relative z-10 flex flex-col items-center h-full">
                 <h3 className="text-xl font-bold text-blue-600 mb-2">TIME STAMPS</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-4"></p>
                 
@@ -388,7 +388,7 @@ export const TranscriptionServicesSection = () => {
                   </p>
                 </div>
                 
-                <div className="w-full pt-4 border-t border-gray-200 dark:border-gray-800 mt-auto">
+                <div className="w-full pt-4 mt-auto">
                   <button 
                     className="w-full py-2 text-blue-500 font-medium hover:text-blue-700 transition-colors text-sm"
                     onMouseEnter={() => handleMouseEnter("Time Stamps Sample (On Speaker Change)")}
@@ -401,17 +401,6 @@ export const TranscriptionServicesSection = () => {
             </motion.div>
           </div>
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto mt-10 bg-blue-600/10 p-4 text-center"
-          >
-            <p className="text-base font-medium text-blue-600">
-              Note: We can customise Verbatim Transcript options on request
-            </p>
-          </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -428,13 +417,13 @@ export const TranscriptionServicesSection = () => {
       </section>
 
       {/* Transcription Services Section */}
-      <section className="container py-24 sm:py-32 relative overflow-hidden">
+      <section className="py-24 sm:py-32 relative overflow-hidden w-full">
         <motion.div 
           variants={staggerContainer}
           initial="initial"
           whileInView="animate" 
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-0"
         >
           {transcriptionCategories.map((category, index) => (
             <motion.div 
@@ -442,9 +431,9 @@ export const TranscriptionServicesSection = () => {
               variants={fadeInUp}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className={cn(
-                "p-6 border relative overflow-hidden shadow-md hover:shadow-xl transition-all", 
+                "p-8 relative overflow-hidden transition-all h-full", 
                 category.className || "",
-                index % 2 === 0 ? "border-blue-600/50 dark:border-blue-600/30" : "border-gray-300/70 dark:border-gray-700/30"
+                index % 2 === 0 ? "bg-blue-600/5 dark:bg-blue-900/10" : "bg-gray-50 dark:bg-gray-800/50"
               )}
             >
               <div className={cn(

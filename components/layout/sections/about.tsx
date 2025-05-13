@@ -46,8 +46,8 @@ export const AboutSection = () => {
         </h3>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 mb-20 max-w-6xl mx-auto">
-        <div className="relative h-[400px] md:h-auto flex items-center justify-center order-2 md:order-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-20 max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="relative h-[300px] sm:h-[350px] md:h-auto flex items-center justify-center order-2 md:order-1">
           <div className="w-full h-full relative">
             <Globe 
               className="!relative"
@@ -78,23 +78,23 @@ export const AboutSection = () => {
           </div>
         </div>
         
-        <div className="relative z-10 order-1 md:order-2 opacity-50">
-          <div className="relative bg-transparent p-8 rounded-xl border border-gray-300 shadow-xl text-gray-800 dark:text-white h-full">
+        <div className="relative z-10 order-1 md:order-2 opacity-50 flex flex-col justify-center">
+          <div className="relative bg-transparent p-5 sm:p-6 md:p-8 rounded-xl border border-gray-300 shadow-xl text-gray-800 dark:text-white h-full">
             <div className="relative">
-              <p className="text-xl font-medium text-gray-800 dark:text-white mb-6 leading-relaxed">
+              <p className="text-lg sm:text-xl font-medium text-gray-800 dark:text-white mb-4 sm:mb-6 leading-relaxed">
                 Founded in 2017, Imperium Linguistics has been dedicated to being a one-stop language solution
                 for attorneys and law firms, ensuring they meet their clients' expectations efficiently and
                 seamlessly.
               </p>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                 Over the years, we have specialized in simultaneous and consecutive interpreting,
                 non-literal translation, and precise transcriptions—eliminating language barriers to success.
                 Today, we continue to provide high-quality conference and meeting equipment, delivering
                 reliable solutions tailored to your needs. When accuracy and efficiency matter, we deliver every
                 time.
               </p>
-              <div className="mt-8 flex justify-start">
-                <div className="bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-lg inline-flex items-center">
+              <div className="mt-6 sm:mt-8 flex justify-start">
+                <div className="bg-gray-100 dark:bg-gray-800 px-3 sm:px-4 py-2 sm:py-3 rounded-lg inline-flex items-center flex-wrap">
                   <span className="text-2xl font-bold mr-2 text-gray-800 dark:text-white">6+ Years</span> 
                   <span className="text-gray-700 dark:text-gray-300">of expertise in language services</span>
                 </div>
@@ -104,10 +104,10 @@ export const AboutSection = () => {
         </div>
       </div>
 
-      <div className="mt-24">
-        <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">Our Core Values</h3>
+      <div className="mt-16 sm:mt-20 md:mt-24 px-4 sm:px-6">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 sm:mb-12">Our Core Values</h3>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {coreValues.map((value, index) => (
             <div 
               key={value.title}
