@@ -61,10 +61,6 @@ const routeList: RouteProps[] = [
     href: "/upload-test",
     label: "Upload Files",
   },
-  {
-    href: "/contact",
-    label: "Contact Us",
-  },
 ];
 
 const servicesItems: ServiceItemProps[] = [
@@ -115,14 +111,14 @@ export const Navbar = () => {
   }, [lastScrollY]);
   
   return (
-    <header className={`shadow-inner w-[85%] md:w-[90%] lg:w-[95%] top-5 mx-auto sticky border border-gray-200 z-40 rounded-xl flex justify-between items-center py-0 px-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20 pointer-events-none'}`}>
+    <header className={`shadow-inner w-[70%] md:w-[90%] lg:w-[95%] top-5 mx-auto sticky border border-gray-200 z-40 rounded-xl flex justify-between items-center py-0 px-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20 pointer-events-none'}`}>
       <Link href="/" className="font-bold text-sm flex items-center">
         <Image 
           src="/noBG.png" 
           alt="IMPERIUM LINGUISTICS Logo" 
           width={180} 
           height={180} 
-          className="ml-0 mr-1 -my-5"
+          className="ml-0 mr-1 -my-5 max-w-[150px] sm:max-w-[180px]"
         />
       </Link>
       {/* <!-- Mobile --> */}
@@ -148,7 +144,7 @@ export const Navbar = () => {
                       alt="IMPERIUM LINGUISTICS Logo" 
                       width={180} 
                       height={180} 
-                      className="mr-1 -my-1"
+                      className="mr-1 -my-1 max-w-[150px]"
                     />
                   </Link>
                 </SheetTitle>

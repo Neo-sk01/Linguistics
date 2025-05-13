@@ -33,11 +33,7 @@ const sponsors: SponsorProps[] = [
   {
     imageUrl: "/images/sponsors/zxfv.svg",
     name: "Accmee",
-  },
-  {
-    imageUrl: "/images/sponsors/dwd.svg",
-    name: "Acmetech",
-  },
+  }
 ];
 
 export const SponsorsSection = () => {
