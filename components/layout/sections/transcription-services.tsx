@@ -270,8 +270,8 @@ export const TranscriptionServicesSection = () => {
       </section>
 
       {/* Verbatim Transcription Types Section */}
-      <section className="bg-[#030711] text-white py-16 sm:py-20 dark:bg-[#030711] relative overflow-hidden dark:text-white">
-        <div className="w-full bg-[#030711] dark:bg-[#030711]">
+      <section className="bg-[#1b2532] text-white py-16 sm:py-20 dark:bg-[#1b2532] relative overflow-hidden dark:text-white">
+        <div className="w-full bg-[#1b2532] dark:bg-[#1b2532]">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -307,7 +307,7 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-[#030711] text-white p-8 relative z-10 flex flex-col items-center h-full">
+              <div className="bg-[#1b2532] text-white p-8 relative z-10 flex flex-col items-center h-full">
                 <h3 className="text-xl font-bold text-white mb-2">CLEAN VERBATIM</h3>
                 <p className="text-xs text-gray-300 mb-4">(Standard/Default)</p>
                 
@@ -336,7 +336,7 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-[#030711] text-white p-8 relative z-10 flex flex-col items-center h-full">
+              <div className="bg-[#1b2532] text-white p-8 relative z-10 flex flex-col items-center h-full">
                 <h3 className="text-xl font-bold text-white mb-2">FULL VERBATIM</h3>
                 <p className="text-xs text-gray-300 mb-4"></p>
                 
@@ -368,7 +368,7 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-[#030711] text-white p-8 relative z-10 flex flex-col items-center h-full">
+              <div className="bg-[#1b2532] text-white p-8 relative z-10 flex flex-col items-center h-full">
                 <h3 className="text-xl font-bold text-white mb-2">TIME STAMPS</h3>
                 <p className="text-xs text-gray-300 mb-4"></p>
                 
@@ -397,7 +397,7 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-[#030711] text-white p-8 relative z-10 flex flex-col items-center h-full">
+              <div className="bg-[#1b2532] text-white p-8 relative z-10 flex flex-col items-center h-full">
                 <h3 className="text-xl font-bold text-white mb-2">TIME STAMPS</h3>
                 <p className="text-xs text-gray-300 mb-4"></p>
                 
