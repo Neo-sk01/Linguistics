@@ -38,9 +38,6 @@ export const AboutSection = () => {
   return (
     <section id="about" className="container py-24 sm:py-32 relative">
       <div className="text-center mb-16">
-        <h2 className="inline-block text-lg text-primary mb-2 tracking-wider px-3 py-1 bg-primary/10 rounded-full">
-          About Us
-        </h2>
         <h3 className="text-3xl md:text-4xl font-bold tracking-tight">
           About Imperium Linguistics
         </h3>

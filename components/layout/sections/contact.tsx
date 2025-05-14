@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export const ContactSection = () => {
   return (
-    <section className="bg-[#1b2432]/90 text-white py-16 sm:py-20">
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+    <section className="bg-white text-gray-800 py-16 sm:py-20">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl bg-gray-200 rounded-xl p-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,13 +67,13 @@ export const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="w-full"
+          className="w-full bg-gray-200 p-8 rounded-lg"
         >
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             
             {/* Contact Info Card */}
             <div className="p-6">
-              <h2 className="text-lg font-semibold mb-4 text-blue-400 text-center">CONTACT US</h2>
+              <h2 className="text-lg font-semibold mb-4 text-blue-400">CONTACT US</h2>
               
               <div className="space-y-4">
                 <div className="flex items-start">
@@ -98,7 +98,6 @@ export const ContactSection = () => {
                   <div>
                     <p className="text-xs text-blue-300/80">Email</p>
                     <p className="text-sm break-all">nkuna@imperiumlinguistics.com</p>
-                    <p className="text-sm break-all">info@imperiumlinguistics.com</p>
                   </div>
                 </div>
                 
@@ -119,10 +118,10 @@ export const ContactSection = () => {
             
             {/* Social Media & Quick Links */}
             <div className="p-6">
-              <h2 className="text-lg font-semibold mb-4 text-blue-400 text-center">CONNECT WITH US</h2>
+              <h2 className="text-lg font-semibold mb-4 text-blue-400">CONNECT WITH US</h2>
               
               {/* Social Media Icons */}
-              <div className="flex justify-center space-x-4 mb-6">
+              <div className="flex space-x-4 mb-6">
                 <a href="#" className="hover:text-blue-300 p-2 text-blue-400 transition-colors">
                   <svg className="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>

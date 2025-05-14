@@ -12,12 +12,12 @@ export const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <HeroParticles />
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[50vh] bg-blue-500/20 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[50vh] bg-blue-500/25 rounded-full blur-[120px] -z-10"></div>
       
       <div className="w-full py-20 md:py-32 z-10">
         <div className="text-center space-y-16 w-full mx-auto">
           <div className="w-screen left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] relative">
-            <h1 className="text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-white bg-clip-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-none">
+            <h1 className="text-blue-500 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-none">
               We are the first to be different
             </h1>
           </div>
@@ -25,6 +25,7 @@ export const HeroSection = () => {
       </div>
       
       <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent"></div>
+      <div className="absolute -bottom-10 -right-10 w-[200px] h-[200px] bg-blue-400/15 rounded-full blur-[80px] -z-10"></div>
     </section>
   );
 };

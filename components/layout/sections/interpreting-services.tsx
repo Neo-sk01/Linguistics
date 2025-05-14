@@ -37,7 +37,7 @@ export const InterpretingServicesSection = () => {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <div className="w-20 h-1 bg-blue-600/50 mx-auto mt-6 rounded-full"></div>
+            {/* Decorative line removed */}
           </motion.div>
 
           <motion.div 
@@ -62,7 +62,7 @@ export const InterpretingServicesSection = () => {
               className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-blue-600/30 dark:border-blue-600/20 hover:border-blue-600/70 dark:hover:border-blue-600/40 transition-colors relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600/70 via-blue-600 to-blue-600/70"></div>
-              <div className="absolute -bottom-14 -left-14 w-28 h-28 bg-blue-600/10 rounded-full"></div>
+              {/* Decorative circle removed */}
               
               <Languages className="w-12 h-12 text-blue-600 mb-4 mx-auto" />
               
@@ -91,7 +91,7 @@ export const InterpretingServicesSection = () => {
               className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-blue-600/30 dark:border-blue-600/20 hover:border-blue-600/70 dark:hover:border-blue-600/40 transition-colors relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600/70 via-blue-600 to-blue-600/70"></div>
-              <div className="absolute -bottom-14 -right-14 w-28 h-28 bg-blue-600/10 rounded-full"></div>
+              {/* Decorative circle removed */}
               
               <Mic className="w-12 h-12 text-blue-600 mb-4 mx-auto" />
               
