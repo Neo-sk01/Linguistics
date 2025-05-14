@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export const ContactSection = () => {
   return (
-    <section className="bg-white text-gray-800 py-16 sm:py-20">
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl bg-gray-200 rounded-xl p-8">
+    <section className="bg-[#1b2432] text-gray-100 py-16 sm:py-20">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl bg-[#1b2432] rounded-xl p-8 border border-blue-900/30">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="w-full bg-gray-200 p-8 rounded-lg"
+          className="w-full bg-[#e5e7ea] p-8 rounded-lg border border-gray-300/30"
         >
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             
@@ -83,9 +83,9 @@ export const ContactSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs text-blue-300/80">Phone</p>
-                    <p className="text-sm">0861 819 254</p>
-                    <p className="text-sm">067 747 2124</p>
+                    <p className="text-xs text-blue-600/80">Phone</p>
+                    <p className="text-sm text-gray-700">0861 819 254</p>
+                    <p className="text-sm text-gray-700">067 747 2124</p>
                   </div>
                 </div>
                 
@@ -96,8 +96,8 @@ export const ContactSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs text-blue-300/80">Email</p>
-                    <p className="text-sm break-all">nkuna@imperiumlinguistics.com</p>
+                    <p className="text-xs text-blue-600/80">Email</p>
+                    <p className="text-sm break-all text-gray-700">nkuna@imperiumlinguistics.com</p>
                   </div>
                 </div>
                 
@@ -108,9 +108,9 @@ export const ContactSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs text-blue-300/80">Hours</p>
-                    <p className="text-sm">Monday-Friday: 9AM-6PM</p>
-                    <p className="text-sm">Saturday: 10AM-2PM</p>
+                    <p className="text-xs text-blue-600/80">Hours</p>
+                    <p className="text-sm text-gray-700">Monday-Friday: 9AM-6PM</p>
+                    <p className="text-sm text-gray-700">Saturday: 10AM-2PM</p>
                   </div>
                 </div>
               </div>
@@ -141,14 +141,14 @@ export const ContactSection = () => {
               </div>
               
               {/* Quick Links */}
-              <h3 className="text-sm font-semibold mb-2 text-blue-300">QUICK LINKS</h3>
+              <h3 className="text-sm font-semibold mb-2 text-blue-600">QUICK LINKS</h3>
               <nav className="grid grid-cols-2 gap-x-2 gap-y-1">
-                <a href="/services" className="text-sm hover:text-blue-400 transition-colors">Services</a>
-                <a href="/pricing" className="text-sm hover:text-blue-400 transition-colors">Pricing</a>
-                <a href="/faq" className="text-sm hover:text-blue-400 transition-colors">FAQ</a>
-                <a href="/blog" className="text-sm hover:text-blue-400 transition-colors">Blog</a>
-                <a href="/careers" className="text-sm hover:text-blue-400 transition-colors">Careers</a>
-                <a href="/privacy" className="text-sm hover:text-blue-400 transition-colors">Privacy</a>
+                <a href="/services" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                <a href="/pricing" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Pricing</a>
+                <a href="/faq" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">FAQ</a>
+                <a href="/blog" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Blog</a>
+                <a href="/careers" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Careers</a>
+                <a href="/privacy" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Privacy</a>
               </nav>
             </div>
           </div>
