@@ -32,10 +32,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/upload-test/page.js"
     ],
-    "/_not-found/page": [
+    "/interpreting/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/interpreting/page.js"
+    ],
+    "/conference-equipment/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/conference-equipment/page.js"
     ]
   }
 }
