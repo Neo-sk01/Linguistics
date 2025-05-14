@@ -69,28 +69,7 @@ const transcriptionPlans: PlanProps[] = [
   },
 ];
 
-const interpretingPlans: PlanProps[] = [
-  {
-    title: "Local Language Interpreter",
-    subtitle: "Interpreting/Translating Service",
-    popular: 0,
-    buttonText: "Request Quote",
-    benefitList: [
-      "SIMULTANEOUS INTERPRETING",
-      "CONSECUTIVE INTERPRETING",
-    ],
-  },
-  {
-    title: "Foreign Language Interpreter",
-    subtitle: "Interpreting/Translating Service",
-    popular: 1,
-    buttonText: "Request Quote",
-    benefitList: [
-      "SIMULTANEOUS INTERPRETING",
-      "CONSECUTIVE INTERPRETING",
-    ],
-  },
-];
+
 
 export const PricingSection = () => {
   const [selectedService, setSelectedService] = useState<string | null>(null);
@@ -99,7 +78,7 @@ export const PricingSection = () => {
   const [message, setMessage] = useState("");
   const [audioFile, setAudioFile] = useState<File | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [activeServiceType, setActiveServiceType] = useState<"transcription" | "interpreting">("transcription");
+
 
   const handleServiceSelect = (title: string) => {
     setSelectedService(title);
@@ -266,30 +245,9 @@ export const PricingSection = () => {
         </div>
       ) : (
         <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden">
-          <div className="bg-gray-50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700">
-            <div className="container px-4 sm:px-6 py-4">
-              <div className="flex justify-center sm:justify-start space-x-2">
-                <Button 
-                  variant={activeServiceType === "transcription" ? "default" : "outline"}
-                  onClick={() => setActiveServiceType("transcription")}
-                  className="font-medium"
-                >
-                  Transcription Services
-                </Button>
-                <Button 
-                  variant={activeServiceType === "interpreting" ? "default" : "outline"}
-                  onClick={() => setActiveServiceType("interpreting")}
-                  className="font-medium"
-                >
-                  Interpreting Services
-                </Button>
-              </div>
-            </div>
-          </div>
+
           
           <div className="p-6 sm:p-8">
-            {activeServiceType === "transcription" ? (
-              <>
                 <div className="mb-6">
                   <p className="text-muted-foreground text-center">
                     Choose from our range of professional transcription services to meet your needs
@@ -348,74 +306,6 @@ export const PricingSection = () => {
                     )
                   )}
                 </div>
-              </>
-            ) : (
-              <>
-                <div className="mb-6">
-                  <div className="text-center mb-6">
-                    <h3 className="text-xl font-semibold text-primary mb-2">
-                      WE THE FIRST TO BE DIFFERENT!
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Expert interpretation services for any scenario and language
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                  {interpretingPlans.map(
-                    ({ title, subtitle, popular, buttonText, benefitList }) => (
-                      <div 
-                        key={title}
-                        className={`
-                          bg-white dark:bg-gray-900 
-                          border rounded-xl overflow-hidden transition-all
-                          hover:shadow-md 
-                          ${popular === PopularPlan?.YES 
-                            ? "shadow-lg border-primary" 
-                            : "border-gray-200 dark:border-gray-800"}
-                        `}
-                      >
-                        {popular === PopularPlan?.YES && (
-                          <div className="bg-primary text-white text-center py-1.5 text-xs font-medium">
-                            RECOMMENDED
-                          </div>
-                        )}
-                        
-                        <div className="p-6">
-                          <h4 className="text-lg font-semibold mb-1">{title}</h4>
-                          {subtitle && (
-                            <p className="text-sm text-primary font-medium mb-4">
-                              {subtitle}
-                            </p>
-                          )}
-                          
-                          <div className="space-y-3 my-6">
-                            {benefitList.map((benefit) => (
-                              <div key={benefit} className="flex items-start">
-                                <div className="mt-0.5 bg-primary/10 rounded-full p-0.5 mr-3">
-                                  <Check className="text-primary h-3.5 w-3.5" />
-                                </div>
-                                <p className="text-sm text-gray-700 dark:text-gray-300">{benefit}</p>
-                              </div>
-                            ))}
-                          </div>
-                          
-                          <Button
-                            variant={popular === PopularPlan?.YES ? "default" : "outline"}
-                            size="lg"
-                            className="w-full mt-4"
-                            onClick={() => handleServiceSelect(title)}
-                          >
-                            {buttonText}
-                          </Button>
-                        </div>
-                      </div>
-                    )
-                  )}
-                </div>
-              </>
-            )}
           </div>
         </div>
       )}

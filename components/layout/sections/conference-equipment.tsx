@@ -87,7 +87,7 @@ export const ConferenceEquipmentSection = () => {
           transition={{ duration: 0.7 }}
           className="flex flex-col items-center text-center mb-20"
         >
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium rounded-full bg-blue-500/10 text-blue-600 tracking-wider">WORLD-CLASS EQUIPMENT</span>
+          {/* World-class equipment label removed as requested */}
           <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight">
             CONFERENCE <br />
             <span className="text-blue-600 relative">
@@ -301,7 +301,7 @@ export const ConferenceEquipmentSection = () => {
                 <Mail className="h-5 w-5 text-blue-600" />
               </div>
               <h4 className="text-lg font-semibold mb-2">Email</h4>
-              <p className="text-gray-600 dark:text-gray-400 text-center">info@imperiumlunguistics.com</p>
+              <p className="text-gray-600 dark:text-gray-400 text-center">nkuna@imperiumlinguistics.com</p>
             </motion.div>
             
             <motion.div 
@@ -319,64 +319,14 @@ export const ConferenceEquipmentSection = () => {
             </motion.div>
           </div>
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="mt-20 p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg relative"
-          >
-            <div className="grid md:grid-cols-2 gap-10">
-              <div>
-                <h3 className="text-2xl font-bold mb-4 text-blue-600">Our Guarantee</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  At Imperium Linguistics, we guarantee quality, reliability, and professional support for all our conference equipment.
-                </p>
-                <ul className="space-y-2">
-                  {["Premium Quality", "2-Year Warranty", "Technical Support", "Installation Services"].map((item, i) => (
-                    <motion.li 
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1, duration: 0.3 }}
-                      viewport={{ once: true }}
-                      className="flex items-center group"
-                    >
-                      <ChevronRight className="h-4 w-4 text-blue-600 mr-2" />
-                      <span>{item}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="text-2xl font-bold mb-4 text-blue-600">Service Options</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  We offer flexible service options to meet your conference equipment needs.
-                </p>
-                <div className="grid grid-cols-2 gap-2">
-                  {["Purchase", "Rental", "Lease", "Maintenance", "Training", "Upgrades"].map((service, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.05, duration: 0.2 }}
-                      viewport={{ once: true }}
-                      className="px-3 py-1 bg-blue-500/10 rounded-full text-sm text-center text-blue-600"
-                    >
-                      {service}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          {/* Guarantee and Service Options section removed as requested */}
           
           <div className="mt-16 text-center text-gray-600 dark:text-gray-400 text-sm">
             <p> 2024 Imperium Linguistics. All rights reserved.</p>
           </div>
         </div>
       </section>
+
     </>
   );
 }; 
