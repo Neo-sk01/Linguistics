@@ -142,7 +142,7 @@ export const ContactSection = () => {
               {/* Quick Links */}
               <h3 className="text-sm font-semibold mb-2 text-blue-600">QUICK LINKS</h3>
               <nav className="grid grid-cols-2 gap-x-2 gap-y-1">
-                <a href="/services" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                <Link href="/services" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Services</Link>
                 <a href="/faq" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">FAQ</a>
                 <a href="/policies#privacy" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Privacy</a>
               </nav>
