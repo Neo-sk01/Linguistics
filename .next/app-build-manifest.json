@@ -17,25 +17,25 @@
       "static/chunks/main-app.js",
       "static/chunks/app/faq/page.js"
     ],
-    "/transcription/page": [
+    "/policies/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/transcription/page.js"
+      "static/chunks/app/policies/page.js"
     ],
-    "/pricing/page": [
+    "/policies/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/pricing/page.js"
-    ],
-    "/upload-test/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/upload-test/page.js"
+      "static/chunks/app/policies/layout.js"
     ],
     "/interpreting/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/interpreting/page.js"
+    ],
+    "/transcription/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/transcription/page.js"
     ],
     "/conference-equipment/page": [
       "static/chunks/webpack.js",

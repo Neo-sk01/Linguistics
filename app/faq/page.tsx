@@ -44,25 +44,6 @@ export default function FaqPage() {
         </div>
       </div>
       
-      <div className="container py-6 mb-10">
-        <div className="flex flex-wrap justify-center gap-4 text-sm">
-          <span className="px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-            #transcription
-          </span>
-          <span className="px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-            #interpreting
-          </span>
-          <span className="px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-            #languages
-          </span>
-          <span className="px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-            #turnaround
-          </span>
-          <span className="px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">
-            #conference
-          </span>
-        </div>
-      </div>
       
       <FaqSection hideTitle={true} />
     </main>

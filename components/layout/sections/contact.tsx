@@ -84,7 +84,6 @@ export const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-xs text-blue-600/80">Phone</p>
-                    <p className="text-sm text-gray-700">0861 819 254</p>
                     <p className="text-sm text-gray-700">067 747 2124</p>
                   </div>
                 </div>
@@ -144,11 +143,8 @@ export const ContactSection = () => {
               <h3 className="text-sm font-semibold mb-2 text-blue-600">QUICK LINKS</h3>
               <nav className="grid grid-cols-2 gap-x-2 gap-y-1">
                 <a href="/services" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-                <a href="/pricing" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Pricing</a>
                 <a href="/faq" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">FAQ</a>
-                <a href="/blog" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Blog</a>
-                <a href="/careers" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Careers</a>
-                <a href="/privacy" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Privacy</a>
+                <a href="/policies#privacy" className="text-sm text-gray-700 hover:text-blue-600 transition-colors">Privacy</a>
               </nav>
             </div>
           </div>

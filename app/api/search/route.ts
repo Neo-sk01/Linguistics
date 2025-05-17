@@ -45,14 +45,7 @@ const searchIndex: SearchItem[] = [
     content: 'We support a wide range of languages including but not limited to English, Spanish, French, German, Chinese, Japanese, Arabic, and Russian.',
     url: '/faq#languages',
     type: 'faq',
-  },
-  {
-    id: '5',
-    title: 'How much does interpreting cost?',
-    content: 'The cost of interpreting services depends on several factors including language pair, duration, specialization, and equipment needs.',
-    url: '/pricing#interpreting',
-    type: 'faq',
-  },
+  }
 ];
 
 export async function GET(request: Request) {

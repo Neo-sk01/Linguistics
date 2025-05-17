@@ -4,7 +4,6 @@ import { AudioWaveform, FileText, MessageSquareText, BookText, Mic, ArrowRight, 
   Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays, X } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { PricingSection } from "./pricing";
 import React, { useState } from "react";
 
 interface ServiceCategory {
@@ -435,7 +434,7 @@ export const TranscriptionServicesSection = () => {
       </section>
 
       {/* Transcription Services Section */}
-      <section className="py-24 sm:py-32 relative overflow-hidden w-full bg-white dark:bg-[#111827] text-gray-800 dark:text-white">
+      <section className="py-24 sm:py-32 relative overflow-hidden w-full bg-white dark:bg-[#1b2532] text-gray-800 dark:text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-blue-600 dark:text-white sm:text-4xl">Our Transcription Services</h2>
@@ -498,7 +497,6 @@ export const TranscriptionServicesSection = () => {
             className="mt-20 p-8 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
-            <PricingSection />
           </motion.div>
 
           <motion.div 
