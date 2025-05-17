@@ -1,7 +1,7 @@
 {
+  "/transcription/page": "app/transcription/page.js",
+  "/faq/page": "app/faq/page.js",
   "/interpreting/page": "app/interpreting/page.js",
   "/page": "app/page.js",
-  "/transcription/page": "app/transcription/page.js",
-  "/conference-equipment/page": "app/conference-equipment/page.js",
-  "/faq/page": "app/faq/page.js"
+  "/conference-equipment/page": "app/conference-equipment/page.js"
 }
