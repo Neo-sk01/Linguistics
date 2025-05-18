@@ -2,16 +2,14 @@ import { Logo } from '@/components/logo'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const links = [
-    {
-        title: 'Features',
-        href: '#',
-    },
-    {
-        title: 'Pricing',
-        href: '#pricing',
-    },
-]
+// Define the type for navigation links
+type NavLink = {
+    title: string;
+    href: string;
+};
+
+// Removed Features and Pricing links as requested
+const links: NavLink[] = []
 
 // Policy links based on the policy documentgit push origin no-LFS-maingit push origin no-LFS-maingit push origin no-LFS-maingit push origin no-LFS-main
 const policyLinks = [
