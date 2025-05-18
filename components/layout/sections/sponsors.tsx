@@ -33,6 +33,22 @@ const sponsors: SponsorProps[] = [
   {
     imageUrl: "/images/sponsors/zxfv.svg",
     name: "Accmee",
+  },
+  {
+    imageUrl: "/images/sponsors/1.png",
+    name: "Sponsor 1",
+  },
+  {
+    imageUrl: "/images/sponsors/2.png",
+    name: "Sponsor 2",
+  },
+  {
+    imageUrl: "/images/sponsors/3.png",
+    name: "Sponsor 3",
+  },
+  {
+    imageUrl: "/images/sponsors/4.png",
+    name: "Sponsor 4",
   }
 ];
 
