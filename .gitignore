@@ -98,3 +98,5 @@ logs
 .eslintcache
 node_modules/
 /node_modules
+
+/lib/generated/prisma

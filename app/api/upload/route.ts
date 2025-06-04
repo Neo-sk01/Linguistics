@@ -1,87 +1,182 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { google } from 'googleapis';
-import { Stream } from 'stream';
+import { v2 as cloudinary } from 'cloudinary';
+import { db } from '@/lib/db';
+import { fileUploads } from '@/lib/db/schema';
+import { eq, desc } from 'drizzle-orm';
 
-// Create a service account credentials object
-const credentials = {
-  client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-  private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-};
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
-// Create a buffer to stream converter
-function bufferToStream(buffer: Buffer) {
-  const stream = new Stream.Readable();
-  stream.push(buffer);
-  stream.push(null);
-  return stream;
+// Helper function to get file type
+function getFileType(mimeType: string): 'audio' | 'document' {
+  if (mimeType.startsWith('audio/')) return 'audio';
+  return 'document';
+}
+
+// Helper function to get client IP
+function getClientIP(request: NextRequest): string {
+  const forwarded = request.headers.get('x-forwarded-for');
+  const realIP = request.headers.get('x-real-ip');
+  
+  if (forwarded) {
+    return forwarded.split(',')[0].trim();
+  }
+  
+  if (realIP) {
+    return realIP;
+  }
+  
+  return 'unknown';
 }
 
 export async function POST(request: NextRequest) {
   try {
-    // Authorize with Google
-    const auth = new google.auth.JWT({
-      email: credentials.client_email,
-      key: credentials.private_key,
-      scopes: ['https://www.googleapis.com/auth/drive.file'],
-    });
-
-    const drive = google.drive({ version: 'v3', auth });
-    
     // Get form data from the request
     const formData = await request.formData();
     const file = formData.get('file') as File | null;
     const notes = formData.get('notes') as string | null;
+    const userEmail = formData.get('userEmail') as string | null;
     
-    // Make sure we have a file
+    // Validate file
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 });
+    }
+
+    // Check file size (100MB limit)
+    const maxSize = 100 * 1024 * 1024; // 100MB
+    if (file.size > maxSize) {
+      return NextResponse.json(
+        { error: 'File size exceeds 100MB limit' },
+        { status: 400 }
+      );
     }
 
     // Convert file to buffer
     const buffer = Buffer.from(await file.arrayBuffer());
     
-    // Define file metadata
-    const fileMetadata = {
-      name: file.name,
-      // Optional: specify a folder ID to upload to a specific folder
-      // parents: ['FOLDER_ID_HERE']
-    };
+    // Determine upload folder based on file type
+    const fileType = getFileType(file.type);
+    const folder = fileType === 'audio' ? 'linguistics/audio' : 'linguistics/documents';
     
-    // Upload file to Drive
-    const response = await drive.files.create({
-      requestBody: fileMetadata,
-      media: {
-        mimeType: file.type,
-        body: bufferToStream(buffer),
-      },
-    });
-    
-    // If notes were provided, create a text file with the notes
-    if (notes && notes.trim() !== '') {
-      const notesFileName = `${file.name.split('.')[0]}_notes.txt`;
-      
-      await drive.files.create({
-        requestBody: {
-          name: notesFileName,
-          // Optional: specify the same folder as the file
-          // parents: ['FOLDER_ID_HERE']
+    // Upload to Cloudinary
+    const uploadResult = await new Promise((resolve, reject) => {
+      cloudinary.uploader.upload_stream(
+        {
+          resource_type: 'auto', // auto-detect file type
+          folder: folder,
+          use_filename: true,
+          unique_filename: true,
         },
-        media: {
-          mimeType: 'text/plain',
-          body: notes,
-        },
-      });
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      ).end(buffer);
+    }) as any;
+
+    if (!uploadResult) {
+      throw new Error('Failed to upload to Cloudinary');
     }
 
-    return NextResponse.json({ 
-      success: true, 
+    // Save metadata to database
+    const fileRecord: any = {
+      filename: uploadResult.public_id.split('/').pop() || file.name,
+      originalName: file.name,
+      fileType,
+      mimeType: file.type,
+      fileSize: file.size,
+      cloudinaryUrl: uploadResult.secure_url,
+      cloudinaryPublicId: uploadResult.public_id,
+      notes: notes || null,
+      userEmail: userEmail || null,
+      userIp: getClientIP(request),
+      status: 'uploaded',
+    };
+
+    // Add duration for audio files if available
+    if (fileType === 'audio' && uploadResult.duration) {
+      fileRecord.duration = Math.round(uploadResult.duration);
+    }
+
+    // Add page count for documents if available
+    if (fileType === 'document' && uploadResult.pages) {
+      fileRecord.pages = uploadResult.pages;
+    }
+
+    const [insertedFile] = await db.insert(fileUploads).values(fileRecord).returning();
+
+    return NextResponse.json({
+      success: true,
       message: 'File uploaded successfully',
-      fileId: response.data.id 
+      file: {
+        id: insertedFile.id,
+        filename: insertedFile.filename,
+        originalName: insertedFile.originalName,
+        fileType: insertedFile.fileType,
+        fileSize: insertedFile.fileSize,
+        cloudinaryUrl: insertedFile.cloudinaryUrl,
+        uploadedAt: insertedFile.uploadedAt,
+        duration: insertedFile.duration,
+        pages: insertedFile.pages,
+      },
     });
+
   } catch (error) {
-    console.error('Error uploading to Google Drive:', error);
+    console.error('Upload error:', error);
     return NextResponse.json(
-      { error: 'Failed to upload file to Google Drive' },
+      { 
+        error: error instanceof Error ? error.message : 'Failed to upload file',
+        details: process.env.NODE_ENV === 'development' ? error : undefined 
+      },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const limit = parseInt(searchParams.get('limit') || '10');
+    const offset = parseInt(searchParams.get('offset') || '0');
+    const fileType = searchParams.get('fileType') as 'audio' | 'document' | null;
+
+    let files;
+    
+    if (fileType) {
+      files = await db
+        .select()
+        .from(fileUploads)
+        .where(eq(fileUploads.fileType, fileType))
+        .limit(limit)
+        .offset(offset)
+        .orderBy(desc(fileUploads.uploadedAt));
+    } else {
+      files = await db
+        .select()
+        .from(fileUploads)
+        .limit(limit)
+        .offset(offset)
+        .orderBy(desc(fileUploads.uploadedAt));
+    }
+
+    return NextResponse.json({
+      success: true,
+      files,
+      pagination: {
+        limit,
+        offset,
+        total: files.length,
+      },
+    });
+
+  } catch (error) {
+    console.error('Get files error:', error);
+    return NextResponse.json(
+      { error: 'Failed to retrieve files' },
       { status: 500 }
     );
   }

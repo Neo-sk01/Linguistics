@@ -1,5 +1,5 @@
 "use client";
-import { ChevronsDown, Menu, FileText, Headphones, Languages } from "lucide-react";
+import { ChevronsDown, Menu, FileText, Headphones, Languages, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import {
   Sheet,
@@ -8,6 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetClose,
 } from "../ui/sheet";
 import { Separator } from "../ui/separator";
 import {
@@ -50,12 +51,24 @@ const routeList: RouteProps[] = [
     label: "Services",
   },
   {
+    href: "/pricing",
+    label: "Pricing",
+  },
+  {
     href: "/faq",
     label: "FAQ",
   },
   {
     href: "/upload-test",
     label: "Upload Files",
+  },
+  {
+    href: "/files",
+    label: "View Files",
+  },
+  {
+    href: "/contact",
+    label: "Contact Us",
   },
 ];
 
@@ -85,6 +98,7 @@ export const Navbar = () => {
   const { theme } = useTheme();
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [mobileServicesExpanded, setMobileServicesExpanded] = useState(false);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -105,101 +119,49 @@ export const Navbar = () => {
       window.removeEventListener('scroll', controlNavbar);
     };
   }, [lastScrollY]);
+
+  // Close mobile menu when screen size changes to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isOpen]);
+  
+  // Handle body overflow in a more stable way
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      if (isOpen) {
+        document.body.classList.add('overflow-hidden');
+      } else {
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+    
+    return () => {
+      if (typeof document !== 'undefined') {
+        document.body.classList.remove('overflow-hidden');
+      }
+    };
+  }, [isOpen]);
   
   return (
-    <header className={`shadow-inner w-[70%] md:w-[90%] lg:w-[95%] top-5 mx-auto sticky z-40 rounded-xl flex justify-between items-center py-0 px-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20 pointer-events-none'}`}>
+    <header className={`shadow-inner w-[95%] sm:w-[90%] md:w-[90%] lg:w-[95%] top-5 mx-auto sticky border border-gray-200 z-40 rounded-xl flex justify-between items-center py-0 px-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm transition-all duration-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-20 pointer-events-none'}`}>
       <Link href="/" className="font-bold text-sm flex items-center">
         <Image 
           src="/noBG.png" 
           alt="IMPERIUM LINGUISTICS Logo" 
-          width={180} 
-          height={180} 
-          className="ml-0 mr-1 -my-5 max-w-[150px] sm:max-w-[180px]"
+          width={140}
+          height={140}
+          className="ml-0 mr-1 -my-3 sm:w-[160px] sm:h-[160px] md:w-[180px] md:h-[180px] md:-my-5"
         />
       </Link>
-      {/* <!-- Mobile --> */}
-      <div className="flex items-center lg:hidden">
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Menu
-              onClick={() => setIsOpen(!isOpen)}
-              className="cursor-pointer lg:hidden h-5 w-5 mr-2"
-            />
-          </SheetTrigger>
-
-          <SheetContent
-            side="left"
-            className="flex flex-col justify-between rounded-tr-2xl rounded-br-2xl bg-card border-secondary"
-          >
-            <div>
-              <SheetHeader className="mb-4 ml-4">
-                <SheetTitle className="flex items-center">
-                  <Link href="/" className="flex items-center">
-                    <Image 
-                      src="/noBG.png" 
-                      alt="IMPERIUM LINGUISTICS Logo" 
-                      width={180} 
-                      height={180} 
-                      className="mr-1 -my-1 max-w-[150px]"
-                    />
-                  </Link>
-                </SheetTitle>
-              </SheetHeader>
-
-              <div className="flex flex-col gap-2">
-                {routeList.map(({ href, label }) => (
-                  label === "Services" ? (
-                    <div key={href} className="flex flex-col">
-                      <Button
-                        onClick={() => {}}
-                        variant="ghost"
-                        className="justify-start text-base flex items-center"
-                      >
-                        <span>{label}</span>
-                        <ChevronsDown className="ml-2 h-4 w-4 transition-transform duration-200" />
-                      </Button>
-                      <div className="ml-4 flex flex-col gap-2 border-l pl-4 border-primary/20">
-                        {servicesItems.map((item) => (
-                          <Button
-                            key={item.href}
-                            onClick={() => setIsOpen(false)}
-                            asChild
-                            variant="ghost"
-                            className="justify-start text-base group"
-                          >
-                            <Link href={item.href} className="flex items-center gap-2">
-                              <span className="text-primary/80">{item.icon}</span>
-                              <span className="group-hover:text-foreground transition-colors">{item.label}</span>
-                            </Link>
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    <Button
-                      key={href}
-                      onClick={() => setIsOpen(false)}
-                      asChild
-                      variant="ghost"
-                      className="justify-start text-sm"
-                    >
-                      <Link href={href}>{label}</Link>
-                    </Button>
-                  )
-                ))}
-              </div>
-            </div>
-
-            <SheetFooter className="flex-col sm:flex-col justify-start items-start">
-              <Separator className="mb-2" />
-
-              <ToggleTheme />
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
-      </div>
-
-      {/* <!-- Desktop --> */}
+      
+      {/* Desktop Navigation */}
       <NavigationMenu className="hidden lg:block mx-auto">
         <NavigationMenuList className="space-x-1">
           {routeList.map(({ href, label }) => (

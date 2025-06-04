@@ -5,11 +5,16 @@ import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { SmallFooterSection } from "@/components/layout/sections/footer";
+import { BotpressChat } from "@/components/botpress-chat";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "IMPERIUM LINGUISTICS",
   description: "Professional language services",
+  icons: {
+    icon: '/noBG.png',
+    apple: '/noBG.png',
+  },
 };
 
 export default function RootLayout({
@@ -30,6 +35,7 @@ export default function RootLayout({
 
           {children}
           <SmallFooterSection />
+          <BotpressChat />
         </ThemeProvider>
       </body>
     </html>
