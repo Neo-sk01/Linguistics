@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
-import { db } from '@/lib/db';
-import { fileUploads } from '@/lib/db/schema';
-import { eq, desc } from 'drizzle-orm';
+// import { db } from '@/lib/db';
+// import { fileUploads } from '@/lib/db/schema';
+// import { eq, desc } from 'drizzle-orm';
 
 // Configure Cloudinary
 cloudinary.config({
@@ -82,46 +82,48 @@ export async function POST(request: NextRequest) {
       throw new Error('Failed to upload to Cloudinary');
     }
 
+    // TODO: Re-enable database storage in future version
     // Save metadata to database
-    const fileRecord: any = {
-      filename: uploadResult.public_id.split('/').pop() || file.name,
-      originalName: file.name,
-      fileType,
-      mimeType: file.type,
-      fileSize: file.size,
-      cloudinaryUrl: uploadResult.secure_url,
-      cloudinaryPublicId: uploadResult.public_id,
-      notes: notes || null,
-      userEmail: userEmail || null,
-      userIp: getClientIP(request),
-      status: 'uploaded',
-    };
+    // const fileRecord: any = {
+    //   filename: uploadResult.public_id.split('/').pop() || file.name,
+    //   originalName: file.name,
+    //   fileType,
+    //   mimeType: file.type,
+    //   fileSize: file.size,
+    //   cloudinaryUrl: uploadResult.secure_url,
+    //   cloudinaryPublicId: uploadResult.public_id,
+    //   notes: notes || null,
+    //   userEmail: userEmail || null,
+    //   userIp: getClientIP(request),
+    //   status: 'uploaded',
+    // };
 
     // Add duration for audio files if available
-    if (fileType === 'audio' && uploadResult.duration) {
-      fileRecord.duration = Math.round(uploadResult.duration);
-    }
+    // if (fileType === 'audio' && uploadResult.duration) {
+    //   fileRecord.duration = Math.round(uploadResult.duration);
+    // }
 
     // Add page count for documents if available
-    if (fileType === 'document' && uploadResult.pages) {
-      fileRecord.pages = uploadResult.pages;
-    }
+    // if (fileType === 'document' && uploadResult.pages) {
+    //   fileRecord.pages = uploadResult.pages;
+    // }
 
-    const [insertedFile] = await db.insert(fileUploads).values(fileRecord).returning();
+    // const [insertedFile] = await db.insert(fileUploads).values(fileRecord).returning();
 
     return NextResponse.json({
       success: true,
-      message: 'File uploaded successfully',
+      message: 'File uploaded successfully to Cloudinary',
       file: {
-        id: insertedFile.id,
-        filename: insertedFile.filename,
-        originalName: insertedFile.originalName,
-        fileType: insertedFile.fileType,
-        fileSize: insertedFile.fileSize,
-        cloudinaryUrl: insertedFile.cloudinaryUrl,
-        uploadedAt: insertedFile.uploadedAt,
-        duration: insertedFile.duration,
-        pages: insertedFile.pages,
+        // id: insertedFile.id,
+        id: 'temp-id', // Temporary ID until database is reconnected
+        filename: uploadResult.public_id.split('/').pop() || file.name,
+        originalName: file.name,
+        fileType: fileType,
+        fileSize: file.size,
+        cloudinaryUrl: uploadResult.secure_url,
+        uploadedAt: new Date().toISOString(),
+        duration: uploadResult.duration ? Math.round(uploadResult.duration) : undefined,
+        pages: uploadResult.pages || undefined,
       },
     });
 
@@ -139,44 +141,46 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const limit = parseInt(searchParams.get('limit') || '10');
-    const offset = parseInt(searchParams.get('offset') || '0');
-    const fileType = searchParams.get('fileType') as 'audio' | 'document' | null;
+    // TODO: Re-enable database queries in future version
+    // const { searchParams } = new URL(request.url);
+    // const limit = parseInt(searchParams.get('limit') || '10');
+    // const offset = parseInt(searchParams.get('offset') || '0');
+    // const fileType = searchParams.get('fileType') as 'audio' | 'document' | null;
 
-    let files;
+    // let files;
     
-    if (fileType) {
-      files = await db
-        .select()
-        .from(fileUploads)
-        .where(eq(fileUploads.fileType, fileType))
-        .limit(limit)
-        .offset(offset)
-        .orderBy(desc(fileUploads.uploadedAt));
-    } else {
-      files = await db
-        .select()
-        .from(fileUploads)
-        .limit(limit)
-        .offset(offset)
-        .orderBy(desc(fileUploads.uploadedAt));
-    }
+    // if (fileType) {
+    //   files = await db
+    //     .select()
+    //     .from(fileUploads)
+    //     .where(eq(fileUploads.fileType, fileType))
+    //     .limit(limit)
+    //     .offset(offset)
+    //     .orderBy(desc(fileUploads.uploadedAt));
+    // } else {
+    //   files = await db
+    //     .select()
+    //     .from(fileUploads)
+    //     .limit(limit)
+    //     .offset(offset)
+    //     .orderBy(desc(fileUploads.uploadedAt));
+    // }
 
     return NextResponse.json({
       success: true,
-      files,
+      message: 'Database queries temporarily disabled',
+      files: [], // Return empty array until database is reconnected
       pagination: {
-        limit,
-        offset,
-        total: files.length,
+        limit: 10,
+        offset: 0,
+        total: 0,
       },
     });
 
   } catch (error) {
     console.error('Get files error:', error);
     return NextResponse.json(
-      { error: 'Failed to retrieve files' },
+      { error: 'Failed to retrieve files - database temporarily disabled' },
       { status: 500 }
     );
   }
