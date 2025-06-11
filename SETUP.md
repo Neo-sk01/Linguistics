@@ -36,9 +36,9 @@ CLOUDINARY_API_SECRET="your_cloudinary_api_secret"
 2. Go to your dashboard
 3. Find the "Account Details" section
 4. Copy:
-   - Cloud Name → `dtn16m5iz`
-   - API Key → `134328658898444`
-   - API Secret → `1kcQozynCV8om6Ll4UMSn6Q8OGg`
+   - Cloud Name → `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`
+   - API Key → `CLOUDINARY_API_KEY`
+   - API Secret → `CLOUDINARY_API_SECRET`
 
 ## Step 2: Database Setup
 
