@@ -67,6 +67,10 @@ const routeList: RouteProps[] = [
     label: "View Files",
   },
   {
+    href: "/admin",
+    label: "Admin",
+  },
+  {
     href: "/contact",
     label: "Contact Us",
   },

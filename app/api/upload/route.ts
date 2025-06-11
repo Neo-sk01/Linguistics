@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
-// import { db } from '@/lib/db';
+import { db } from '@/lib/db';
+import { fileUploads, transcriptions, NewTranscription } from '@/lib/db/schema';
+import { eq, desc } from 'drizzle-orm';
 // import { fileUploads } from '@/lib/db/schema';
 // import { eq, desc } from 'drizzle-orm';
 
@@ -66,7 +68,7 @@ export async function POST(request: NextRequest) {
     const uploadResult = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
         {
-          resource_type: 'auto', // auto-detect file type
+          resource_type: fileType === 'audio' ? 'video' : 'raw',
           folder: folder,
           use_filename: true,
           unique_filename: true,
@@ -84,38 +86,46 @@ export async function POST(request: NextRequest) {
 
     // TODO: Re-enable database storage in future version
     // Save metadata to database
-    // const fileRecord: any = {
-    //   filename: uploadResult.public_id.split('/').pop() || file.name,
-    //   originalName: file.name,
-    //   fileType,
-    //   mimeType: file.type,
-    //   fileSize: file.size,
-    //   cloudinaryUrl: uploadResult.secure_url,
-    //   cloudinaryPublicId: uploadResult.public_id,
-    //   notes: notes || null,
-    //   userEmail: userEmail || null,
-    //   userIp: getClientIP(request),
-    //   status: 'uploaded',
-    // };
+    const fileRecord: any = {
+      filename: uploadResult.public_id.split('/').pop() || file.name,
+      originalName: file.name,
+      fileType,
+      mimeType: file.type,
+      fileSize: file.size,
+      cloudinaryUrl: uploadResult.secure_url,
+      cloudinaryPublicId: uploadResult.public_id,
+      notes: notes || null,
+      userEmail: userEmail || null,
+      userIp: getClientIP(request),
+      status: 'uploaded',
+    };
 
     // Add duration for audio files if available
-    // if (fileType === 'audio' && uploadResult.duration) {
-    //   fileRecord.duration = Math.round(uploadResult.duration);
-    // }
+    if (fileType === 'audio' && uploadResult.duration) {
+      fileRecord.duration = Math.round(uploadResult.duration);
+    }
 
     // Add page count for documents if available
-    // if (fileType === 'document' && uploadResult.pages) {
-    //   fileRecord.pages = uploadResult.pages;
-    // }
+    if (fileType === 'document' && uploadResult.pages) {
+      fileRecord.pages = uploadResult.pages;
+    }
 
-    // const [insertedFile] = await db.insert(fileUploads).values(fileRecord).returning();
+    const [insertedFile] = await db.insert(fileUploads).values(fileRecord).returning();
+
+    // Create a corresponding transcription job
+    const transcriptionRecord: NewTranscription = {
+      fileId: insertedFile.id,
+      status: 'pending',
+      priority: 'medium',
+    };
+
+    await db.insert(transcriptions).values(transcriptionRecord);
 
     return NextResponse.json({
       success: true,
       message: 'File uploaded successfully to Cloudinary',
       file: {
-        // id: insertedFile.id,
-        id: 'temp-id', // Temporary ID until database is reconnected
+        id: insertedFile.id,
         filename: uploadResult.public_id.split('/').pop() || file.name,
         originalName: file.name,
         fileType: fileType,
@@ -141,46 +151,44 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    // TODO: Re-enable database queries in future version
-    // const { searchParams } = new URL(request.url);
-    // const limit = parseInt(searchParams.get('limit') || '10');
-    // const offset = parseInt(searchParams.get('offset') || '0');
-    // const fileType = searchParams.get('fileType') as 'audio' | 'document' | null;
+    const { searchParams } = new URL(request.url);
+    const limit = parseInt(searchParams.get('limit') || '10');
+    const offset = parseInt(searchParams.get('offset') || '0');
+    const fileType = searchParams.get('fileType') as 'audio' | 'document' | null;
 
-    // let files;
+    let files;
     
-    // if (fileType) {
-    //   files = await db
-    //     .select()
-    //     .from(fileUploads)
-    //     .where(eq(fileUploads.fileType, fileType))
-    //     .limit(limit)
-    //     .offset(offset)
-    //     .orderBy(desc(fileUploads.uploadedAt));
-    // } else {
-    //   files = await db
-    //     .select()
-    //     .from(fileUploads)
-    //     .limit(limit)
-    //     .offset(offset)
-    //     .orderBy(desc(fileUploads.uploadedAt));
-    // }
+    if (fileType) {
+      files = await db
+        .select()
+        .from(fileUploads)
+        .where(eq(fileUploads.fileType, fileType))
+        .limit(limit)
+        .offset(offset)
+        .orderBy(desc(fileUploads.uploadedAt));
+    } else {
+      files = await db
+        .select()
+        .from(fileUploads)
+        .limit(limit)
+        .offset(offset)
+        .orderBy(desc(fileUploads.uploadedAt));
+    }
 
     return NextResponse.json({
       success: true,
-      message: 'Database queries temporarily disabled',
-      files: [], // Return empty array until database is reconnected
+      files,
       pagination: {
-        limit: 10,
-        offset: 0,
-        total: 0,
+        limit,
+        offset,
+        total: files.length,
       },
     });
 
   } catch (error) {
     console.error('Get files error:', error);
     return NextResponse.json(
-      { error: 'Failed to retrieve files - database temporarily disabled' },
+      { error: 'Failed to retrieve files' },
       { status: 500 }
     );
   }

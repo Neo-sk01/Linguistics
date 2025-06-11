@@ -24,6 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env*.local
 
 # vercel
 .vercel
@@ -100,3 +101,21 @@ node_modules/
 /node_modules
 
 /lib/generated/prisma
+
+# Added by Task Master AI
+dev-debug.log
+# Dependency directories
+# Environment variables
+.env
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# OS specific
+# Task files
+tasks.json
+tasks/ 

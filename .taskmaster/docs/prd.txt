@@ -1,0 +1,40 @@
+<context>
+# Overview
+This document outlines the requirements for a new transcription service feature for Imperium Linguistics. The service will allow clients to upload audio files for transcription and enable administrators to manage these files. This will streamline the transcription workflow, from client submission to final delivery.
+
+# Core Features
+- **Client-Side File Upload**: A secure, user-friendly interface for clients to upload audio files (e.g., MP3, WAV, M4A). The interface will show upload progress and validate file formats and sizes.
+- **Admin-Side File Management**: A dashboard for administrators to view, manage, and download all client-uploaded audio files.
+- **Transcription Workflow**: A system for tracking the status of each transcription job (e.g., pending, in-progress, completed).
+
+# User Experience
+- **Client Journey**: Clients will be able to easily upload files, view the status of their transcriptions, and receive the completed work. The process will be designed to be simple and intuitive.
+- **Admin Journey**: Administrators will have a centralized dashboard to efficiently manage all transcription requests, download files for processing, and update job statuses.
+</context>
+<PRD>
+# Technical Architecture
+- **Frontend**: Built with Next.js and React, using existing UI components where possible.
+- **Backend**: Next.js API routes will handle file uploads, database interactions, and authentication.
+- **Database**: We will use the existing PostgreSQL database, extending it with a new `tasks` table to manage transcription jobs.
+- **File Storage**: Cloudinary will be used for secure storage of all uploaded audio files.
+
+# Development Roadmap
+- **Phase 1: Foundation**: Set up the database schema for tasks, implement the core file upload functionality, and create a basic admin dashboard for file downloads.
+- **Phase 2: Workflow and UI**: Develop the transcription status tracking system, enhance the client-facing UI for a better user experience, and implement email notifications.
+- **Phase 3: Advanced Features**: Add features like admin-to-client communication, advanced filtering in the admin dashboard, and detailed reporting.
+
+# Logical Dependency Chain
+1.  **Database Schema**: The `tasks` table must be created first as it's foundational for the entire workflow.
+2.  **File Upload Endpoint**: The API for handling file uploads is the next critical step.
+3.  **Admin Dashboard**: Administrators need to be able to access the files, so the dashboard is a high priority after the upload functionality.
+4.  **Client-Facing UI**: Once the backend is in place, the client UI can be built out.
+
+# Risks and Mitigations
+- **Large File Uploads**: The system must be robust enough to handle large audio files. We will implement chunked uploading and server-side validation to mitigate this.
+- **Data Security**: Client files are sensitive. All data will be transmitted over HTTPS, and files will be stored securely in Cloudinary with restricted access.
+- **Database Errors**: The initial build failed due to a database connection issue. This has been temporarily mitigated by commenting out the database code. The connection must be properly configured and tested before re-enabling database-dependent features.
+
+# Appendix
+- **Supported Audio Formats**: MP3, WAV, M4A, FLAC.
+- **Maximum File Size**: Initially 100MB, to be increased in later phases.
+</PRD> 

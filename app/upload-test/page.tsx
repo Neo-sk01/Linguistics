@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import UploadTestComponent from "@/components/layout/sections/upload-test";
+import { FileUploadSection } from "@/components/layout/sections/file-upload";
 
 export const metadata: Metadata = {
   title: "Upload Test | IMPERIUM LINGUISTICS",
@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function UploadTestPage() {
   return (
-    <main className="min-h-screen">
-      <UploadTestComponent />
+    <main className="container mx-auto px-4 py-8">
+      <FileUploadSection />
     </main>
   );
 } 

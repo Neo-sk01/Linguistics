@@ -1,5 +1,5 @@
 import { sql } from 'drizzle-orm';
-import { text, integer, pgTable, timestamp } from 'drizzle-orm/pg-core';
+import { text, integer, pgTable, timestamp, boolean, serial, varchar, pgEnum } from 'drizzle-orm/pg-core';
 
 export const fileUploads = pgTable('file_uploads', {
   id: text('id').primaryKey().$defaultFn(() => crypto.randomUUID()),
@@ -27,5 +27,22 @@ export const fileUploads = pgTable('file_uploads', {
   userIp: text('user_ip'),
 });
 
+export const transcriptionStatusEnum = pgEnum('transcription_status', ['pending', 'in-progress', 'completed', 'failed']);
+export const transcriptionPriorityEnum = pgEnum('transcription_priority', ['low', 'medium', 'high', 'urgent']);
+
+export const transcriptions = pgTable('transcriptions', {
+  id: serial('id').primaryKey(),
+  fileId: text('file_id').notNull().references(() => fileUploads.id),
+  userId: varchar('user_id', { length: 255 }), 
+  status: transcriptionStatusEnum('status').default('pending'),
+  priority: transcriptionPriorityEnum('priority').default('medium'),
+  transcriptionText: text('transcription_text'),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
+  completedAt: timestamp('completed_at'),
+});
+
 export type FileUpload = typeof fileUploads.$inferSelect;
-export type NewFileUpload = typeof fileUploads.$inferInsert; 
+export type NewFileUpload = typeof fileUploads.$inferInsert;
+export type Transcription = typeof transcriptions.$inferSelect;
+export type NewTranscription = typeof transcriptions.$inferInsert; 
