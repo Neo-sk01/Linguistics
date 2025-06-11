@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { FileIcon, Download, Loader2, Music, Filter, Search, RefreshCw } from "lucide-react";
+import { FileIcon, Download, Loader2, Music, Filter, Search, RefreshCw, Trash2, AlertCircle } from "lucide-react";
 
 type FileType = {
   id: string;
@@ -22,6 +22,8 @@ export default function AdminPage() {
   const [error, setError] = useState<string | null>(null);
   const [filterType, setFilterType] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState<boolean>(false);
 
   const fetchFiles = async () => {
     setLoading(true);
@@ -99,6 +101,39 @@ export default function AdminPage() {
       setError('Failed to update file status. Please try again.');
       // Reset error after 3 seconds
       setTimeout(() => setError(null), 3000);
+    }
+  };
+
+  const confirmDelete = (fileId: string) => {
+    setDeleteConfirm(fileId);
+  };
+
+  const cancelDelete = () => {
+    setDeleteConfirm(null);
+  };
+
+  const deleteFile = async (fileId: string) => {
+    if (!fileId) return;
+    
+    setDeleting(true);
+    try {
+      const response = await fetch(`/api/upload/delete?id=${fileId}`, {
+        method: 'DELETE',
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to delete file');
+      }
+      
+      // Remove the file from the local state
+      setFiles(files.filter(file => file.id !== fileId));
+      setDeleteConfirm(null);
+    } catch (err) {
+      console.error('Failed to delete file:', err);
+      setError('Failed to delete file. Please try again.');
+      setTimeout(() => setError(null), 3000);
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -228,9 +263,37 @@ export default function AdminPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-primary hover:text-primary/80 inline-flex items-center"
+                          title="Download"
                         >
                           <Download className="h-4 w-4" />
                         </a>
+                        
+                        {deleteConfirm === file.id ? (
+                          <div className="flex items-center gap-2 ml-2">
+                            <button
+                              onClick={() => deleteFile(file.id)}
+                              className="text-red-600 hover:text-red-800 text-xs font-medium"
+                              disabled={deleting}
+                            >
+                              {deleting ? 'Deleting...' : 'Confirm'}
+                            </button>
+                            <button
+                              onClick={cancelDelete}
+                              className="text-gray-500 hover:text-gray-700 text-xs font-medium"
+                              disabled={deleting}
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        ) : (
+                          <button
+                            onClick={() => confirmDelete(file.id)}
+                            className="text-red-500 hover:text-red-700 inline-flex items-center"
+                            title="Delete"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </button>
+                        )}
                       </div>
                     </td>
                   </tr>
