@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/layout/theme-provider";
-import { SmallFooterSection } from "@/components/layout/sections/footer";
+import FooterSection from "@/components/layout/sections/footer";
 import { BotpressChat } from "@/components/botpress-chat";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background", inter.className)}>
+      <body className={cn("min-h-screen bg-background flex flex-col", inter.className)}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -32,9 +32,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-
-          {children}
-          <SmallFooterSection />
+          <main className="flex-1">
+            {children}
+          </main>
+          <FooterSection />
           <BotpressChat />
         </ThemeProvider>
       </body>

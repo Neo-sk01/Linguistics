@@ -1,6 +1,5 @@
 {
   "/upload-test/page": "app/upload-test/page.js",
-  "/files/page": "app/files/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/api/upload/route": "app/api/upload/route.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js"
 }
