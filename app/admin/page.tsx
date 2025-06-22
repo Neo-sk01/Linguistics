@@ -59,22 +59,17 @@ export default function AdminPage() {
   };
 
   const filteredFiles = files.filter(file => {
-    // Filter by type
     if (filterType !== 'all' && file.fileType !== filterType) {
       return false;
     }
-    
-    // Filter by search term
     if (searchTerm && !file.originalName.toLowerCase().includes(searchTerm.toLowerCase())) {
       return false;
     }
-    
     return true;
   });
 
   const updateStatus = async (fileId: string, newStatus: string) => {
     try {
-      // Call the API endpoint to update the status
       const response = await fetch('/api/upload/status', {
         method: 'PATCH',
         headers: {
@@ -82,12 +77,9 @@ export default function AdminPage() {
         },
         body: JSON.stringify({ id: fileId, status: newStatus }),
       });
-      
       if (!response.ok) {
         throw new Error('Failed to update status');
       }
-      
-      // Update the local state to reflect the change
       const updatedFiles = files.map(file => {
         if (file.id === fileId) {
           return { ...file, status: newStatus };
@@ -97,9 +89,7 @@ export default function AdminPage() {
       setFiles(updatedFiles);
     } catch (err) {
       console.error('Failed to update status:', err);
-      // Show error to user
       setError('Failed to update file status. Please try again.');
-      // Reset error after 3 seconds
       setTimeout(() => setError(null), 3000);
     }
   };
@@ -114,18 +104,14 @@ export default function AdminPage() {
 
   const deleteFile = async (fileId: string) => {
     if (!fileId) return;
-    
     setDeleting(true);
     try {
       const response = await fetch(`/api/upload/delete?id=${fileId}`, {
         method: 'DELETE',
       });
-      
       if (!response.ok) {
         throw new Error('Failed to delete file');
       }
-      
-      // Remove the file from the local state
       setFiles(files.filter(file => file.id !== fileId));
       setDeleteConfirm(null);
     } catch (err) {
@@ -137,171 +123,203 @@ export default function AdminPage() {
     }
   };
 
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'pending': return 'bg-blue-500';
+      case 'in-progress': return 'bg-yellow-500';
+      case 'completed': return 'bg-green-500';
+      case 'failed': return 'bg-red-500';
+      default: return 'bg-gray-500';
+    }
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-        <button 
-          onClick={fetchFiles}
-          className="flex items-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
-        >
-          <RefreshCw className="h-4 w-4 mr-2" />
-          Refresh
-        </button>
-      </div>
-      
-      <div className="bg-card shadow-sm rounded-lg p-6 mb-8">
-        <h2 className="text-xl font-bold mb-4">Files Management</h2>
-        
-        {/* Search and filter */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-6">
-          <div className="relative flex-1">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <Search className="h-4 w-4 text-gray-400" />
+    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <header className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Admin Dashboard</h1>
+          <button 
+            onClick={fetchFiles}
+            className="flex items-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+          >
+            <RefreshCw className="h-4 w-4 mr-2" />
+            Refresh
+          </button>
+        </header>
+
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Sidebar */}
+          <aside className="lg:col-span-1 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 h-fit">
+            <h2 className="text-xl font-bold mb-6 text-gray-800 dark:text-white">Filters & Stats</h2>
+            
+            {/* Search */}
+            <div className="relative mb-6">
+              <Search className="h-5 w-5 text-gray-400 absolute top-1/2 left-3 transform -translate-y-1/2" />
+              <input
+                type="text"
+                placeholder="Search files..."
+                className="pl-10 pr-4 py-2 w-full border rounded-md bg-gray-50 dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
-            <input
-              type="text"
-              placeholder="Search files..."
-              className="pl-10 pr-4 py-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Filter className="h-4 w-4 text-gray-400" />
-            <select
-              className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-              value={filterType}
-              onChange={(e) => setFilterType(e.target.value)}
-            >
-              <option value="all">All Files</option>
-              <option value="audio">Audio Only</option>
-              <option value="document">Documents Only</option>
-            </select>
-          </div>
-        </div>
-        
-        {loading && (
-          <div className="flex justify-center items-center h-32">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            <span className="ml-2">Loading files...</span>
-          </div>
-        )}
+            
+            {/* Filter */}
+            <div className="relative mb-6">
+              <Filter className="h-5 w-5 text-gray-400 absolute top-1/2 left-3 transform -translate-y-1/2" />
+              <select
+                className="pl-10 pr-4 py-2 w-full border rounded-md appearance-none bg-gray-50 dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary"
+                value={filterType}
+                onChange={(e) => setFilterType(e.target.value)}
+              >
+                <option value="all">All Files</option>
+                <option value="audio">Audio Only</option>
+                <option value="document">Documents Only</option>
+              </select>
+            </div>
 
-        {error && (
-          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4">
-            <p>{error}</p>
-          </div>
-        )}
+            {/* Stats */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-gray-700 dark:text-gray-300">Statistics</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-gray-600 dark:text-gray-400">Total Files:</span>
+                  <span className="font-bold text-gray-800 dark:text-white">{files.length}</span>
+                </div>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-gray-600 dark:text-gray-400">Audio Files:</span>
+                  <span className="font-bold text-gray-800 dark:text-white">{files.filter(f => f.fileType === 'audio').length}</span>
+                </div>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-gray-600 dark:text-gray-400">Documents:</span>
+                  <span className="font-bold text-gray-800 dark:text-white">{files.filter(f => f.fileType === 'document').length}</span>
+                </div>
+              </div>
+            </div>
+          </aside>
 
-        {!loading && !error && filteredFiles.length === 0 && (
-          <div className="text-center py-12 bg-gray-50 rounded-lg">
-            <p className="text-lg text-gray-500">
-              {files.length === 0 ? "No files have been uploaded yet." : "No files match your filters."}
-            </p>
-            {files.length === 0 && (
-              <Link href="/upload-test" className="inline-block mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-primary/90">
-                Upload a file
-              </Link>
+          {/* Main Content */}
+          <main className="lg:col-span-3">
+            {loading && (
+              <div className="flex justify-center items-center h-64">
+                <Loader2 className="h-12 w-12 animate-spin text-primary" />
+              </div>
             )}
-          </div>
-        )}
 
-        {filteredFiles.length > 0 && (
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="text-left p-3 border-b">File Name</th>
-                  <th className="text-left p-3 border-b">Type</th>
-                  <th className="text-left p-3 border-b">Size</th>
-                  <th className="text-left p-3 border-b">Uploaded</th>
-                  <th className="text-left p-3 border-b">Status</th>
-                  <th className="text-left p-3 border-b">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
+            {error && (
+              <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md">
+                <p>{error}</p>
+              </div>
+            )}
+
+            {!loading && !error && filteredFiles.length === 0 && (
+              <div className="text-center py-20 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                <p className="text-xl text-gray-500 dark:text-gray-400">
+                  {files.length === 0 ? "No files uploaded yet." : "No files match your filters."}
+                </p>
+                {files.length === 0 && (
+                  <Link href="/upload-test" className="inline-block mt-6 px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">
+                    Upload a File
+                  </Link>
+                )}
+              </div>
+            )}
+
+            {!loading && !error && filteredFiles.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {filteredFiles.map((file) => (
-                  <tr key={file.id} className="hover:bg-gray-50 border-b">
-                    <td className="p-3">
-                      <div className="flex items-center">
-                        {file.fileType === 'audio' ? (
-                          <Music className="h-5 w-5 text-blue-500 mr-2" />
-                        ) : (
-                          <FileIcon className="h-5 w-5 text-orange-500 mr-2" />
-                        )}
-                        <span className="font-medium truncate max-w-[200px]" title={file.originalName}>
-                          {file.originalName}
-                        </span>
+                  <div key={file.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1">
+                    <div className="p-5">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-center mb-4">
+                          {file.fileType === 'audio' ? (
+                            <Music className="h-8 w-8 text-blue-500 mr-3" />
+                          ) : (
+                            <FileIcon className="h-8 w-8 text-orange-500 mr-3" />
+                          )}
+                          <div>
+                            <p className="font-bold text-lg text-gray-800 dark:text-white truncate" title={file.originalName}>{file.originalName}</p>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 capitalize">{file.fileType}</p>
+                          </div>
+                        </div>
+                        <div className={`w-3 h-3 rounded-full ${getStatusColor(file.status)}`} title={`Status: ${file.status}`}></div>
                       </div>
-                    </td>
-                    <td className="p-3 capitalize">{file.fileType}</td>
-                    <td className="p-3">{formatFileSize(file.fileSize)}</td>
-                    <td className="p-3">{new Date(file.uploadedAt).toLocaleDateString()}</td>
-                    <td className="p-3">
-                      <select
-                        className={`px-2 py-1 text-sm rounded border ${
-                          file.status === 'pending' ? 'bg-blue-50 border-blue-200' :
-                          file.status === 'in-progress' ? 'bg-yellow-50 border-yellow-200' :
-                          file.status === 'completed' ? 'bg-green-50 border-green-200' :
-                          'bg-gray-50 border-gray-200'
-                        }`}
-                        value={file.status}
-                        onChange={(e) => updateStatus(file.id, e.target.value)}
-                      >
-                        <option value="pending">Pending</option>
-                        <option value="in-progress">In Progress</option>
-                        <option value="completed">Completed</option>
-                        <option value="failed">Failed</option>
-                      </select>
-                    </td>
-                    <td className="p-3">
-                      <div className="flex items-center gap-2">
-                        <a
-                          href={file.cloudinaryUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary hover:text-primary/80 inline-flex items-center"
-                          title="Download"
+
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+                        <div className="flex justify-between">
+                          <span>Size:</span>
+                          <span className="font-medium text-gray-800 dark:text-white">{formatFileSize(file.fileSize)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Uploaded:</span>
+                          <span className="font-medium text-gray-800 dark:text-white">{new Date(file.uploadedAt).toLocaleDateString()}</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <select
+                          className={`w-full px-3 py-2 text-sm rounded-md border appearance-none focus:outline-none focus:ring-2 focus:ring-primary ${ 
+                            file.status === 'pending' ? 'bg-blue-50 dark:bg-blue-900/50 border-blue-200 dark:border-blue-700' :
+                            file.status === 'in-progress' ? 'bg-yellow-50 dark:bg-yellow-900/50 border-yellow-200 dark:border-yellow-700' :
+                            file.status === 'completed' ? 'bg-green-50 dark:bg-green-900/50 border-green-200 dark:border-green-700' :
+                            'bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-600'
+                          }`}
+                          value={file.status}
+                          onChange={(e) => updateStatus(file.id, e.target.value)}
                         >
-                          <Download className="h-4 w-4" />
-                        </a>
-                        
+                          <option value="pending">Pending</option>
+                          <option value="in-progress">In Progress</option>
+                          <option value="completed">Completed</option>
+                          <option value="failed">Failed</option>
+                        </select>
+                      </div>
+
+                      <div className="flex items-center justify-end gap-2">
                         {deleteConfirm === file.id ? (
-                          <div className="flex items-center gap-2 ml-2">
-                            <button
+                          <div className="flex items-center gap-2">
+                             <button
                               onClick={() => deleteFile(file.id)}
-                              className="text-red-600 hover:text-red-800 text-xs font-medium"
+                              className="px-3 py-1 bg-red-600 text-white rounded-md text-xs font-semibold hover:bg-red-700 disabled:opacity-50"
                               disabled={deleting}
                             >
-                              {deleting ? 'Deleting...' : 'Confirm'}
+                              {deleting ? <Loader2 className="h-4 w-4 animate-spin"/> : 'Confirm'}
                             </button>
                             <button
                               onClick={cancelDelete}
-                              className="text-gray-500 hover:text-gray-700 text-xs font-medium"
+                              className="px-3 py-1 bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-white rounded-md text-xs font-semibold hover:bg-gray-400 disabled:opacity-50"
                               disabled={deleting}
                             >
                               Cancel
                             </button>
                           </div>
                         ) : (
-                          <button
-                            onClick={() => confirmDelete(file.id)}
-                            className="text-red-500 hover:text-red-700 inline-flex items-center"
-                            title="Delete"
-                          >
-                            <Trash2 className="h-4 w-4" />
-                          </button>
+                          <>
+                            <a
+                              href={file.cloudinaryUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                              title="Download"
+                            >
+                              <Download className="h-5 w-5" />
+                            </a>
+                            <button
+                              onClick={() => confirmDelete(file.id)}
+                              className="p-2 text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                              title="Delete"
+                            >
+                              <Trash2 className="h-5 w-5" />
+                            </button>
+                          </>
                         )}
                       </div>
-                    </td>
-                  </tr>
+                    </div>
+                  </div>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+              </div>
+            )}
+          </main>
+        </div>
       </div>
     </div>
   );
