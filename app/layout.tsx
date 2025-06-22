@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import FooterSection from "@/components/layout/sections/footer";
-import { BotpressChat } from "@/components/botpress-chat";
+// import { BotpressChat } from "@/components/botpress-chat";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export default function RootLayout({
             {children}
           </main>
           <FooterSection />
-          <BotpressChat />
+          {/* <BotpressChat /> */}
         </ThemeProvider>
       </body>
     </html>

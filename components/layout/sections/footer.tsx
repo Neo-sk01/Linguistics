@@ -3,34 +3,26 @@ import Link from 'next/link'
 
 const links = [
     {
-        title: 'Features',
-        href: '#',
-    },
-    {
         title: 'Solution',
-        href: '#',
+        href: '/solution',
     },
     {
         title: 'Customers',
-        href: '#',
-    },
-    {
-        title: 'Pricing',
-        href: '#',
+        href: '/customers',
     },
     {
         title: 'Help',
-        href: '#',
+        href: '/help',
     },
     {
         title: 'About',
-        href: '#',
+        href: '/about',
     },
 ]
 
 export default function FooterSection() {
     return (
-        <footer className="bg-muted py-16">
+        <footer className="bg-muted py-8">
             <div className="mx-auto max-w-5xl px-6">
                 <Link
                     href="/"
@@ -39,7 +31,7 @@ export default function FooterSection() {
                     <Logo />
                 </Link>
 
-                <div className="my-8 flex flex-wrap justify-center gap-6">
+                <div className="my-4 flex flex-wrap justify-center gap-6">
                     {links.map((link, index) => (
                         <Link
                             key={index}
@@ -49,9 +41,9 @@ export default function FooterSection() {
                         </Link>
                     ))}
                 </div>
-                <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
+                <div className="my-4 flex flex-wrap justify-center gap-6 text-sm">
                     <Link
-                        href="#"
+                        href="https://twitter.com/yourcompany"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="X/Twitter"
@@ -68,7 +60,7 @@ export default function FooterSection() {
                         </svg>
                     </Link>
                     <Link
-                        href="#"
+                        href="https://linkedin.com/company/yourcompany"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn"
@@ -85,7 +77,7 @@ export default function FooterSection() {
                         </svg>
                     </Link>
                     <Link
-                        href="#"
+                        href="https://facebook.com/yourcompany"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Facebook"
@@ -102,7 +94,7 @@ export default function FooterSection() {
                         </svg>
                     </Link>
                     <Link
-                        href="#"
+                        href="https://threads.net/@yourcompany"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Threads"
@@ -124,7 +116,7 @@ export default function FooterSection() {
                         </svg>
                     </Link>
                     <Link
-                        href="#"
+                        href="https://instagram.com/yourcompany"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
@@ -141,7 +133,7 @@ export default function FooterSection() {
                         </svg>
                     </Link>
                     <Link
-                        href="#"
+                        href="https://tiktok.com/@yourcompany"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="TikTok"
