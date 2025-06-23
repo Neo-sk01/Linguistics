@@ -1,84 +1,71 @@
-import { Logo } from '@/components/logo'
-import Link from 'next/link'
-
-const links = [
-    {
-        title: 'Solution',
-        href: '/solution',
-    },
-    {
-        title: 'Customers',
-        href: '/customers',
-    },
-    {
-        title: 'Help',
-        href: '/help',
-    },
-    {
-        title: 'About',
-        href: '/about',
-    },
-]
+import Link from 'next/link';
+import { Logo } from '@/components/logo';
 
 export default function FooterSection() {
     return (
-        <footer className="bg-muted py-8">
-            <div className="mx-auto max-w-5xl px-6">
-                <Link
-                    href="/"
-                    aria-label="go home"
-                    className="mx-auto block size-fit">
-                    <Logo />
-                </Link>
+        <footer className="bg-[#1b2432] text-gray-300 py-8">
+            <div className="container mx-auto p-8 border border-gray-700 rounded-lg">
+                <div className="mb-4 flex justify-center">
+                    <Link href="/" aria-label="go home">
+                        <Logo />
+                    </Link>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {/* CONTACT US */}
+                    <div>
+                        <h3 className="text-lg font-bold text-white mb-4">CONTACT US</h3>
+                        <div className="space-y-3">
+                            <div className="flex items-start">
+                                <svg className="w-5 h-5 text-blue-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                <div>
+                                    <p className="font-semibold text-gray-100">Phone</p>
+                                    <p>067 747 2124</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start">
+                                <svg className="w-5 h-5 text-blue-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                <div>
+                                    <p className="font-semibold text-gray-100">Email</p>
+                                    <p>nkuna@imperiumlinguistics.com</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start">
+                                <svg className="w-5 h-5 text-blue-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div>
+                                    <p className="font-semibold text-gray-100">Hours</p>
+                                    <p>Monday-Friday: 9AM-6PM</p>
+                                    <p>Saturday: 10AM-2PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <div className="my-4 flex flex-wrap justify-center gap-6">
-                    {links.map((link, index) => (
-                        <Link
-                            key={index}
-                            href={link.href}
-                            className="text-muted-foreground hover:text-primary block duration-150">
-                            <span>{link.title}</span>
-                        </Link>
-                    ))}
+                    {/* CONNECT WITH US & QUICK LINKS */}
+                    <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h3 className="text-lg font-bold text-white mb-4">CONNECT WITH US</h3>
+                            <div className="flex space-x-4">
+                                <a href="https://www.facebook.com/imperiumlinguistics" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                                    <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                </a>
+                                <a href="https://www.instagram.com/imperiumlingustics/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                                    <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.266.058 2.163.248 2.914.554.784.31 1.46.72 2.123 1.383.662.662 1.073 1.34 1.383 2.123.306.75.496 1.648.554 2.914.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.058 1.266-.248 2.163-.554 2.914-.31.783-.72 1.46-1.383 2.123-.662.662-1.34 1.073-2.123 1.383-.75.306-1.648.496-2.914.554-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.266-.058-2.163-.248-2.914-.554-.783-.31-1.46-.72-2.123-1.383-.662-.662-1.073-1.34-1.383-2.123-.306-.75-.496-1.648-.554-2.914-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.058-1.266.248-2.163.554-2.914.31-.783.72-1.46 1.383-2.123.662-.662 1.34-1.073 2.123-1.383.75-.306 1.648-.496 2.914-.554C8.416 2.175 8.796 2.163 12 2.163m0-2.163c-3.259 0-3.667.014-4.947.072-1.27.058-2.148.27-2.91.588-.78.316-1.487.74-2.123 1.38-1.275 1.275-1.835 2.9-1.835 4.58C.014 8.333 0 8.74 0 12c0 3.259.014 3.667.072 4.947.058 1.27.27 2.148.588 2.91.316.78.74 1.487 1.38 2.123 1.275 1.275 2.9 1.835 4.58 1.835 1.277.058 1.687.072 4.947.072s3.667-.014 4.947-.072c1.27-.058 2.148-.27 2.91-.588.78-.316 1.487-.74 2.123-1.38 1.275-1.275 1.835-2.9 1.835-4.58 0-1.277.058-1.687.072-4.947s-.014-3.667-.072-4.947c-.058-1.27-.27-2.148-.588-2.91-.316-.78-.74-1.487-1.38-2.123C20.068.82 19.36.495 18.58.18c-.762-.318-1.64-.53-2.91-.588C15.667.014 15.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="text-lg font-bold text-white mb-4">QUICK LINKS</h3>
+                            <nav className="space-y-2">
+                                <Link href="/faq" className="block hover:text-white">FAQ</Link>
+                                <Link href="/policies#privacy" className="block hover:text-white">Privacy</Link>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-                <div className="my-4 flex flex-wrap justify-center gap-6 text-sm">
-                    <Link
-                        href="https://www.facebook.com/imperiumlinguistics"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Facebook"
-                        className="text-muted-foreground hover:text-primary block">
-                        <svg
-                            className="size-6"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"></path>
-                        </svg>
-                    </Link>
-                    <Link
-                        href="https://www.instagram.com/imperiumlingustics/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        className="text-muted-foreground hover:text-primary block">
-                        <svg
-                            className="size-6"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"></path>
-                        </svg>
-                    </Link>
+                <div className="text-center text-gray-400 mt-10 pt-6">
+                    <p>&copy; {new Date().getFullYear()} Imperium Linguistics. All rights reserved.</p>
                 </div>
-                <span className="text-muted-foreground block text-center text-sm"> {new Date().getFullYear()} Tailark Mist, All rights reserved</span>
             </div>
         </footer>
-    )
+    );
 }
