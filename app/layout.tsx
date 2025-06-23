@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   title: "IMPERIUM LINGUISTICS",
   description: "Professional language services",
   icons: {
-    icon: '/noBG.png',
-    apple: '/noBG.png',
+    icon: '/images/sponsors/linguistics(final).png?v=4',
+    apple: '/images/sponsors/linguistics(final).png?v=4',
   },
 };
 
