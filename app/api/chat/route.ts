@@ -1,13 +1,6 @@
 import { streamText } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
 
-// Create an OpenAI API client (that's edge friendly!)
-const openai = createOpenAI({
-  apiKey: process.env.OPENAI_API_KEY || (() => {
-    throw new Error('OPENAI_API_KEY environment variable is required');
-  })(),
-});
-
 // IMPORTANT! Set the runtime to edge
 export const runtime = 'edge';
 
@@ -84,6 +77,11 @@ export async function POST(req: Request) {
         headers: { 'Content-Type': 'text/plain' },
       });
     }
+
+    // Create the OpenAI client inside the runtime handler
+    const openai = createOpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
 
     const result = await streamText({
       model: openai('gpt-4-turbo'),
