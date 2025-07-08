@@ -1,8 +1,7 @@
 import { config } from 'dotenv';
 import { defineConfig } from 'drizzle-kit';
 
-// Load environment variables from .env.local
-config({ path: '.env.local' });
+config({ path: '.env' });
 
 // TODO: Re-enable drizzle configuration in future version
 // Temporarily disabled to allow deployment without database setup
