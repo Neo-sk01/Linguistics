@@ -30,7 +30,7 @@ export default function RootLayout({
         <NextAuthSessionProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            forcedTheme="dark"
             disableTransitionOnChange
           >
             <Navbar />
