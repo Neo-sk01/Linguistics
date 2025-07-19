@@ -1,7 +1,9 @@
 import { db } from "@/lib/db";
-import { fileUploads, transcriptions } from "@/lib/db/schema";
+import { fileUploads } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { v2 as cloudinary } from 'cloudinary';
 
 // Configure Cloudinary
@@ -13,57 +15,44 @@ cloudinary.config({
 
 export async function DELETE(request: NextRequest) {
   try {
-    // Get file ID from URL parameters
+    // 1. Authentication check
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    // 2. Get file ID from URL
     const { searchParams } = new URL(request.url);
     const fileId = searchParams.get('id');
-
     if (!fileId) {
-      return NextResponse.json(
-        { error: "File ID is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "File ID is required" }, { status: 400 });
     }
 
-    // Get the file to delete
-    const fileToDelete = await db
+    // 3. Get the file from the database
+    const [file] = await db
       .select()
       .from(fileUploads)
-      .where(eq(fileUploads.id, fileId));
+      .where(eq(fileUploads.id, fileId))
+      .limit(1);
 
-    if (fileToDelete.length === 0) {
-      return NextResponse.json(
-        { error: "File not found" },
-        { status: 404 }
-      );
+    if (!file) {
+      return NextResponse.json({ error: "File not found" }, { status: 404 });
     }
 
-    const file = fileToDelete[0];
+    // 4. Authorization check
+    if (file.userEmail !== session.user.email) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
 
-    // Transaction to delete associated transcription and file record
+    // 5. Proceed with deletion
     await db.transaction(async (tx) => {
-      // Delete associated transcription if exists
-      await tx
-        .delete(transcriptions)
-        .where(eq(transcriptions.fileId, fileId));
-
-      // Delete file record
-      await tx
-        .delete(fileUploads)
-        .where(eq(fileUploads.id, fileId));
-    });
-
-    // Delete from Cloudinary
-    if (file.cloudinaryPublicId) {
-      try {
-        const resourceType = file.fileType === 'audio' ? 'video' : 'raw';
-        await cloudinary.uploader.destroy(file.cloudinaryPublicId, {
-          resource_type: resourceType
-        });
-      } catch (cloudinaryError) {
-        console.error("Error deleting from Cloudinary:", cloudinaryError);
-        // We'll continue even if Cloudinary deletion fails
+      // Delete from Cloudinary
+      if (file.cloudinaryPublicId) {
+        await cloudinary.uploader.destroy(file.cloudinaryPublicId);
       }
-    }
+      // Delete the file record from the database
+      await tx.delete(fileUploads).where(eq(fileUploads.id, fileId));
+    });
 
     return NextResponse.json({ 
       success: true,

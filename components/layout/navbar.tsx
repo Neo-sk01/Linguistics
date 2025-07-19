@@ -22,7 +22,7 @@ import {
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { ToggleTheme } from "./toogle-theme";
+
 import { useTheme } from "next-themes";
 
 interface RouteProps {
@@ -212,8 +212,78 @@ export const Navbar = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <div className="hidden lg:flex">
-        <ToggleTheme />
+
+
+      {/* Mobile Navigation & Theme Toggle */}
+      <div className="lg:hidden">
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-lg"
+              aria-label="Toggle Menu"
+            >
+              <Menu className="h-6 w-6" />
+            </Button>
+          </SheetTrigger>
+
+          <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white dark:bg-gray-900">
+            <SheetHeader className="border-b pb-2">
+              <Link href="/" className="font-bold text-lg flex items-center" onClick={() => setIsOpen(false)}>
+                <Image 
+                  src="/noBG.png" 
+                  alt="IMPERIUM LINGUISTICS Logo" 
+                  width={120}
+                  height={120}
+                  className="-ml-1 -my-4"
+                />
+              </Link>
+            </SheetHeader>
+
+            <nav className="flex flex-col mt-4 text-base font-medium text-gray-700 dark:text-gray-300">
+              {routeList.map(({ href, label }) => (
+                label === "Services" ? (
+                  <div key={href} className="py-2">
+                    <button
+                      onClick={() => setMobileServicesExpanded(!mobileServicesExpanded)}
+                      className="w-full flex justify-between items-center rounded-md hover:bg-accent transition-colors px-3 py-2"
+                    >
+                      <span>{label}</span>
+                      <ChevronsDown className={`h-5 w-5 transition-transform duration-300 ${mobileServicesExpanded ? 'rotate-180' : ''}`} />
+                    </button>
+                    {mobileServicesExpanded && (
+                      <div className="pl-6 mt-2 flex flex-col gap-1 border-l-2 ml-3 border-gray-200 dark:border-gray-700">
+                        {servicesItems.map((item) => (
+                          <SheetClose asChild key={item.href}>
+                            <Link
+                              href={item.href}
+                              className="flex items-center gap-3 py-2 px-3 rounded-md hover:bg-accent transition-colors text-muted-foreground hover:text-foreground"
+                            >
+                              {item.icon}
+                              <span>{item.label}</span>
+                            </Link>
+                          </SheetClose>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <SheetClose asChild key={href}>
+                    <Link
+                      href={href}
+                      className="block px-3 py-2 rounded-md hover:bg-accent transition-colors"
+                    >
+                      {label}
+                    </Link>
+                  </SheetClose>
+                )
+              ))}
+            </nav>
+            
+
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );
