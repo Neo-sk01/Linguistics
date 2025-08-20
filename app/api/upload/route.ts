@@ -3,8 +3,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import { db } from '@/lib/db';
 import { fileUploads, transcriptions, NewTranscription } from '@/lib/db/schema';
 import { eq, desc } from 'drizzle-orm';
-// import { fileUploads } from '@/lib/db/schema';
-// import { eq, desc } from 'drizzle-orm';
+import { auth, currentUser } from '@clerk/nextjs/server';
 
 // Configure Cloudinary
 cloudinary.config({
@@ -37,11 +36,14 @@ function getClientIP(request: NextRequest): string {
 
 export async function POST(request: NextRequest) {
   try {
+    // Get user authentication info from Clerk
+    const { userId } = await auth();
+    const user = await currentUser();
+    
     // Get form data from the request
     const formData = await request.formData();
     const file = formData.get('file') as File | null;
     const notes = formData.get('notes') as string | null;
-    const userEmail = formData.get('userEmail') as string | null;
     
     // Validate file
     if (!file) {
@@ -84,7 +86,6 @@ export async function POST(request: NextRequest) {
       throw new Error('Failed to upload to Cloudinary');
     }
 
-    // TODO: Re-enable database storage in future version
     // Save metadata to database
     const fileRecord: any = {
       filename: uploadResult.public_id.split('/').pop() || file.name,
@@ -95,7 +96,8 @@ export async function POST(request: NextRequest) {
       cloudinaryUrl: uploadResult.secure_url,
       cloudinaryPublicId: uploadResult.public_id,
       notes: notes || null,
-      userEmail: userEmail || null,
+      userId: userId || null, // Clerk user ID
+      userEmail: user?.emailAddresses[0]?.emailAddress || null, // Clerk user email
       userIp: getClientIP(request),
       status: 'uploaded',
     };

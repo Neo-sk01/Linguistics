@@ -1,5 +1,16 @@
 import { sql } from 'drizzle-orm';
-import { text, integer, pgTable, timestamp, boolean, serial, varchar, pgEnum } from 'drizzle-orm/pg-core';
+import { 
+  text, 
+  integer, 
+  pgTable, 
+  timestamp, 
+  boolean, 
+  serial, 
+  varchar, 
+  pgEnum,
+  primaryKey
+} from 'drizzle-orm/pg-core';
+// Removed NextAuth adapter imports since we're using Clerk
 
 export const fileUploads = pgTable('file_uploads', {
   id: text('id').primaryKey().$defaultFn(() => crypto.randomUUID()),
@@ -22,8 +33,9 @@ export const fileUploads = pgTable('file_uploads', {
   // Processing status
   status: text('status').default('pending'), // pending, processed, completed, failed
   
-  // User info (if you add authentication later)
-  userEmail: text('user_email'),
+  // User info with Clerk
+  userId: text('user_id'), // Clerk user ID
+  userEmail: text('user_email'), // Keep for backward compatibility
   userIp: text('user_ip'),
 });
 
@@ -41,6 +53,8 @@ export const transcriptions = pgTable('transcriptions', {
   updatedAt: timestamp('updated_at').defaultNow(),
   completedAt: timestamp('completed_at'),
 });
+
+// NextAuth tables removed - Clerk manages users externally
 
 export type FileUpload = typeof fileUploads.$inferSelect;
 export type NewFileUpload = typeof fileUploads.$inferInsert;

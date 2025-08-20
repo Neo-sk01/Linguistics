@@ -2,8 +2,7 @@ import { db } from "@/lib/db";
 import { fileUploads } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { auth } from "@clerk/nextjs/server";
 import { v2 as cloudinary } from 'cloudinary';
 
 // Configure Cloudinary
@@ -16,8 +15,8 @@ cloudinary.config({
 export async function DELETE(request: NextRequest) {
   try {
     // 1. Authentication check
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.email) {
+    const { userId } = await auth();
+    if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
@@ -40,7 +39,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     // 4. Authorization check
-    if (file.userEmail !== session.user.email) {
+    if (file.userId && file.userId !== userId) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 

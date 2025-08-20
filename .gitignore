@@ -145,8 +145,12 @@ dev-debug.log
 *.sln
 *.sw?
 # OS specific
-# Task files
-tasks.json
-tasks/ 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Task files
+# tasks.json
+# tasks/ 
+
+# clerk configuration (can include secrets)
+/.clerk/
