@@ -2,7 +2,6 @@ import { db } from "@/lib/db";
 import { fileUploads } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs/server";
 import { v2 as cloudinary } from 'cloudinary';
 
 // Configure Cloudinary
@@ -14,20 +13,14 @@ cloudinary.config({
 
 export async function DELETE(request: NextRequest) {
   try {
-    // 1. Authentication check
-    const { userId } = await auth();
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    // 2. Get file ID from URL
+    // Get file ID from URL
     const { searchParams } = new URL(request.url);
     const fileId = searchParams.get('id');
     if (!fileId) {
       return NextResponse.json({ error: "File ID is required" }, { status: 400 });
     }
 
-    // 3. Get the file from the database
+    // Get the file from the database
     const [file] = await db
       .select()
       .from(fileUploads)
@@ -38,12 +31,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "File not found" }, { status: 404 });
     }
 
-    // 4. Authorization check
-    if (file.userId && file.userId !== userId) {
-      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
-    }
-
-    // 5. Proceed with deletion
+    // Proceed with deletion (no authentication required)
     await db.transaction(async (tx) => {
       // Delete from Cloudinary
       if (file.cloudinaryPublicId) {

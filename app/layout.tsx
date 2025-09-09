@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 
 import FooterSection from "@/components/layout/sections/footer";
-import { ClerkProvider } from "@clerk/nextjs";
 import ChatWidget from "@/components/ChatWidget";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,17 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="pt-br" className="dark" suppressHydrationWarning>
-        <body className={cn("min-h-screen bg-background flex flex-col", inter.className)}>
-          <Navbar />
-          <main className="flex-1">
-            {children}
-          </main>
-          <FooterSection />
-          <ChatWidget />
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="pt-br" className="dark" suppressHydrationWarning>
+      <body className={cn("min-h-screen bg-background flex flex-col", inter.className)}>
+        <Navbar />
+        <main className="flex-1">
+          {children}
+        </main>
+        <FooterSection />
+        <ChatWidget />
+      </body>
+    </html>
   );
 }

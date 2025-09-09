@@ -3,7 +3,6 @@ import { v2 as cloudinary } from 'cloudinary';
 import { db } from '@/lib/db';
 import { fileUploads, transcriptions, NewTranscription } from '@/lib/db/schema';
 import { eq, desc } from 'drizzle-orm';
-import { auth, currentUser } from '@clerk/nextjs/server';
 
 // Configure Cloudinary
 cloudinary.config({
@@ -36,10 +35,6 @@ function getClientIP(request: NextRequest): string {
 
 export async function POST(request: NextRequest) {
   try {
-    // Get user authentication info from Clerk
-    const { userId } = await auth();
-    const user = await currentUser();
-    
     // Get form data from the request
     const formData = await request.formData();
     const file = formData.get('file') as File | null;
@@ -96,8 +91,8 @@ export async function POST(request: NextRequest) {
       cloudinaryUrl: uploadResult.secure_url,
       cloudinaryPublicId: uploadResult.public_id,
       notes: notes || null,
-      userId: userId || null, // Clerk user ID
-      userEmail: user?.emailAddresses[0]?.emailAddress || null, // Clerk user email
+      userId: null, // No authentication required
+      userEmail: null, // No authentication required
       userIp: getClientIP(request),
       status: 'uploaded',
     };
