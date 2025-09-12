@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 
 import FooterSection from "@/components/layout/sections/footer";
-import NextAuthSessionProvider from "@/components/layout/session-provider";
 import ChatWidget from "@/components/ChatWidget";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,14 +26,12 @@ export default function RootLayout({
   return (
     <html lang="pt-br" className="dark" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background flex flex-col", inter.className)}>
-        <NextAuthSessionProvider>
-          <Navbar />
-          <main className="flex-1">
-            {children}
-          </main>
-          <FooterSection />
-          <ChatWidget />
-        </NextAuthSessionProvider>
+        <Navbar />
+        <main className="flex-1">
+          {children}
+        </main>
+        <FooterSection />
+        <ChatWidget />
       </body>
     </html>
   );

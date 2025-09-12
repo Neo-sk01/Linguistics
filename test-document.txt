@@ -1,0 +1,22 @@
+Linguistics Upload System Test Document
+========================================
+
+Date: January 23, 2025
+Test Type: Upload Functionality Verification
+
+This document is being used to test the file upload system.
+If you can read this in your files list, the upload was successful!
+
+Features being tested:
+- File upload to Cloudinary
+- Metadata storage in Neon database
+- File retrieval and listing
+- Download functionality
+
+System Components:
+1. Next.js API routes
+2. Cloudinary storage
+3. Neon PostgreSQL database
+4. React upload interface
+
+Test conducted by: System Administrator

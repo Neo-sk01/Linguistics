@@ -24,6 +24,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { useTheme } from "next-themes";
+import AuthButton from "../AuthButton";
 
 interface RouteProps {
   href: string;
@@ -199,7 +200,9 @@ export const Navbar = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-
+      <div className="hidden lg:block">
+        <AuthButton />
+      </div>
 
       {/* Mobile Navigation & Theme Toggle */}
       <div className="lg:hidden">
@@ -268,6 +271,9 @@ export const Navbar = () => {
               ))}
             </nav>
             
+            <div className="mt-4">
+              <AuthButton />
+            </div>
 
           </SheetContent>
         </Sheet>
