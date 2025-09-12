@@ -426,9 +426,14 @@ export const TranscriptionServicesSection = () => {
             viewport={{ once: true }}
             className="flex justify-center mt-12"
           >
-            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md hover:shadow-lg transition-all">
+            <a
+              href="https://wetransfer.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md hover:shadow-lg transition-all"
+            >
               Get Started
-            </button>
+            </a>
           </motion.div>
         </div>
       </section>
