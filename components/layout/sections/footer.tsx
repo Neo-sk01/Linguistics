@@ -57,6 +57,7 @@ export default function FooterSection() {
                             <h3 className="text-lg font-bold text-white mb-4">QUICK LINKS</h3>
                             <nav className="space-y-2">
                                 <Link href="/faq" className="block hover:text-white">FAQ</Link>
+                                <Link href="/we-transfer" className="block hover:text-white">WeTransfer Guide</Link>
                                 <Link href="/policies#privacy" className="block hover:text-white">Privacy</Link>
                             </nav>
                         </div>

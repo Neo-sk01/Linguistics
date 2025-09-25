@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 
-import FooterSection from "@/components/layout/sections/footer";
+import ConditionalFooter from "./conditional-footer";
 import ChatWidget from "@/components/ChatWidget";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,7 +30,7 @@ export default function RootLayout({
         <main className="flex-1">
           {children}
         </main>
-        <FooterSection />
+        <ConditionalFooter />
         <ChatWidget />
       </body>
     </html>

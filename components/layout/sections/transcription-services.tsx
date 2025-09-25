@@ -516,13 +516,14 @@ export const TranscriptionServicesSection = () => {
               Our team of professional transcriptionists are ready to help with your next project.
             </p>
             <div className="mt-10">
-              <motion.button 
+              <motion.a 
+                href="/contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md hover:shadow-lg transition-all"
+                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md hover:shadow-lg transition-all no-underline rounded-md"
               >
-                Request a Quote
-              </motion.button>
+                Contact Us
+              </motion.a>
             </div>
           </motion.div>
           
