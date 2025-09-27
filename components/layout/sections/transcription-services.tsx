@@ -50,7 +50,7 @@ export const TranscriptionServicesSection = () => {
         "Market Research",
         "Support Services"
       ],
-      className: "bg-gradient-to-br from-gray-50/40 to-white dark:from-gray-900/20 dark:to-gray-900/10 border-gray-200/50 dark:border-gray-700/30",
+      className: "bg-gradient-to-br from-gray-50/40 to-white dark:from-gray-900/20 dark:to-gray-900/10 border-gray-200/50 dark:border-blue-100/30",
       icon: MessageSquareText
     },
     {
@@ -73,7 +73,7 @@ export const TranscriptionServicesSection = () => {
         "Casette Transcriptions",
         "CD/DVD/MP3 Transcriptions"
       ],
-      className: "bg-gradient-to-br from-gray-50/40 to-white dark:from-gray-900/20 dark:to-gray-900/10 border-gray-200/50 dark:border-gray-700/30",
+      className: "bg-gradient-to-br from-gray-50/40 to-white dark:from-gray-900/20 dark:to-gray-900/10 border-gray-200/50 dark:border-blue-100/30",
       icon: AudioWaveform
     }
   ];
@@ -114,14 +114,14 @@ export const TranscriptionServicesSection = () => {
           onClick={(e) => e.stopPropagation()}
         >
           <button 
-            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" 
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-600" 
             onClick={handleCloseCertificate}
             aria-label="Close certificate modal"
           >
             <X className="h-5 w-5" />
           </button>
           <h3 className="text-xl font-bold text-blue-600 mb-3 text-center">Transcription Certificate</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 text-center">{certificateType}</p>
+          <p className="text-gray-600 dark:text-gray-600 text-sm mb-4 text-center">{certificateType}</p>
           <div className="relative">
             <div className="absolute -top-2 -left-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">Official</div>
             <Image 
@@ -129,7 +129,7 @@ export const TranscriptionServicesSection = () => {
               alt="Transcribers Certificate" 
               width={400} 
               height={520}
-              className="mx-auto rounded-md border border-gray-200 dark:border-gray-700 shadow-md"
+              className="mx-auto rounded-md border border-gray-200 dark:border-blue-100 shadow-md"
             />
           </div>
         </motion.div>
@@ -140,7 +140,7 @@ export const TranscriptionServicesSection = () => {
   return (
     <>
       {/* Video Section with a similar layout to the contact section */}
-      <section className="py-10 md:py-16 bg-[#1b2532] text-white dark:bg-[#1b2532] relative">
+      <section className="py-10 md:py-16 bg-white text-gray-900 dark:bg-white relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-600/70 to-transparent"></div>
         
         <div className="container px-4 mx-auto">
@@ -151,8 +151,8 @@ export const TranscriptionServicesSection = () => {
             viewport={{ once: true }}
             className="mb-10 text-center"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-white">
-              TRANSCRIPTION <span className="text-blue-300">SERVICES</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              TRANSCRIPTION <span className="text-primary">SERVICES</span>
             </h2>
             <div className="w-16 h-0.5 bg-blue-600/50 mx-auto mt-3"></div>
           </motion.div>
@@ -165,10 +165,10 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="w-full max-w-6xl"
             >
-              <div className="bg-[#1b2532] border border-gray-700 rounded-lg p-6 shadow-lg overflow-hidden">
+              <div className="bg-white border border-blue-100 rounded-lg p-6 shadow-lg overflow-hidden">
                 <div className="flex flex-col">
                   {/* Video at the top */}
-                  <div className="w-full max-w-3xl mx-auto aspect-video bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 mb-6">
+                  <div className="w-full max-w-3xl mx-auto aspect-video bg-gray-100 dark:bg-gray-200 rounded-lg overflow-hidden shadow-md border border-blue-100 mb-6">
                     <video 
                       className="w-full h-full object-cover"
                       controls
@@ -182,12 +182,12 @@ export const TranscriptionServicesSection = () => {
                   
                   {/* Process Description below video */}
                   <div className="mb-8 text-center max-w-3xl mx-auto">
-                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-blue-300 relative inline-block">
+                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary relative inline-block">
                       Our Transcription Process
                       <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-300/50"></span>
                     </h3>
                     
-                    <p className="text-gray-200 mb-6 text-sm">
+                    <p className="text-gray-600 mb-6 text-sm">
                       Audio is transcribed using advanced AI software for accuracy instead of manual transcription, 
                       which has associated risks of typographical errors, and a secondary human for review.
                     </p>
@@ -200,22 +200,22 @@ export const TranscriptionServicesSection = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: 0.3 }}
-                      className="bg-[#263247] p-4 rounded-md border border-blue-400/20 relative"
+                      className="bg-blue-50 p-4 rounded-md border border-blue-100 relative"
                     >
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-400 text-white text-xs font-medium py-1 px-2 rounded-full">
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white text-xs font-medium py-1 px-2 rounded-full">
                         STEP 1
                       </div>
-                      <div className="h-12 w-12 bg-blue-400/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <AudioWaveform className="h-6 w-6 text-blue-300" />
+                      <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <AudioWaveform className="h-6 w-6 text-primary" />
                       </div>
-                      <h4 className="font-medium text-blue-300 mb-1 text-sm text-center">FIRST STEP OF THE PROCESS</h4>
-                      <p className="text-sm text-gray-200 text-center">
+                      <h4 className="font-medium text-primary mb-1 text-sm text-center">FIRST STEP OF THE PROCESS</h4>
+                      <p className="text-sm text-gray-600 text-center">
                         Place an AUDIO file into the AI software for transcription, with the assistance of a Human.
                       </p>
                       
                       {/* Arrow pointing to next step - visible only on desktop */}
                       <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2">
-                        <ArrowRight className="h-5 w-5 text-blue-300" />
+                        <ArrowRight className="h-5 w-5 text-primary" />
                       </div>
                     </motion.div>
 
@@ -224,22 +224,22 @@ export const TranscriptionServicesSection = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: 0.4 }}
-                      className="bg-[#263247] p-4 rounded-md border border-blue-400/20 relative"
+                      className="bg-blue-50 p-4 rounded-md border border-blue-100 relative"
                     >
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-400 text-white text-xs font-medium py-1 px-2 rounded-full">
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white text-xs font-medium py-1 px-2 rounded-full">
                         STEP 2
                       </div>
-                      <div className="h-12 w-12 bg-blue-400/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <FileText className="h-6 w-6 text-blue-300" />
+                      <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <FileText className="h-6 w-6 text-primary" />
                       </div>
-                      <h4 className="font-medium text-blue-300 mb-1 text-sm text-center">SECOND STEP OF THE PROCESS</h4>
-                      <p className="text-sm text-gray-200 text-center">
+                      <h4 className="font-medium text-primary mb-1 text-sm text-center">SECOND STEP OF THE PROCESS</h4>
+                      <p className="text-sm text-gray-600 text-center">
                         The editor, after comparing the transcript with the recording, transfer them to the proof reading department.
                       </p>
                       
                       {/* Arrow pointing to next step - visible only on desktop */}
                       <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2">
-                        <ArrowRight className="h-5 w-5 text-blue-300" />
+                        <ArrowRight className="h-5 w-5 text-primary" />
                       </div>
                     </motion.div>
 
@@ -248,16 +248,16 @@ export const TranscriptionServicesSection = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: 0.5 }}
-                      className="bg-[#263247] p-4 rounded-md border border-blue-400/20 relative"
+                      className="bg-blue-50 p-4 rounded-md border border-blue-100 relative"
                     >
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-400 text-white text-xs font-medium py-1 px-2 rounded-full">
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white text-xs font-medium py-1 px-2 rounded-full">
                         STEP 3
                       </div>
-                      <div className="h-12 w-12 bg-blue-400/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <MessageSquareText className="h-6 w-6 text-blue-300" />
+                      <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <MessageSquareText className="h-6 w-6 text-primary" />
                       </div>
-                      <h4 className="font-medium text-blue-300 mb-1 text-sm text-center">FINAL STEP OF THE PROCESS</h4>
-                      <p className="text-sm text-gray-200 text-center">
+                      <h4 className="font-medium text-primary mb-1 text-sm text-center">FINAL STEP OF THE PROCESS</h4>
+                      <p className="text-sm text-gray-600 text-center">
                         Transcripts will then be proof read, then a soft copy gets to be sent to the client.
                       </p>
                     </motion.div>
@@ -270,22 +270,22 @@ export const TranscriptionServicesSection = () => {
       </section>
 
       {/* Verbatim Transcription Types Section */}
-      <section className="bg-[#1b2532] text-white py-16 sm:py-20 dark:bg-[#1b2532] relative overflow-hidden dark:text-white">
-        <div className="w-full bg-[#1b2532] dark:bg-[#1b2532]">
+      <section className="bg-white text-gray-900 py-16 sm:py-20 dark:bg-white relative overflow-hidden">
+        <div className="w-full bg-white dark:bg-white">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             className="flex flex-col items-center text-center mb-16 mt-8 px-6 py-8 max-w-4xl mx-auto"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-600 dark:text-white">
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-primary">
               <span className="inline-block relative">
                 Verbatim Transcription Types
-                <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-blue-500 dark:bg-blue-400/50"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-blue-500 dark:bg-primary/50"></span>
               </span>
             </h2>
             
-            <div className="max-w-3xl mx-auto space-y-4 text-gray-700 dark:text-gray-300 mt-6">
+            <div className="max-w-3xl mx-auto space-y-4 text-gray-700 dark:text-gray-600 mt-6">
               <p className="text-base">
                 Our default transcription type – Clean Verbatim, with no time stamps, is the most popular.
               </p>
@@ -307,19 +307,19 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-[#1b2532] text-white p-8 relative z-10 flex flex-col items-center h-full">
-                <h3 className="text-xl font-bold text-white mb-2">CLEAN VERBATIM</h3>
-                <p className="text-xs text-gray-300 mb-4">(Standard/Default)</p>
+              <div className="bg-white text-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-100 shadow-sm">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">CLEAN VERBATIM</h3>
+                <p className="text-xs text-gray-500 mb-4">(Standard/Default)</p>
                 
                 <div className="flex-grow">
-                  <p className="text-center text-sm text-gray-300 mb-6">
+                  <p className="text-center text-sm text-gray-600 mb-6">
                     The transcription excludes: all utterances that are not words eg. um, uh huh, mmhm..
                   </p>
                 </div>
                 
                 <div className="w-full pt-4 mt-auto">
                   <button 
-                    className="w-full py-2 text-blue-300 font-medium hover:text-blue-100 transition-colors text-sm"
+                    className="w-full py-2 text-primary font-medium hover:text-blue-700 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Clean Verbatim Sample")}
                   >
                     VIEW SAMPLE
@@ -336,22 +336,22 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-[#1b2532] text-white p-8 relative z-10 flex flex-col items-center h-full">
-                <h3 className="text-xl font-bold text-white mb-2">FULL VERBATIM</h3>
-                <p className="text-xs text-gray-300 mb-4"></p>
+              <div className="bg-white text-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-100 shadow-sm">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">FULL VERBATIM</h3>
+                <p className="text-xs text-gray-500 mb-4"></p>
                 
                 <div className="flex-grow">
-                  <p className="text-center text-sm text-gray-300 mb-3">
+                  <p className="text-center text-sm text-gray-600 mb-3">
                     The transcription includes: All verbal utterances such as um, uh huh, mmhm.
                   </p>
-                  <p className="text-center text-sm text-gray-300">
+                  <p className="text-center text-sm text-gray-600">
                     Does not include non-verbal communication such as laughter, crying, emotions or pauses.
                   </p>
                 </div>
                 
                 <div className="w-full pt-4 mt-auto">
                   <button 
-                    className="w-full py-2 text-blue-300 font-medium hover:text-blue-100 transition-colors text-sm"
+                    className="w-full py-2 text-primary font-medium hover:text-blue-700 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Full Verbatim Sample")}
                   >
                     VIEW SAMPLE
@@ -368,19 +368,19 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-[#1b2532] text-white p-8 relative z-10 flex flex-col items-center h-full">
-                <h3 className="text-xl font-bold text-white mb-2">TIME STAMPS</h3>
-                <p className="text-xs text-gray-300 mb-4"></p>
+              <div className="bg-white text-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-100 shadow-sm">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">TIME STAMPS</h3>
+                <p className="text-xs text-gray-500 mb-4"></p>
                 
                 <div className="flex-grow">
-                  <p className="text-center text-sm text-gray-300 mb-3">
+                  <p className="text-center text-sm text-gray-600 mb-3">
                     Every 2 minutes or more.
                   </p>
                 </div>
                 
                 <div className="w-full pt-4 mt-auto">
                   <button 
-                    className="w-full py-2 text-blue-300 font-medium hover:text-blue-100 transition-colors text-sm"
+                    className="w-full py-2 text-primary font-medium hover:text-blue-700 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Time Stamps Sample (Every 2 Minutes)")}
                   >
                     VIEW SAMPLE
@@ -397,19 +397,19 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-[#1b2532] text-white p-8 relative z-10 flex flex-col items-center h-full">
-                <h3 className="text-xl font-bold text-white mb-2">TIME STAMPS</h3>
-                <p className="text-xs text-gray-300 mb-4"></p>
+              <div className="bg-white text-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-100 shadow-sm">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">TIME STAMPS</h3>
+                <p className="text-xs text-gray-500 mb-4"></p>
                 
                 <div className="flex-grow">
-                  <p className="text-center text-sm text-gray-300 mb-3">
+                  <p className="text-center text-sm text-gray-600 mb-3">
                     On Speaker change.
                   </p>
                 </div>
                 
                 <div className="w-full pt-4 mt-auto">
                   <button 
-                    className="w-full py-2 text-blue-300 font-medium hover:text-blue-100 transition-colors text-sm"
+                    className="w-full py-2 text-primary font-medium hover:text-blue-100 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Time Stamps Sample (On Speaker Change)")}
                   >
                     VIEW SAMPLE
@@ -438,12 +438,12 @@ export const TranscriptionServicesSection = () => {
       </section>
 
       {/* Transcription Services Section */}
-      <section className="py-24 sm:py-32 relative overflow-hidden w-full bg-white dark:bg-[#1b2532] text-gray-800 dark:text-white">
+      <section className="py-24 sm:py-32 relative overflow-hidden w-full bg-white text-gray-800 dark:bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-blue-600 dark:text-white sm:text-4xl">Our Transcription Services</h2>
+            <h2 className="text-3xl font-bold text-primary sm:text-4xl">Our Transcription Services</h2>
             <div className="w-24 h-1 bg-blue-500 mx-auto my-4"></div>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">We offer a comprehensive range of professional transcription services tailored to your specific needs.</p>
+            <p className="text-gray-600 dark:text-gray-600 max-w-2xl mx-auto">We offer a comprehensive range of professional transcription services tailored to your specific needs.</p>
           </div>
           
           <motion.div 
@@ -461,19 +461,19 @@ export const TranscriptionServicesSection = () => {
               className={cn(
                 "p-8 relative overflow-hidden transition-all h-full", 
                 "border border-blue-300 dark:border-blue-900/30 rounded-lg hover:border-blue-500 dark:hover:border-blue-400/50",
-                "bg-white dark:bg-[#111827] hover:bg-blue-50 dark:hover:bg-blue-900/20 shadow-sm hover:shadow"
+                "bg-white dark:bg-white hover:bg-blue-50 hover:bg-blue-100 shadow-sm hover:shadow"
               )}
             >
               <div className="w-16 h-16 flex items-center justify-center mb-6 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-500/30 dark:to-blue-900/20 rounded-full shadow-inner shadow-blue-400/10">
                 <category.icon className="h-8 w-8 text-blue-600 dark:text-blue-400" />
               </div>
               
-              <h3 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400 border-b border-blue-200 dark:border-blue-400/20 pb-2">{category.title}</h3>
+              <h3 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400 border-b border-blue-200 dark:border-blue-100 pb-2">{category.title}</h3>
               <ul className="space-y-4">
                 {category.items.map((item) => (
                   <li key={item} className="flex items-start group">
-                    <span className="w-2 h-2 bg-blue-500 dark:bg-blue-400 mr-3 rounded-full mt-1.5 flex-shrink-0"></span>
-                    <span className="text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{item}</span>
+                    <span className="w-2 h-2 bg-blue-500 dark:bg-primary mr-3 rounded-full mt-1.5 flex-shrink-0"></span>
+                    <span className="text-gray-700 dark:text-gray-600 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -511,7 +511,7 @@ export const TranscriptionServicesSection = () => {
             className="max-w-4xl mx-auto text-center mb-16 mt-20"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-600 max-w-2xl mx-auto">
               Our team of professional transcriptionists are ready to help with your next project.
             </p>
             <div className="mt-10">

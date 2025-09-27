@@ -1,5 +1,5 @@
 "use client";
-import { ChevronsDown, Menu, FileText, Headphones, Languages, X } from "lucide-react";
+import { ChevronsDown, Menu, FileText, Languages, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import {
   Sheet,
@@ -77,12 +77,6 @@ const servicesItems: ServiceItemProps[] = [
     label: "Interpreting",
     description: "Expert interpreting services for multiple languages",
     icon: <Languages className="h-5 w-5 text-primary" />
-  },
-  {
-    href: "/conference-equipment",
-    label: "Conference Equipment",
-    description: "High-quality equipment for professional events",
-    icon: <Headphones className="h-5 w-5 text-primary" />
   },
 ];
 

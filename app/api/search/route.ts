@@ -34,13 +34,6 @@ const searchIndex: SearchItem[] = [
   },
   {
     id: '3',
-    title: 'Conference Equipment',
-    content: 'Professional conference equipment rental for events. We offer microphones, headsets, booths, and more.',
-    url: '/conference-equipment',
-    type: 'page',
-  },
-  {
-    id: '4',
     title: 'What languages do you support?',
     content: 'We support a wide range of languages including but not limited to English, Spanish, French, German, Chinese, Japanese, Arabic, and Russian.',
     url: '/faq#languages',

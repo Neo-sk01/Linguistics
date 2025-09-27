@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export const ContactSection = () => {
   return (
-    <section className="bg-[#1b2432] text-gray-100 py-16 sm:py-20">
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl bg-[#1b2432] rounded-xl p-8 border border-blue-900/30">
+    <section className="bg-white text-gray-900 py-16 sm:py-20">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl bg-white rounded-xl p-8 border border-blue-100 shadow-sm">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,7 +16,7 @@ export const ContactSection = () => {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-white font-semibold hover:bg-blue-700 transition-colors"
             aria-label="Go to contact page"
           >
             GET IN <span className="text-white">TOUCH</span>
@@ -53,7 +53,7 @@ export const ContactSection = () => {
               href="https://maps.google.com/maps?q=Hazeldean+Office+Park,+Silverlakes+Rd,+Tyger+Valley,+0084" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium text-sm"
+              className="inline-flex items-center gap-2 text-primary hover:text-blue-700 font-medium text-sm"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
                 <path d="M9 18l6-6-6-6" />

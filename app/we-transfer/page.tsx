@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function WeTransferPage() {
   return (
-    <main className="min-h-screen bg-[#0c1220]">
+    <main className="min-h-screen bg-white">
       <WeTransferGuideSection />
     </main>
   );

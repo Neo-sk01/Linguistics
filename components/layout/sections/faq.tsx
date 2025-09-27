@@ -31,7 +31,6 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
           <ul className="list-disc pl-5 space-y-1 mb-2">
             <li>Transcription Services (Legal, Business, Educational, General)</li>
             <li>Interpreting Services (Simultaneous & Consecutive)</li>
-            <li>Conference Equipment Rentals (including audio and recording systems)</li>
           </ul>
         </>
       ),
