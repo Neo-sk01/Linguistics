@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Languages, Mic, MessageSquareText, Globe, ArrowRight, GraduationCap, 
   Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays, Building2, Headphones } from "lucide-react";
 import { motion } from "framer-motion";
+import { RequestQuoteDialog } from "@/components/layout/request-quote-dialog";
 
 interface ServiceCategory {
   title: string;
@@ -189,13 +190,17 @@ export const InterpretingServicesSection = () => {
                 Our team of professional interpreters are ready to help with your next project.
               </p>
               <div className="mt-10">
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all"
-                >
-                  Request a Quote
-                </motion.button>
+                <RequestQuoteDialog
+                  trigger={(
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all"
+                    >
+                      Request a Quote
+                    </motion.button>
+                  )}
+                />
               </div>
             </motion.div>
           </div>

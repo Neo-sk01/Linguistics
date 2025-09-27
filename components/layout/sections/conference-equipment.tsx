@@ -4,6 +4,7 @@ import { Mic, AudioWaveform, Radio, ArrowRight, Speaker,
   Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { RequestQuoteDialog } from "@/components/layout/request-quote-dialog";
 
 interface EquipmentCategory {
   title: string;
@@ -265,13 +266,17 @@ export const ConferenceEquipmentSection = () => {
             className="max-w-4xl mx-auto text-center mb-16"
           >
             <div className="mt-10">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all"
-              >
-                Request a Quote
-              </motion.button>
+              <RequestQuoteDialog
+                trigger={(
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all"
+                  >
+                    Request a Quote
+                  </motion.button>
+                )}
+              />
             </div>
           </motion.div>
           
