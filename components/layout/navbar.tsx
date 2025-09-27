@@ -53,7 +53,7 @@ const routeList: RouteProps[] = [
   },
   {
     href: "/we-transfer",
-    label: "WeTransfer",
+    label: "Upload Files",
   },
   {
     href: "/faq",

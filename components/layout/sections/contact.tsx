@@ -35,7 +35,7 @@ export const ContactSection = () => {
           viewport={{ once: true }}
           className="mb-10"
         >
-          <div className="overflow-hidden rounded-lg max-w-4xl mx-auto">
+          <div className="overflow-hidden rounded-lg w-full mx-auto">
             <div className="mx-auto" style={{ maxWidth: "100%", width: "100%", height: "400px", overflow: "hidden" }}>
               <iframe 
                 src="https://www.google.com/maps/embed/v1/place?q=Hazeldean+Office+Park,+Silverlakes+Rd,+Tyger+Valley,+0084&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"

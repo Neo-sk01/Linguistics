@@ -4,6 +4,7 @@ import { AudioWaveform, FileText, MessageSquareText, BookText, Mic, ArrowRight, 
   Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays, X } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
 interface ServiceCategory {
@@ -426,14 +427,12 @@ export const TranscriptionServicesSection = () => {
             viewport={{ once: true }}
             className="flex justify-center mt-12"
           >
-            <a
-              href="https://wetransfer.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/we-transfer"
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md hover:shadow-lg transition-all"
             >
               Get Started
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

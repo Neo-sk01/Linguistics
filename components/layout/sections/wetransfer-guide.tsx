@@ -314,11 +314,6 @@ export const WeTransferGuideSection = () => {
             <p className="text-sm text-gray-300 sm:text-base">
               When your files are on the way, forward the WeTransfer receipt to <a href="mailto:nkuna@imperiumlinguistics.com" className="text-blue-200 underline-offset-2 hover:text-white hover:underline">nkuna@imperiumlinguistics.com</a> so we can confirm immediately.
             </p>
-            <Button asChild size="lg" variant="secondary" className="bg-blue-600 text-white hover:bg-blue-500">
-              <Link href="/contact">
-                Request a custom upload option
-              </Link>
-            </Button>
           </motion.div>
         </div>
       </section>
