@@ -54,35 +54,42 @@ const sponsors: SponsorProps[] = [
 
 export const SponsorsSection = () => {
   return (
-    <section id="sponsors" className="max-w-[75%] mx-auto pb-24 sm:pb-32">
-      <h2 className="text-lg md:text-xl text-center mb-6">
-        Our Platinum Partners
-      </h2>
+    <section id="sponsors" className="relative mx-auto w-full max-w-6xl py-20 sm:py-24">
+      <div className="text-center">
+        <span className="layer-chip inline-flex items-center justify-center px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.4em]">
+          Partners
+        </span>
+        <h2 className="mt-6 text-3xl font-bold text-[hsl(var(--foreground))] md:text-4xl">
+          Our Platinum Partners
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-[hsl(var(--muted-foreground))]">
+          Trusted collaborators who elevate every multilingual experience.
+        </p>
+      </div>
 
-      <div className="mx-auto">
-        <Marquee
-          className="gap-[3rem]"
-          fade
-          innerClassName="gap-[3rem]"
-          pauseOnHover
-        >
-          {sponsors.map(({ imageUrl, name }) => (
-            <div
-              key={name}
-              className="flex items-center"
-            >
-              <div className="relative w-[128px] h-[128px]">
-                <Image
-                  src={imageUrl}
-                  alt={`${name} logo`}
-                  width={128}
-                  height={128}
-                  className="object-contain"
-                />
+      <div className="mt-12">
+        <div className="layer-shell overflow-hidden px-4 py-8 sm:px-8" data-variant="secondary">
+          <Marquee
+            className="gap-16 [--duration:22s]"
+            fade
+            innerClassName="gap-16"
+            pauseOnHover
+          >
+            {sponsors.map(({ imageUrl, name }) => (
+              <div key={name} className="flex items-center justify-center">
+                <div className="relative flex h-28 w-28 items-center justify-center rounded-2xl border border-[hsl(var(--secondary-layer-3))] bg-[hsl(var(--surface-card))] shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_16px_26px_-14px_rgba(30,58,138,0.24)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_20px_30px_-14px_rgba(30,58,138,0.28)]">
+                  <Image
+                    src={imageUrl}
+                    alt={`${name} logo`}
+                    fill
+                    className="object-contain p-6"
+                    sizes="(max-width: 768px) 112px, 128px"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </Marquee>
+            ))}
+          </Marquee>
+        </div>
       </div>
     </section>
   );

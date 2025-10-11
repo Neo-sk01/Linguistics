@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown, Search, PlusCircle, HelpCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface FaqSectionProps {
   hideTitle?: boolean;
@@ -111,36 +113,34 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
   });
 
   return (
-    <section id="faq" className="container py-16 sm:py-24 relative">
-      {/* Decorative elements */}
-      <div className="absolute -top-10 right-10 w-64 h-64 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-50 -z-10"></div>
-      <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30 -z-10"></div>
-      
-      {!hideTitle && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
-        >
-          <div className="flex items-center justify-center mb-4">
-            <HelpCircle className="w-10 h-10 text-blue-500 mr-2" />
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">
-                Frequently Asked Questions
-              </span>
-        </h2>
-          </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about our language services
-          </p>
-        </motion.div>
-      )}
+    <section id="faq" className="relative py-20 sm:py-28">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[420px] -z-10 bg-[radial-gradient(circle_at_top,_rgba(168,216,255,0.28),_transparent_70%)] dark:bg-[radial-gradient(circle_at_top,_rgba(30,58,138,0.42),_transparent_70%)]" />
+      <div className="pointer-events-none absolute bottom-12 left-12 hidden h-64 w-64 -translate-x-6 rounded-full bg-[radial-gradient(circle,_rgba(30,58,138,0.18),_transparent_62%)] blur-3xl dark:bg-[radial-gradient(circle,_rgba(30,58,138,0.3),_transparent_60%)] sm:block" />
 
-      <div className="max-w-6xl mx-auto mb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Left sidebar for search and categories */}
+      <div className="container relative z-[1]">
+        {!hideTitle && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center sm:mb-16"
+          >
+            <div className="mb-4 flex items-center justify-center gap-3">
+              <HelpCircle className="h-10 w-10 text-[hsl(var(--accent-layer-2))]" />
+              <h2 className="text-3xl font-bold tracking-tight text-[hsl(var(--foreground))] md:text-4xl">
+                <span className="bg-gradient-to-r from-[hsl(var(--accent-layer-2))] to-[hsl(var(--accent-layer-4))] bg-clip-text text-transparent">
+                  Frequently Asked Questions
+                </span>
+              </h2>
+            </div>
+            <p className="mx-auto max-w-2xl text-lg text-[hsl(var(--muted-foreground))]">
+              Everything you need to know about our language services
+            </p>
+          </motion.div>
+        )}
+
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -148,53 +148,55 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
             viewport={{ once: true }}
             className="lg:col-span-1"
           >
-            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm p-5 sticky top-24">
-              {/* Search input */}
-              <div className="relative mb-6">
-                <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                  <Search className="h-4 w-4 text-gray-400" />
+            <div className="layer-shell sticky top-28 space-y-6 p-6" data-variant="secondary">
+              <div className="relative">
+                <div className="pointer-events-none absolute inset-y-0 left-4 flex items-center">
+                  <Search className="h-4 w-4 text-[hsl(var(--accent-layer-2))]" />
                 </div>
                 <input
                   type="text"
                   placeholder="Search questions..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full py-2.5 pl-9 pr-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full rounded-xl border border-[hsl(var(--secondary-layer-2))] bg-[hsl(var(--surface-card))] py-3 pl-12 pr-4 text-sm text-[hsl(var(--foreground))] shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] transition-[border,box-shadow] focus:border-[hsl(var(--accent-layer-2))] focus:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_0_0_3px_rgba(30,58,138,0.12)] focus:outline-none"
                 />
                 {searchTerm && (
-                  <button 
+                  <button
                     onClick={() => setSearchTerm("")}
-                    className="absolute inset-y-0 right-2 flex items-center text-gray-400 hover:text-gray-600 text-xs"
+                    className="absolute inset-y-0 right-4 flex items-center text-xs font-semibold text-[hsl(var(--accent-layer-2))] transition-colors hover:text-[hsl(var(--accent-layer-3))]"
                   >
                     Clear
                   </button>
                 )}
-      </div>
+              </div>
 
-              {/* Categories */}
-              <div>
-                <h3 className="text-sm font-semibold text-gray-500 uppercase mb-3">Categories</h3>
+              <div className="space-y-3">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.38em] text-[hsl(var(--accent-layer-2))]">
+                  Categories
+                </h3>
                 <div className="space-y-2">
                   <button
                     onClick={() => setActiveCategory(null)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                    className={cn(
+                      "w-full rounded-2xl px-3 py-2.5 text-left text-sm transition-all",
                       activeCategory === null
-                        ? "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium"
-                        : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                    }`}
+                        ? "layer-chip font-semibold"
+                        : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--secondary-layer-4))] hover:text-[hsl(var(--accent-layer-2))]"
+                    )}
                   >
                     All Categories
                   </button>
-                  
+
                   {categories.map((category) => (
                     <button
                       key={category}
                       onClick={() => setActiveCategory(category)}
-                      className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors capitalize ${
+                      className={cn(
+                        "w-full rounded-2xl px-3 py-2.5 text-left text-sm capitalize transition-all",
                         activeCategory === category
-                          ? "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium"
-                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                      }`}
+                          ? "layer-chip font-semibold"
+                          : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--secondary-layer-4))] hover:text-[hsl(var(--accent-layer-2))]"
+                      )}
                     >
                       {category}
                     </button>
@@ -203,8 +205,7 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
               </div>
             </div>
           </motion.div>
-          
-          {/* Right side FAQ content */}
+
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -213,34 +214,30 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
             className="lg:col-span-3"
           >
             {filteredFaqs.length === 0 ? (
-              <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-10 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 dark:bg-blue-900/20 mb-4">
-                  <PlusCircle className="h-7 w-7 text-blue-500" />
+              <div className="layer-shell flex flex-col items-center gap-4 p-10 text-center" data-variant="secondary">
+                <div className="layer-chip grid h-16 w-16 place-items-center rounded-full">
+                  <PlusCircle className="h-7 w-7 text-[hsl(var(--accent-layer-2))]" />
                 </div>
-                <h3 className="text-xl font-medium mb-2">No matching questions</h3>
-                <p className="text-gray-500 dark:text-gray-400 mb-6">
+                <h3 className="text-xl font-semibold text-[hsl(var(--foreground))]">
+                  No matching questions
+                </h3>
+                <p className="max-w-xl text-[hsl(var(--muted-foreground))]">
                   We couldn't find any FAQs matching your criteria.
                 </p>
-                <div className="flex justify-center gap-3">
-                  <button
-                    onClick={() => setSearchTerm("")}
-                    className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors"
-                  >
+                <div className="flex flex-wrap justify-center gap-3">
+                  <Button variant="outline" onClick={() => setSearchTerm("")}>
                     Clear search
-                  </button>
-                  <button
-                    onClick={() => { setSearchTerm(""); setActiveCategory(null); }}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  >
+                  </Button>
+                  <Button onClick={() => { setSearchTerm(""); setActiveCategory(null); }}>
                     View all questions
-                  </button>
+                  </Button>
                 </div>
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {filteredFaqs.map((faq, index) => {
                   const isExpanded = expandedItems.includes(index);
-                  
+
                   return (
                     <motion.div
                       key={index}
@@ -248,41 +245,44 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       viewport={{ once: true }}
-                      className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm overflow-hidden"
+                      className="layer-shell overflow-hidden"
                     >
-                      <button 
+                      <button
                         onClick={() => toggleItem(index)}
-                        className="w-full p-5 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-800/60 transition-colors"
+                        className="flex w-full items-center justify-between gap-6 rounded-[inherit] px-6 py-5 text-left transition-all hover:bg-[hsla(207,95%,93%,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent-layer-3))] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--surface-card))]"
                       >
-                        <div className="pr-8">
-                          <span className="inline-block px-2.5 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-full text-xs font-medium mb-2 capitalize">
+                        <div className="pr-4">
+                          <span className="layer-chip inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold capitalize">
                             {faq.category}
                           </span>
-                          <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+                          <h3 className="mt-3 text-lg font-semibold text-[hsl(var(--foreground))]">
                             {faq.question}
                           </h3>
                         </div>
-                        <div className={`rounded-full p-2 ${isExpanded ? 'bg-blue-100 dark:bg-blue-900/30' : 'bg-gray-100 dark:bg-gray-800'}`}>
-                          <ChevronDown 
-                            className={`h-5 w-5 ${isExpanded ? 'text-blue-600 rotate-180' : 'text-gray-500'} transition-transform duration-300 ease-out`} 
-                          />
+                        <div
+                          className={cn(
+                            "layer-chip grid h-10 w-10 place-items-center rounded-full transition-transform duration-300 ease-out",
+                            isExpanded && "rotate-180"
+                          )}
+                        >
+                          <ChevronDown className="h-5 w-5 text-[hsl(var(--accent-layer-2))]" />
                         </div>
                       </button>
-                      
-                      <motion.div 
+
+                      <motion.div
                         initial={false}
                         animate={{
-                          height: isExpanded ? 'auto' : 0,
+                          height: isExpanded ? "auto" : 0,
                           opacity: isExpanded ? 1 : 0
                         }}
                         transition={{
                           height: { duration: 0.3, ease: "easeInOut" },
                           opacity: { duration: 0.2, delay: isExpanded ? 0.1 : 0 }
                         }}
-                        className="overflow-hidden"
+                        className="overflow-hidden border-t border-[hsl(var(--secondary-layer-4))] bg-[hsl(var(--surface-card))]"
                       >
-                        <div className="p-5 pt-0 text-gray-700 dark:text-gray-300 border-t border-gray-100 dark:border-gray-800">
-                          <div className="py-3 prose dark:prose-invert prose-blue max-w-none">
+                        <div className="px-6 pb-6 pt-4 text-[hsl(var(--foreground))]">
+                          <div className="prose max-w-none text-[hsl(var(--foreground))] prose-a:text-[hsl(var(--accent-layer-2))] dark:prose-invert">
                             {faq.answer}
                           </div>
                         </div>

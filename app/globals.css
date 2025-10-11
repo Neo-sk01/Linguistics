@@ -73,67 +73,116 @@ html {
   }
 } */
 
-/* *=========== Blue theme =========== */
+/* *=========== Tricolor depth palette =========== */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 50% 10%;
+    /* 60% Base white layers (light increases by ~10%) */
+    --base-layer-1: 210 30% 90%;
+    --base-layer-2: 210 24% 96%;
+    --base-layer-3: 210 20% 99%;
+    --base-layer-4: 210 20% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 50% 10%;
+    /* 30% Sky blue layers */
+    --secondary-layer-1: 207 100% 73%;
+    --secondary-layer-2: 207 100% 83%;
+    --secondary-layer-3: 207 95% 93%;
+    --secondary-layer-4: 207 90% 97%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 50% 10%;
+    /* 10% Deep navy accent layers */
+    --accent-layer-1: 224 64% 23%;
+    --accent-layer-2: 224 64% 33%;
+    --accent-layer-3: 224 64% 43%;
+    --accent-layer-4: 224 64% 53%;
 
-    --primary: 217 91% 60%; /* #3b82f6 */
-    --primary-foreground: 0 0% 100%;
+    --background: var(--base-layer-2);
+    --foreground: 224 32% 20%;
 
-    --secondary: 217 45% 93%;
-    --secondary-foreground: 217 60% 25%;
+    --card: var(--base-layer-3);
+    --card-foreground: var(--foreground);
 
-    --muted: 217 32% 95%;
-    --muted-foreground: 217 45% 40%;
+    --popover: var(--base-layer-3);
+    --popover-foreground: var(--foreground);
 
-    --accent: 217 90% 68%;
-    --accent-foreground: 0 0% 100%;
+    --primary: var(--accent-layer-2);
+    --primary-foreground: var(--base-layer-4);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --secondary: var(--secondary-layer-2);
+    --secondary-foreground: var(--accent-layer-1);
 
-    --border: 217 25% 90%;
-    --input: 217 25% 90%;
-    --ring: 217 91% 60%;
-    --radius: 0.5rem;
+    --muted: var(--secondary-layer-3);
+    --muted-foreground: 224 30% 32%;
+
+    --accent: var(--secondary-layer-3);
+    --accent-foreground: var(--accent-layer-1);
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--base-layer-4);
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: var(--accent-layer-3);
+    --radius: 0.75rem;
+
+    --surface-base: var(--base-layer-2);
+    --surface-card: var(--base-layer-3);
+    --surface-raised: var(--secondary-layer-4);
+    --surface-tint: var(--secondary-layer-3);
+    --surface-accent: var(--accent-layer-2);
+    --shadow-soft: 0 8px 22px -12px rgba(30, 58, 138, 0.2);
+    --shadow-strong: 0 20px 42px -18px rgba(30, 58, 138, 0.26);
   }
 
   .dark {
-    --background: 215 30% 15%;
-    --foreground: 210 20% 98%;
+    --base-layer-1: 224 42% 10%;
+    --base-layer-2: 224 36% 16%;
+    --base-layer-3: 224 30% 26%;
+    --base-layer-4: 224 28% 36%;
 
-    --card: 215 35% 12%;
-    --card-foreground: 210 20% 98%;
+    --secondary-layer-1: 207 70% 32%;
+    --secondary-layer-2: 207 70% 42%;
+    --secondary-layer-3: 207 65% 52%;
+    --secondary-layer-4: 207 60% 62%;
 
-    --popover: 215 30% 15%;
-    --popover-foreground: 210 20% 98%;
+    --accent-layer-1: 224 64% 60%;
+    --accent-layer-2: 224 64% 70%;
+    --accent-layer-3: 224 64% 78%;
+    --accent-layer-4: 224 64% 86%;
 
-    --primary: 217 91% 60%; /* #3b82f6 */
-    --primary-foreground: 0 0% 100%;
+    --background: var(--base-layer-1);
+    --foreground: 210 30% 94%;
 
-    --secondary: 217 45% 30%;
-    --secondary-foreground: 217 40% 92%;
+    --card: var(--base-layer-2);
+    --card-foreground: var(--foreground);
 
-    --muted: 217 35% 28%;
-    --muted-foreground: 217 25% 82%;
+    --popover: var(--base-layer-2);
+    --popover-foreground: var(--foreground);
 
-    --accent: 217 90% 65%;
-    --accent-foreground: 0 0% 100%;
+    --primary: var(--accent-layer-2);
+    --primary-foreground: 224 70% 12%;
 
-    --destructive: 0 62.8% 30.6%;
+    --secondary: var(--secondary-layer-2);
+    --secondary-foreground: var(--accent-layer-1);
+
+    --muted: var(--secondary-layer-1);
+    --muted-foreground: 210 20% 82%;
+
+    --accent: var(--secondary-layer-1);
+    --accent-foreground: 210 35% 92%;
+
+    --destructive: 0 62% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 217 28% 28%;
-    --input: 217 28% 28%;
-    --ring: 217 91% 60%;
+    --border: 224 32% 32%;
+    --input: 224 32% 32%;
+    --ring: var(--accent-layer-1);
+
+    --surface-base: var(--base-layer-1);
+    --surface-card: var(--base-layer-2);
+    --surface-raised: var(--base-layer-3);
+    --surface-tint: var(--secondary-layer-1);
+    --surface-accent: var(--accent-layer-2);
+    --shadow-soft: 0 12px 28px -16px rgba(8, 17, 43, 0.55);
+    --shadow-strong: 0 26px 48px -18px rgba(8, 17, 43, 0.7);
   }
 }
 
@@ -151,5 +200,255 @@ html {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .layer-shell {
+    position: relative;
+    border-radius: 1.25rem;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, hsl(var(--surface-card)) 80%, hsl(var(--surface-raised)) 20%) 0%,
+      color-mix(in srgb, hsl(var(--surface-card)) 55%, rgba(30, 58, 138, 0.08) 45%) 100%
+    );
+    border: 1px solid
+      color-mix(in srgb, hsl(var(--surface-tint)) 72%, rgba(30, 58, 138, 0.18) 28%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      var(--shadow-soft);
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  }
+
+  .layer-shell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 45%);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  .layer-shell:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      var(--shadow-strong);
+  }
+
+  .layer-shell[data-variant="secondary"] {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, hsl(var(--secondary-layer-4)) 70%, hsl(var(--surface-card)) 30%) 0%,
+      color-mix(in srgb, hsl(var(--secondary-layer-3)) 70%, rgba(30, 58, 138, 0.12) 30%) 100%
+    );
+    border: 1px solid
+      color-mix(in srgb, hsl(var(--secondary-layer-2)) 75%, rgba(30, 58, 138, 0.25) 25%);
+  }
+
+  .layer-nav {
+    position: relative;
+    border-radius: 1.5rem;
+    background: linear-gradient(
+      140deg,
+      color-mix(in srgb, hsl(var(--surface-card)) 70%, rgba(168, 216, 255, 0.45) 30%) 0%,
+      color-mix(in srgb, hsl(var(--surface-card)) 88%, rgba(255, 255, 255, 0.9) 12%) 100%
+    );
+    border: 1px solid
+      color-mix(in srgb, hsl(var(--secondary-layer-2)) 65%, rgba(30, 58, 138, 0.22) 35%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.65),
+      var(--shadow-soft);
+    backdrop-filter: blur(18px);
+  }
+
+  .layer-nav::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 50%);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .layer-nav:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      var(--shadow-strong);
+  }
+
+  .layer-chip {
+    border-radius: 9999px;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--secondary-layer-4)) 0%,
+      color-mix(in srgb, hsl(var(--secondary-layer-3)), rgba(30, 58, 138, 0.08)) 100%
+    );
+    color: hsl(var(--accent-layer-2));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 6px 10px -6px rgba(30, 58, 138, 0.25);
+  }
+
+  .layer-divider {
+    background: linear-gradient(
+      to right,
+      color-mix(in srgb, hsl(var(--secondary-layer-3)), rgba(255, 255, 255, 0.8)),
+      rgba(255, 255, 255, 0)
+    );
+    opacity: 0.7;
+  }
+
+  .progress-shell {
+    position: relative;
+    height: 1rem;
+    width: 100%;
+    border-radius: 9999px;
+    overflow: hidden;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, hsl(var(--secondary)) 68%, white 32%) 0%,
+      hsl(var(--secondary)) 55%,
+      color-mix(in srgb, hsl(var(--secondary)) 82%, black 18%) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      inset 0 -1px 0 rgba(15, 23, 42, 0.25),
+      0 8px 20px -10px rgba(15, 23, 42, 0.35);
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+
+  .progress-shell::before {
+    content: "";
+    position: absolute;
+    inset: 1px 1px 2px;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.55),
+      rgba(255, 255, 255, 0) 55%
+    );
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .progress-shell::after {
+    content: "";
+    position: absolute;
+    inset: -12%;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(59, 130, 246, 0.18),
+      transparent 65%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .progress-shell:hover,
+  .progress-shell:focus-visible {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(15, 23, 42, 0.25),
+      0 10px 26px -12px rgba(30, 64, 175, 0.45);
+    transform: translateY(-1px);
+  }
+
+  .progress-indicator {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, hsl(var(--primary)) 78%, white 22%) 0%,
+      hsl(var(--primary)) 55%,
+      color-mix(in srgb, hsl(var(--primary)) 78%, black 22%) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      inset 0 -2px 4px rgba(15, 23, 42, 0.38),
+      0 0 18px rgba(59, 130, 246, 0.35);
+    transform-origin: left center;
+    transition:
+      transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 200ms ease,
+      filter 200ms ease;
+  }
+
+  .progress-indicator::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.08) 35%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    mix-blend-mode: screen;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .progress-shell:hover .progress-indicator,
+  .progress-shell:focus-visible .progress-indicator {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      inset 0 -2px 6px rgba(15, 23, 42, 0.4),
+      0 0 22px rgba(59, 130, 246, 0.5);
+    filter: brightness(1.05);
+  }
+
+  .dark .progress-shell {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, hsl(var(--secondary)) 52%, white 48%) 0%,
+      hsl(var(--secondary)) 60%,
+      color-mix(in srgb, hsl(var(--secondary)) 70%, black 30%) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 0 rgba(2, 6, 23, 0.55),
+      0 14px 32px -14px rgba(2, 6, 23, 0.75);
+  }
+
+  .dark .progress-shell::after {
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(59, 130, 246, 0.25),
+      transparent 70%
+    );
+  }
+
+  .dark .progress-indicator {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, hsl(var(--primary)) 70%, white 30%) 0%,
+      hsl(var(--primary)) 58%,
+      color-mix(in srgb, hsl(var(--primary)) 82%, black 18%) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -2px 5px rgba(2, 6, 23, 0.6),
+      0 0 22px rgba(59, 130, 246, 0.55);
+  }
+
+  .dark .progress-indicator::after {
+    opacity: 0.4;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .progress-indicator {
+      transition: none;
+    }
+    .progress-shell {
+      transition: none;
+    }
   }
 }

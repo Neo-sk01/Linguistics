@@ -453,20 +453,22 @@ export const TranscriptionServicesSection = () => {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto"
           >
-          {transcriptionCategories.map((category, index) => (
-            <motion.div 
-              key={category.title}
-              variants={fadeInUp}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className={cn(
-                "p-8 relative overflow-hidden transition-all h-full", 
-                "border border-blue-300 dark:border-blue-900/30 rounded-lg hover:border-blue-500 dark:hover:border-blue-400/50",
-                "bg-white dark:bg-white hover:bg-blue-50 hover:bg-blue-100 shadow-sm hover:shadow"
-              )}
-            >
-              <div className="w-16 h-16 flex items-center justify-center mb-6 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-500/30 dark:to-blue-900/20 rounded-full shadow-inner shadow-blue-400/10">
-                <category.icon className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-              </div>
+          {transcriptionCategories.map((category, index) => {
+            const IconComponent = category.icon;
+            return (
+              <motion.div 
+                key={category.title}
+                variants={fadeInUp}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className={cn(
+                  "p-8 relative overflow-hidden transition-all h-full", 
+                  "border border-blue-300 dark:border-blue-900/30 rounded-lg hover:border-blue-500 dark:hover:border-blue-400/50",
+                  "bg-white dark:bg-white hover:bg-blue-50 hover:bg-blue-100 shadow-sm hover:shadow"
+                )}
+              >
+                <div className="w-16 h-16 flex items-center justify-center mb-6 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-500/30 dark:to-blue-900/20 rounded-full shadow-inner shadow-blue-400/10">
+                  <IconComponent className="h-8 w-8 text-blue-600 dark:text-blue-400" strokeWidth={2} />
+                </div>
               
               <h3 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400 border-b border-blue-200 dark:border-blue-100 pb-2">{category.title}</h3>
               <ul className="space-y-4">
@@ -482,7 +484,8 @@ export const TranscriptionServicesSection = () => {
                 <span className="text-sm text-blue-600 dark:text-blue-400/80 font-medium">Learn More →</span>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </motion.div>
         </div>
       </section>

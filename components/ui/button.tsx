@@ -5,25 +5,27 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-colors transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default:
+          "relative border border-[hsl(var(--accent-layer-2))] bg-[hsl(var(--secondary))] text-[hsl(var(--primary-foreground))] shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_12px_20px_-10px_rgba(30,58,138,0.28)] hover:bg-[hsl(var(--secondary-layer-3))] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_18px_26px_-12px_rgba(30,58,138,0.32)] hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.99]",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-[hsl(var(--accent-layer-2))] bg-[hsl(var(--surface-card))] text-[hsl(var(--accent-layer-2))] shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_10px_18px_-12px_rgba(30,58,138,0.22)] hover:bg-[hsl(var(--secondary-layer-4))] hover:text-[hsl(var(--accent-layer-2))]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-[hsl(var(--secondary-layer-3))] text-[hsl(var(--accent-layer-1))] hover:bg-[hsl(var(--secondary-layer-2))] hover:text-[hsl(var(--accent-layer-1))] shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_12px_24px_-16px_rgba(30,58,138,0.28)]",
+        ghost:
+          "text-[hsl(var(--accent-layer-2))] hover:bg-[hsl(var(--secondary-layer-4))] hover:text-[hsl(var(--accent-layer-2))]",
+        link: "text-[hsl(var(--accent-layer-2))] underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-11 px-5 py-2.5",
+        sm: "h-9 rounded-md px-3.5",
+        lg: "h-12 rounded-lg px-8",
+        icon: "h-11 w-11",
       },
     },
     defaultVariants: {
