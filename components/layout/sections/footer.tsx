@@ -156,25 +156,6 @@ export default function FooterSection() {
                   </div>
                 ))}
               </div>
-
-              {/* Newsletter Section */}
-              <div className="mt-8 pt-8 border-t">
-                <h3 className="text-sm font-semibold mb-3">Stay Updated</h3>
-                <p className="text-sm text-muted-foreground mb-4 max-w-md">
-                  Get quarterly updates on industry insights and best practices.
-                </p>
-                <form className="flex gap-2 max-w-md">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your email"
-                    className="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  />
-                  <Button type="submit" size="sm">
-                    Subscribe
-                  </Button>
-                </form>
-              </div>
             </div>
           </div>
         </div>

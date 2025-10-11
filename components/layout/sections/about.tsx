@@ -109,15 +109,15 @@ export const AboutSection = () => {
                 <div
                   key={value.title}
                   data-variant={index % 2 === 0 ? "secondary" : undefined}
-                  className="layer-shell group relative overflow-hidden p-6 pt-14 pb-8 transition-transform duration-300 hover:-translate-y-1"
+                  className="layer-shell group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
                 >
-                  <div className="absolute -top-6 left-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,_hsl(var(--secondary-layer-2)),_hsl(var(--secondary-layer-3)))] shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_18px_24px_-12px_rgba(30,58,138,0.32)] transition-transform duration-300 group-hover:translate-y-1 group-hover:rotate-2">
-                    <IconComponent className="h-7 w-7 text-[hsl(var(--accent-layer-2))]" strokeWidth={2} />
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(var(--accent-layer-2))]/10 to-[hsl(var(--accent-layer-2))]/20 transition-transform duration-300 group-hover:scale-110">
+                    <IconComponent className="h-6 w-6 text-[hsl(var(--accent-layer-2))]" strokeWidth={2} />
                   </div>
-                  <h4 className="text-lg font-semibold text-[hsl(var(--foreground))] mb-1">
+                  <h4 className="mb-3 text-lg font-semibold text-[hsl(var(--foreground))]">
                     {value.title}
                   </h4>
-                  <p className="mt-4 text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
+                  <p className="text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">
                     {value.description}
                   </p>
                 </div>
