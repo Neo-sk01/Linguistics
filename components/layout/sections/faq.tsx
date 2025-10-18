@@ -148,22 +148,22 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
             viewport={{ once: true }}
             className="lg:col-span-1"
           >
-            <div className="layer-shell sticky top-28 space-y-6 p-6" data-variant="secondary">
+            <div className="sticky top-28 space-y-6 rounded-2xl border border-white/20 bg-[#3b82f6] p-6 text-white shadow-lg">
               <div className="relative">
                 <div className="pointer-events-none absolute inset-y-0 left-4 flex items-center">
-                  <Search className="h-4 w-4 text-[hsl(var(--accent-layer-2))]" />
+                  <Search className="h-4 w-4 text-white/80" />
                 </div>
                 <input
                   type="text"
                   placeholder="Search questions..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full rounded-xl border border-[hsl(var(--secondary-layer-2))] bg-[hsl(var(--surface-card))] py-3 pl-12 pr-4 text-sm text-[hsl(var(--foreground))] shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] transition-[border,box-shadow] focus:border-[hsl(var(--accent-layer-2))] focus:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_0_0_3px_rgba(30,58,138,0.12)] focus:outline-none"
+                  className="w-full rounded-xl border border-white/30 bg-white/10 py-3 pl-12 pr-4 text-sm text-white placeholder:text-white/60 transition-[border,box-shadow] focus:border-white focus:shadow-[0_0_0_3px_rgba(255,255,255,0.2)] focus:outline-none"
                 />
                 {searchTerm && (
                   <button
                     onClick={() => setSearchTerm("")}
-                    className="absolute inset-y-0 right-4 flex items-center text-xs font-semibold text-[hsl(var(--accent-layer-2))] transition-colors hover:text-[hsl(var(--accent-layer-3))]"
+                    className="absolute inset-y-0 right-4 flex items-center text-xs font-semibold text-white/80 transition-colors hover:text-white"
                   >
                     Clear
                   </button>
@@ -171,7 +171,7 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
               </div>
 
               <div className="space-y-3">
-                <h3 className="text-xs font-semibold uppercase tracking-[0.38em] text-[hsl(var(--accent-layer-2))]">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.38em] text-white/70">
                   Categories
                 </h3>
                 <div className="space-y-2">
@@ -180,8 +180,8 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
                     className={cn(
                       "w-full rounded-2xl px-3 py-2.5 text-left text-sm transition-all",
                       activeCategory === null
-                        ? "layer-chip font-semibold"
-                        : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--secondary-layer-4))] hover:text-[hsl(var(--accent-layer-2))]"
+                        ? "bg-white text-[#1d4ed8] font-semibold shadow-sm"
+                        : "text-white/80 hover:bg-white/15 hover:text-white"
                     )}
                   >
                     All Categories
@@ -194,8 +194,8 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
                       className={cn(
                         "w-full rounded-2xl px-3 py-2.5 text-left text-sm capitalize transition-all",
                         activeCategory === category
-                          ? "layer-chip font-semibold"
-                          : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--secondary-layer-4))] hover:text-[hsl(var(--accent-layer-2))]"
+                          ? "bg-white text-[#1d4ed8] font-semibold shadow-sm"
+                          : "text-white/80 hover:bg-white/15 hover:text-white"
                       )}
                     >
                       {category}
@@ -245,27 +245,27 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       viewport={{ once: true }}
-                      className="layer-shell overflow-hidden"
+                      className="overflow-hidden rounded-2xl border border-white/20 bg-[#3b82f6] text-white shadow-lg transition-colors"
                     >
                       <button
                         onClick={() => toggleItem(index)}
-                        className="flex w-full items-center justify-between gap-6 rounded-[inherit] px-6 py-5 text-left transition-all hover:bg-[hsla(207,95%,93%,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent-layer-3))] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--surface-card))]"
+                        className="flex w-full items-center justify-between gap-6 rounded-[inherit] bg-transparent px-6 py-5 text-left transition-all hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#3b82f6]"
                       >
                         <div className="pr-4">
-                          <span className="layer-chip inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold capitalize">
+                          <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-semibold capitalize text-white">
                             {faq.category}
                           </span>
-                          <h3 className="mt-3 text-lg font-semibold text-[hsl(var(--foreground))]">
+                          <h3 className="mt-3 text-lg font-semibold text-white">
                             {faq.question}
                           </h3>
                         </div>
                         <div
                           className={cn(
-                            "layer-chip grid h-10 w-10 place-items-center rounded-full transition-transform duration-300 ease-out",
-                            isExpanded && "rotate-180"
+                            "grid h-10 w-10 place-items-center rounded-full bg-white/15 transition-transform duration-300 ease-out",
+                            isExpanded && "rotate-180 bg-white/25"
                           )}
                         >
-                          <ChevronDown className="h-5 w-5 text-[hsl(var(--accent-layer-2))]" />
+                          <ChevronDown className="h-5 w-5 text-white" />
                         </div>
                       </button>
 
@@ -279,10 +279,10 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
                           height: { duration: 0.3, ease: "easeInOut" },
                           opacity: { duration: 0.2, delay: isExpanded ? 0.1 : 0 }
                         }}
-                        className="overflow-hidden border-t border-[hsl(var(--secondary-layer-4))] bg-[hsl(var(--surface-card))]"
+                        className="overflow-hidden border-t border-white/20 bg-[#3b82f6]"
                       >
-                        <div className="px-6 pb-6 pt-4 text-[hsl(var(--foreground))]">
-                          <div className="prose max-w-none text-[hsl(var(--foreground))] prose-a:text-[hsl(var(--accent-layer-2))] dark:prose-invert">
+                        <div className="px-6 pb-6 pt-4 text-white/90">
+                          <div className="prose prose-invert max-w-none text-white/90">
                             {faq.answer}
                           </div>
                         </div>

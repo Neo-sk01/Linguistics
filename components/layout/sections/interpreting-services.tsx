@@ -60,24 +60,23 @@ export const InterpretingServicesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-blue-600/30 dark:border-blue-600/20 hover:border-blue-600/70 dark:hover:border-blue-600/40 transition-colors relative overflow-hidden"
+              className="bg-[#3b82f6] text-white rounded-xl p-8 shadow-xl border border-white/30 hover:border-white/60 transition-colors relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600/70 via-blue-600 to-blue-600/70"></div>
               {/* Decorative circle removed */}
               
-              <Languages className="w-12 h-12 text-blue-600 mb-4 mx-auto" />
+              <Languages className="w-12 h-12 text-white mb-4 mx-auto" />
               
-              <h3 className="text-2xl font-bold text-blue-600 mb-6 text-center uppercase">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center uppercase">
                 Simultaneous interpreting
               </h3>
               
-              <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="mb-4 text-white/80 leading-relaxed">
                 Presentations and discussion can proceed at the same pace as a single language meeting. Each
                 attendee hears what is being said in his or her own language with the help of a wireless
                 receiver.
               </p>
               
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-white/80 leading-relaxed">
                 Imperium Linguistics provides a complete package. The simultaneous interpreting service
                 is a combination of highly talented conference interpreters and wireless electronic equipment
                 to transmit the interpreters' words to the appropriate listeners.
@@ -89,24 +88,23 @@ export const InterpretingServicesSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-blue-600/30 dark:border-blue-600/20 hover:border-blue-600/70 dark:hover:border-blue-600/40 transition-colors relative overflow-hidden"
+              className="bg-[#3b82f6] text-white rounded-xl p-8 shadow-xl border border-white/30 hover:border-white/60 transition-colors relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600/70 via-blue-600 to-blue-600/70"></div>
               {/* Decorative circle removed */}
               
-              <Mic className="w-12 h-12 text-blue-600 mb-4 mx-auto" />
+              <Mic className="w-12 h-12 text-white mb-4 mx-auto" />
               
-              <h3 className="text-2xl font-bold text-blue-600 mb-6 text-center uppercase">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center uppercase">
                 Consecutive interpreting
               </h3>
               
-              <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="mb-4 text-white/80 leading-relaxed">
                 Consecutive interpreting is used often in law offices, business meetings, and various medical situations where language is a
                 barrier. A highly trained consecutive interpreter is able to interpret in two language directions, delivering the message
                 with the same intonation and emphasis as each speaker, without embellishment.
               </p>
               
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-white/80 leading-relaxed">
                 Imperium Linguistics has provided this service for oral depositions and other needs in more than 11 languages,
                 for attorneys, law firms, court reporters and government organizations.
               </p>

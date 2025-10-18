@@ -57,10 +57,6 @@ const routeList: RouteProps[] = [
     label: "FAQ",
   },
   {
-    href: "/affiliate",
-    label: "Affiliate Program",
-  },
-  {
     href: "/contact",
     label: "Contact Us",
   },

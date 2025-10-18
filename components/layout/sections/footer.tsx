@@ -65,7 +65,6 @@ const footerNav = [
     links: [
       { label: "About", href: "/#about" },
       { label: "FAQ", href: "/faq" },
-      { label: "Affiliate Program", href: "/affiliate" },
       { label: "Policies", href: "/policies" },
       { label: "Contact", href: "/contact" },
     ],
