@@ -44,9 +44,17 @@ export const BenefitsSection = () => {
           {benefitList.map(({ icon, title, description }, index) => (
             <Card
               key={title || index}
-              className="bg-muted/50 dark:bg-card hover:bg-background transition-all delay-75 group/number"
+              className={`transition-all delay-75 group/number ${
+                index <= 1
+                  ? "bg-[#3b82f6] text-white hover:bg-[#1d4ed8]"
+                  : "bg-muted/50 dark:bg-card hover:bg-background"
+              }`}
             >
-              <CardContent className="text-muted-foreground pt-6">
+              <CardContent
+                className={`pt-6 ${
+                  index <= 1 ? "text-white" : "text-muted-foreground"
+                }`}
+              >
                 {description}
               </CardContent>
             </Card>

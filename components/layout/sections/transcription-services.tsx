@@ -165,7 +165,7 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="w-full max-w-6xl"
             >
-              <div className="bg-white border border-blue-100 rounded-lg p-6 shadow-lg overflow-hidden">
+              <div className="bg-[#3b82f6] text-white border border-blue-100 rounded-lg p-6 shadow-lg overflow-hidden">
                 <div className="flex flex-col">
                   {/* Video at the top */}
                   <div className="w-full max-w-3xl mx-auto aspect-video bg-gray-100 dark:bg-gray-200 rounded-lg overflow-hidden shadow-md border border-blue-100 mb-6">
@@ -182,12 +182,12 @@ export const TranscriptionServicesSection = () => {
                   
                   {/* Process Description below video */}
                   <div className="mb-8 text-center max-w-3xl mx-auto">
-                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary relative inline-block">
+                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-white relative inline-block">
                       Our Transcription Process
-                      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-300/50"></span>
+                      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-white/60"></span>
                     </h3>
                     
-                    <p className="text-gray-600 mb-6 text-sm">
+                    <p className="text-white/80 mb-6 text-sm">
                       Audio is transcribed using advanced AI software for accuracy instead of manual transcription, 
                       which has associated risks of typographical errors, and a secondary human for review.
                     </p>
@@ -307,19 +307,19 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-white text-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-100 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">CLEAN VERBATIM</h3>
-                <p className="text-xs text-gray-500 mb-4">(Standard/Default)</p>
+              <div className="bg-[#3b82f6] text-white p-8 relative z-10 flex flex-col items-center h-full border border-white/20 shadow-sm transition-colors duration-200 group-hover:bg-[#1d4ed8]">
+                <h3 className="text-xl font-bold text-white mb-2">CLEAN VERBATIM</h3>
+                <p className="text-xs text-white/80 mb-4">(Standard/Default)</p>
                 
                 <div className="flex-grow">
-                  <p className="text-center text-sm text-gray-600 mb-6">
+                  <p className="text-center text-sm text-white/80 mb-6">
                     The transcription excludes: all utterances that are not words eg. um, uh huh, mmhm..
                   </p>
                 </div>
                 
                 <div className="w-full pt-4 mt-auto">
                   <button 
-                    className="w-full py-2 text-primary font-medium hover:text-blue-700 transition-colors text-sm"
+                    className="w-full py-2 text-white font-medium hover:text-white/80 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Clean Verbatim Sample")}
                   >
                     VIEW SAMPLE
@@ -336,22 +336,22 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-white text-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-100 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">FULL VERBATIM</h3>
-                <p className="text-xs text-gray-500 mb-4"></p>
+              <div className="bg-[#3b82f6] text-white p-8 relative z-10 flex flex-col items-center h-full border border-white/20 shadow-sm transition-colors duration-200 group-hover:bg-[#1d4ed8]">
+                <h3 className="text-xl font-bold text-white mb-2">FULL VERBATIM</h3>
+                <p className="text-xs text-white/80 mb-4"></p>
                 
                 <div className="flex-grow">
-                  <p className="text-center text-sm text-gray-600 mb-3">
+                  <p className="text-center text-sm text-white/80 mb-3">
                     The transcription includes: All verbal utterances such as um, uh huh, mmhm.
                   </p>
-                  <p className="text-center text-sm text-gray-600">
+                  <p className="text-center text-sm text-white/80">
                     Does not include non-verbal communication such as laughter, crying, emotions or pauses.
                   </p>
                 </div>
                 
                 <div className="w-full pt-4 mt-auto">
                   <button 
-                    className="w-full py-2 text-primary font-medium hover:text-blue-700 transition-colors text-sm"
+                    className="w-full py-2 text-white font-medium hover:text-white/80 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Full Verbatim Sample")}
                   >
                     VIEW SAMPLE
@@ -368,19 +368,19 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-white text-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-100 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">TIME STAMPS</h3>
-                <p className="text-xs text-gray-500 mb-4"></p>
+              <div className="bg-[#3b82f6] text-white p-8 relative z-10 flex flex-col items-center h-full border border-white/20 shadow-sm transition-colors duration-200 group-hover:bg-[#1d4ed8]">
+                <h3 className="text-xl font-bold text-white mb-2">TIME STAMPS</h3>
+                <p className="text-xs text-white/80 mb-4"></p>
                 
                 <div className="flex-grow">
-                  <p className="text-center text-sm text-gray-600 mb-3">
+                  <p className="text-center text-sm text-white/80 mb-3">
                     Every 2 minutes or more.
                   </p>
                 </div>
                 
                 <div className="w-full pt-4 mt-auto">
                   <button 
-                    className="w-full py-2 text-primary font-medium hover:text-blue-700 transition-colors text-sm"
+                    className="w-full py-2 text-white font-medium hover:text-white/80 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Time Stamps Sample (Every 2 Minutes)")}
                   >
                     VIEW SAMPLE
@@ -397,19 +397,19 @@ export const TranscriptionServicesSection = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-white text-gray-900 p-8 relative z-10 flex flex-col items-center h-full border border-blue-100 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">TIME STAMPS</h3>
-                <p className="text-xs text-gray-500 mb-4"></p>
+              <div className="bg-[#3b82f6] text-white p-8 relative z-10 flex flex-col items-center h-full border border-white/20 shadow-sm transition-colors duration-200 group-hover:bg-[#1d4ed8]">
+                <h3 className="text-xl font-bold text-white mb-2">TIME STAMPS</h3>
+                <p className="text-xs text-white/80 mb-4"></p>
                 
                 <div className="flex-grow">
-                  <p className="text-center text-sm text-gray-600 mb-3">
+                  <p className="text-center text-sm text-white/80 mb-3">
                     On Speaker change.
                   </p>
                 </div>
                 
                 <div className="w-full pt-4 mt-auto">
                   <button 
-                    className="w-full py-2 text-primary font-medium hover:text-blue-100 transition-colors text-sm"
+                    className="w-full py-2 text-white font-medium hover:text-white/80 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Time Stamps Sample (On Speaker Change)")}
                   >
                     VIEW SAMPLE
@@ -442,7 +442,7 @@ export const TranscriptionServicesSection = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-primary sm:text-4xl">Our Transcription Services</h2>
-            <div className="w-24 h-1 bg-blue-500 mx-auto my-4"></div>
+            
             <p className="text-gray-600 dark:text-gray-600 max-w-2xl mx-auto">We offer a comprehensive range of professional transcription services tailored to your specific needs.</p>
           </div>
           
@@ -493,7 +493,6 @@ export const TranscriptionServicesSection = () => {
       {/* Footer Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950"></div>
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-600/70 to-transparent"></div>
         
         <div className="container relative">
           <motion.div 
@@ -503,7 +502,6 @@ export const TranscriptionServicesSection = () => {
             viewport={{ once: true }}
             className="mt-20 p-8 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg relative overflow-hidden"
           >
-            <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
           </motion.div>
 
           <motion.div 
