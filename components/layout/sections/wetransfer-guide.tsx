@@ -182,22 +182,22 @@ export const WeTransferGuideSection = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                 >
-                  <Card className="h-full border border-blue-100 bg-white text-gray-700 shadow-sm">
+                  <Card className="h-full border border-blue-700 bg-blue-600 text-white shadow-md">
                     <CardHeader className="flex flex-col space-y-4 pb-0">
                       <div className="flex items-center justify-between gap-4">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-50 text-primary">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/20 text-white">
                           <Icon className="h-5 w-5" />
                         </div>
-                        <span className="text-sm font-medium text-blue-500">Step {index + 1}</span>
+                        <span className="text-sm font-medium text-blue-100">Step {index + 1}</span>
                       </div>
-                      <CardTitle className="text-lg text-gray-900">
+                      <CardTitle className="text-lg text-white">
                         {step.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-3 text-sm text-gray-600">
+                    <CardContent className="space-y-3 text-sm text-blue-100">
                       <p>{step.description}</p>
                       {step.helper && (
-                        <p className="rounded-lg border border-blue-100 bg-blue-50 p-3 text-xs text-blue-700">
+                        <p className="rounded-lg border border-white/20 bg-white/10 p-3 text-xs text-white">
                           {step.helper}
                         </p>
                       )}
@@ -238,16 +238,16 @@ export const WeTransferGuideSection = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                 >
-                  <Card className="h-full border border-blue-100 bg-white text-gray-700 shadow-sm">
+                  <Card className="h-full border border-blue-700 bg-blue-600 text-white shadow-md">
                     <CardHeader className="flex flex-row items-start gap-3 pb-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-primary">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/20 text-white">
                         <Icon className="h-5 w-5" />
                       </div>
-                      <CardTitle className="text-lg text-gray-900">
+                      <CardTitle className="text-lg text-white">
                         {tip.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="pt-0 text-sm text-gray-600">
+                    <CardContent className="pt-0 text-sm text-blue-100">
                       {tip.description}
                     </CardContent>
                   </Card>
@@ -258,7 +258,7 @@ export const WeTransferGuideSection = () => {
         </div>
       </section>
 
-      <section className="bg-blue-50 py-16">
+      <section className="bg-blue-600 py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -267,10 +267,10 @@ export const WeTransferGuideSection = () => {
             transition={{ duration: 0.6 }}
             className="mb-10 text-center"
           >
-            <h2 className="text-2xl font-semibold text-gray-900 sm:text-3xl">
+            <h2 className="text-2xl font-semibold text-white sm:text-3xl">
               Need help mid-upload?
             </h2>
-            <p className="mt-3 text-sm text-gray-600 sm:text-base">
+            <p className="mt-3 text-sm text-blue-100 sm:text-base">
               Our project managers are on standby. Share your transfer link or call us for live assistance.
             </p>
           </motion.div>
@@ -311,8 +311,8 @@ export const WeTransferGuideSection = () => {
             transition={{ duration: 0.6 }}
             className="mt-12 flex flex-col items-center gap-4 text-center"
           >
-            <p className="text-sm text-gray-600 sm:text-base">
-              When your files are on the way, forward the WeTransfer receipt to <a href="mailto:nkuna@imperiumlinguistics.com" className="text-primary underline-offset-2 hover:text-blue-700 hover:underline">nkuna@imperiumlinguistics.com</a> so we can confirm immediately.
+            <p className="text-sm text-blue-100 sm:text-base">
+              When your files are on the way, forward the WeTransfer receipt to <a href="mailto:nkuna@imperiumlinguistics.com" className="text-white underline-offset-2 hover:text-blue-100 hover:underline">nkuna@imperiumlinguistics.com</a> so we can confirm immediately.
             </p>
           </motion.div>
         </div>
