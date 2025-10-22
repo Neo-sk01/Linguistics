@@ -116,8 +116,8 @@ const supportHighlights: StepItem[] = [
 export const WeTransferGuideSection = () => {
   return (
     <div className="bg-white text-gray-900">
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_transparent_55%)]" />
+      <section className="relative overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(226,232,240,0.35),_transparent_55%)]" />
         <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
