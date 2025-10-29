@@ -9,7 +9,6 @@ import {
   Youtube,
 } from "lucide-react";
 import { Logo } from "@/components/logo";
-import { Button } from "@/components/ui/button";
 
 const contactItems = [
   {
@@ -84,7 +83,7 @@ export default function FooterSection() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#3b82f6] text-white">
+    <footer className="bg-white text-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-12 lg:py-16">
@@ -94,7 +93,7 @@ export default function FooterSection() {
               <Link href="/" aria-label="Go home" className="inline-block mb-4">
                 <Logo />
               </Link>
-              <p className="text-sm text-white/80 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 leading-relaxed mb-6">
                 Imperium Linguistics empowers legal teams, global brands, and public institutions with precise transcription, interpreting, and conference support.
               </p>
               <div className="flex items-center gap-3">
@@ -105,7 +104,7 @@ export default function FooterSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white/20 transition-colors"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors"
                   >
                     <Icon className="h-4 w-4" />
                   </a>
@@ -122,11 +121,11 @@ export default function FooterSection() {
                   <div className="space-y-3">
                     {contactItems.map(({ label, value, helper, icon: Icon }) => (
                       <div key={label} className="flex items-start gap-2">
-                        <Icon className="h-4 w-4 mt-0.5 text-white/80 flex-shrink-0" />
+                        <Icon className="h-4 w-4 mt-0.5 text-slate-500 flex-shrink-0" />
                         <div>
                           <p className="text-sm font-medium">{label}</p>
-                          <p className="text-xs text-white/80">{value}</p>
-                          {helper && <p className="text-xs text-white/80">{helper}</p>}
+                          <p className="text-xs text-slate-600">{value}</p>
+                          {helper && <p className="text-xs text-slate-600">{helper}</p>}
                         </div>
                       </div>
                     ))}
@@ -142,7 +141,7 @@ export default function FooterSection() {
                         <Link
                           key={label}
                           href={href}
-                          className="block text-sm text-white/80 hover:text-white transition-colors"
+                          className="block text-sm text-slate-600 hover:text-blue-600 transition-colors"
                         >
                           {label}
                         </Link>
@@ -156,19 +155,19 @@ export default function FooterSection() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 py-6">
+        <div className="border-t border-slate-200 py-6">
           <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row">
-            <p className="text-xs text-white/80">
+            <p className="text-xs text-slate-600">
               &copy; {year} Imperium Linguistics. All rights reserved.
             </p>
-            <div className="flex items-center gap-4 text-xs text-white/80">
-              <Link href="/policies#privacy" className="hover:text-white transition-colors">
+            <div className="flex items-center gap-4 text-xs text-slate-600">
+              <Link href="/policies#privacy" className="hover:text-blue-600 transition-colors">
                 Privacy
               </Link>
-              <Link href="/policies#terms" className="hover:text-white transition-colors">
+              <Link href="/policies#terms" className="hover:text-blue-600 transition-colors">
                 Terms
               </Link>
-              <Link href="/contact" className="hover:text-white transition-colors">
+              <Link href="/contact" className="hover:text-blue-600 transition-colors">
                 Support
               </Link>
             </div>
