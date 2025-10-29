@@ -73,6 +73,7 @@ export const ContactSection = () => {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle",
   );
+  const [serverMessage, setServerMessage] = useState<string | null>(null);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -89,15 +90,43 @@ export const ContactSection = () => {
 
   const onSubmit = async (values: ContactFormValues) => {
     setStatus("loading");
+    setServerMessage(null);
 
     try {
-      // Replace with API integration when backend endpoint is available.
-      await new Promise((resolve) => setTimeout(resolve, 900));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as
+          | { error?: string }
+          | null;
+        setStatus("error");
+        setServerMessage(
+          data?.error ??
+            "We could not send your message. Please try again shortly.",
+        );
+        return;
+      }
+
+      const data = (await response.json().catch(() => null)) as
+        | { message?: string }
+        | null;
       setStatus("success");
+      if (data?.message) {
+        setServerMessage(data.message);
+      }
       form.reset();
     } catch (error) {
       console.error("Contact form submission failed", error);
       setStatus("error");
+      setServerMessage(
+        "Something went wrong. Please retry or email nkuna@imperiumlinguistics.com.",
+      );
     }
   };
 
@@ -105,19 +134,23 @@ export const ContactSection = () => {
     if (status === "success") {
       return {
         tone: "success" as const,
-        text: "Thanks for reaching out. A member of the Imperium Linguistics team will get back to you shortly.",
+        text:
+          serverMessage ??
+          "Thanks for reaching out. A member of the Imperium Linguistics team will get back to you shortly.",
       };
     }
 
     if (status === "error") {
       return {
         tone: "error" as const,
-        text: "Something went wrong. Please retry or email nkuna@imperiumlinguistics.com.",
+        text:
+          serverMessage ??
+          "Something went wrong. Please retry or email nkuna@imperiumlinguistics.com.",
       };
     }
 
     return null;
-  }, [status]);
+  }, [status, serverMessage]);
 
   return (
     <section
