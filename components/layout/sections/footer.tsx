@@ -94,7 +94,7 @@ export default function FooterSection() {
                 <Logo />
               </Link>
               <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                Imperium Linguistics empowers legal teams, global brands, and public institutions with precise transcription, interpreting, and conference support.
+                imperium linguistics empowers legal teams, global brands, and public institutions with precise transcription, interpreting, and conference support.
               </p>
               <div className="flex items-center gap-3">
                 {socialLinks.map(({ label, href, icon: Icon }) => (
@@ -158,7 +158,7 @@ export default function FooterSection() {
         <div className="border-t border-slate-200 py-6">
           <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row">
             <p className="text-xs text-slate-600">
-              &copy; {year} Imperium Linguistics. All rights reserved.
+              &copy; {year} imperium linguistics. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-xs text-slate-600">
               <Link href="/policies#privacy" className="hover:text-blue-600 transition-colors">

@@ -10,7 +10,7 @@ import ChatWidget from "@/components/ChatWidget";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "IMPERIUM LINGUISTICS",
+  title: "imperium linguistics",
   description: "Professional language services",
   icons: {
     icon: '/images/sponsors/linguistics(final).png?v=4',

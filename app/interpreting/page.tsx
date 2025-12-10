@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { InterpretingServicesSection } from "@/components/layout/sections/interpreting-services";
 
 export const metadata: Metadata = {
-  title: "Interpreting Services | IMPERIUM LINGUISTICS",
+  title: "Interpreting Services | imperium linguistics",
   description: "Professional interpreting services in multiple languages for business, legal, medical and educational settings",
 };
 

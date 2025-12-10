@@ -96,7 +96,7 @@ export const Navbar = () => {
     };
 
     window.addEventListener('scroll', controlNavbar);
-    
+
     // Cleanup
     return () => {
       window.removeEventListener('scroll', controlNavbar);
@@ -114,7 +114,7 @@ export const Navbar = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [isOpen]);
-  
+
   // Handle body overflow in a more stable way
   useEffect(() => {
     if (typeof document !== 'undefined') {
@@ -124,14 +124,14 @@ export const Navbar = () => {
         document.body.classList.remove('overflow-hidden');
       }
     }
-    
+
     return () => {
       if (typeof document !== 'undefined') {
         document.body.classList.remove('overflow-hidden');
       }
     };
   }, [isOpen]);
-  
+
   return (
     <header
       className={cn(
@@ -141,15 +141,15 @@ export const Navbar = () => {
       )}
     >
       <Link href="/" className="font-bold text-sm flex items-center">
-        <Image 
-          src="/noBG.png" 
-          alt="IMPERIUM LINGUISTICS Logo" 
+        <Image
+          src="/noBG.png"
+          alt="imperium linguistics Logo"
           width={140}
           height={140}
           className="ml-0 mr-1 -my-3 sm:w-[160px] sm:h-[160px] md:w-[180px] md:h-[180px] md:-my-5"
         />
       </Link>
-      
+
       {/* Desktop Navigation */}
       <NavigationMenu className="hidden lg:block mx-auto text-[hsl(var(--foreground))]">
         <NavigationMenuList className="space-x-1">
@@ -191,8 +191,8 @@ export const Navbar = () => {
             ) : (
               <NavigationMenuItem key={href}>
                 <NavigationMenuLink asChild>
-                  <Link 
-                    href={href} 
+                  <Link
+                    href={href}
                     className="inline-flex h-9 items-center rounded-lg px-3 text-sm font-medium text-[hsl(var(--foreground))] transition-all hover:-translate-y-0.5 hover:bg-[hsl(var(--secondary-layer-4))] hover:text-[hsl(var(--accent-layer-2))]"
                   >
                     {label}
@@ -228,9 +228,9 @@ export const Navbar = () => {
           >
             <SheetHeader className="border-b border-[hsl(var(--secondary-layer-3))] pb-2">
               <Link href="/" className="font-bold text-lg flex items-center" onClick={() => setIsOpen(false)}>
-                <Image 
-                  src="/noBG.png" 
-                  alt="IMPERIUM LINGUISTICS Logo" 
+                <Image
+                  src="/noBG.png"
+                  alt="imperium linguistics Logo"
                   width={120}
                   height={120}
                   className="-ml-1 -my-4"
@@ -277,7 +277,7 @@ export const Navbar = () => {
                 )
               ))}
             </nav>
-            
+
             <div className="mt-4">
               <AuthButton />
             </div>

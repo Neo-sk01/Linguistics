@@ -132,7 +132,7 @@ export const WeTransferGuideSection = () => {
               Upload your audio securely in minutes
             </h1>
             <p className="mt-4 text-base leading-relaxed text-gray-600 sm:text-lg">
-              Follow these steps to send large recordings to Imperium Linguistics using WeTransfer. No account required and your files stay protected from upload to delivery.
+              Follow these steps to send large recordings to imperium linguistics using WeTransfer. No account required and your files stay protected from upload to delivery.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">

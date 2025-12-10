@@ -1,7 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { AudioWaveform, FileText, MessageSquareText, BookText, Mic, ArrowRight, GraduationCap, 
-  Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays, X } from "lucide-react";
+import {
+  AudioWaveform, FileText, MessageSquareText, BookText, Mic, ArrowRight, GraduationCap,
+  Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays, X
+} from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,16 +19,16 @@ interface ServiceCategory {
 export const TranscriptionServicesSection = () => {
   const [showCertificate, setShowCertificate] = useState<boolean>(false);
   const [certificateType, setCertificateType] = useState<string>("");
-  
+
   const handleShowCertificate = (certificateType: string) => {
     setCertificateType(certificateType);
     setShowCertificate(true);
   };
-  
+
   const handleCloseCertificate = () => {
     setShowCertificate(false);
   };
-  
+
   const transcriptionCategories: ServiceCategory[] = [
     {
       title: "LEGAL TRANSCRIPTION",
@@ -95,9 +97,9 @@ export const TranscriptionServicesSection = () => {
   // Certificate modal component
   const CertificateModal = () => {
     if (!showCertificate) return null;
-    
+
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -105,7 +107,7 @@ export const TranscriptionServicesSection = () => {
         className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
         onClick={handleCloseCertificate}
       >
-        <motion.div 
+        <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
@@ -113,8 +115,8 @@ export const TranscriptionServicesSection = () => {
           className="relative bg-white dark:bg-gray-900 p-6 rounded-xl shadow-2xl max-w-[440px] border border-blue-400/30"
           onClick={(e) => e.stopPropagation()}
         >
-          <button 
-            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-600" 
+          <button
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-600"
             onClick={handleCloseCertificate}
             aria-label="Close certificate modal"
           >
@@ -124,10 +126,10 @@ export const TranscriptionServicesSection = () => {
           <p className="text-gray-600 dark:text-gray-600 text-sm mb-4 text-center">{certificateType}</p>
           <div className="relative">
             <div className="absolute -top-2 -left-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">Official</div>
-            <Image 
+            <Image
               src="/images/Transcribers-certificate/transcribers-certificate.jpeg"
-              alt="Transcribers Certificate" 
-              width={400} 
+              alt="Transcribers Certificate"
+              width={400}
               height={520}
               className="mx-auto rounded-md border border-gray-200 dark:border-blue-100 shadow-md"
             />
@@ -142,7 +144,7 @@ export const TranscriptionServicesSection = () => {
       {/* Video Section with a similar layout to the contact section */}
       <section className="py-10 md:py-16 bg-white text-gray-900 dark:bg-white relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-600/70 to-transparent"></div>
-        
+
         <div className="container px-4 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -156,9 +158,9 @@ export const TranscriptionServicesSection = () => {
             </h2>
             <div className="w-16 h-0.5 bg-blue-600/50 mx-auto mt-3"></div>
           </motion.div>
-          
+
           <div className="flex justify-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
@@ -169,7 +171,7 @@ export const TranscriptionServicesSection = () => {
                 <div className="flex flex-col">
                   {/* Video at the top */}
                   <div className="w-full max-w-3xl mx-auto aspect-video bg-gray-100 dark:bg-gray-200 rounded-lg overflow-hidden shadow-md border border-blue-100 mb-6">
-                    <video 
+                    <video
                       className="w-full h-full object-cover"
                       controls
                     >
@@ -177,18 +179,18 @@ export const TranscriptionServicesSection = () => {
                       Your browser does not support the video tag.
                     </video>
                   </div>
-                  
 
-                  
+
+
                   {/* Process Description below video */}
                   <div className="mb-8 text-center max-w-3xl mx-auto">
                     <h3 className="text-xl md:text-2xl font-bold mb-4 text-white relative inline-block">
                       Our Transcription Process
                       <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-white/60"></span>
                     </h3>
-                    
+
                     <p className="text-white/80 mb-6 text-sm">
-                      Audio is transcribed using advanced AI software for accuracy instead of manual transcription, 
+                      Audio is transcribed using advanced AI software for accuracy instead of manual transcription,
                       which has associated risks of typographical errors, and a secondary human for review.
                     </p>
                   </div>
@@ -212,7 +214,7 @@ export const TranscriptionServicesSection = () => {
                       <p className="text-sm text-gray-600 text-center">
                         Place an AUDIO file into the AI software for transcription, with the assistance of a Human.
                       </p>
-                      
+
                       {/* Arrow pointing to next step - visible only on desktop */}
                       <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2">
                         <ArrowRight className="h-5 w-5 text-primary" />
@@ -236,7 +238,7 @@ export const TranscriptionServicesSection = () => {
                       <p className="text-sm text-gray-600 text-center">
                         The editor, after comparing the transcript with the recording, transfer them to the proof reading department.
                       </p>
-                      
+
                       {/* Arrow pointing to next step - visible only on desktop */}
                       <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2">
                         <ArrowRight className="h-5 w-5 text-primary" />
@@ -272,7 +274,7 @@ export const TranscriptionServicesSection = () => {
       {/* Verbatim Transcription Types Section */}
       <section className="bg-white text-gray-900 py-16 sm:py-20 dark:bg-white relative overflow-hidden">
         <div className="w-full bg-white dark:bg-white">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
@@ -284,7 +286,7 @@ export const TranscriptionServicesSection = () => {
                 <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-blue-500 dark:bg-primary/50"></span>
               </span>
             </h2>
-            
+
             <div className="max-w-3xl mx-auto space-y-4 text-gray-700 dark:text-gray-600 mt-6">
               <p className="text-base">
                 Our default transcription type – Clean Verbatim, with no time stamps, is the most popular.
@@ -297,10 +299,10 @@ export const TranscriptionServicesSection = () => {
               </p>
             </div>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-0">
             {/* Clean Verbatim */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -310,15 +312,15 @@ export const TranscriptionServicesSection = () => {
               <div className="bg-[#3b82f6] text-white p-8 relative z-10 flex flex-col items-center h-full border border-white/20 shadow-sm transition-colors duration-200 group-hover:bg-[#1d4ed8]">
                 <h3 className="text-xl font-bold text-white mb-2">CLEAN VERBATIM</h3>
                 <p className="text-xs text-white/80 mb-4">(Standard/Default)</p>
-                
+
                 <div className="flex-grow">
                   <p className="text-center text-sm text-white/80 mb-6">
                     The transcription excludes: all utterances that are not words eg. um, uh huh, mmhm..
                   </p>
                 </div>
-                
+
                 <div className="w-full pt-4 mt-auto">
-                  <button 
+                  <button
                     className="w-full py-2 text-white font-medium hover:text-white/80 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Clean Verbatim Sample")}
                   >
@@ -327,9 +329,9 @@ export const TranscriptionServicesSection = () => {
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Full Verbatim */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -339,7 +341,7 @@ export const TranscriptionServicesSection = () => {
               <div className="bg-[#3b82f6] text-white p-8 relative z-10 flex flex-col items-center h-full border border-white/20 shadow-sm transition-colors duration-200 group-hover:bg-[#1d4ed8]">
                 <h3 className="text-xl font-bold text-white mb-2">FULL VERBATIM</h3>
                 <p className="text-xs text-white/80 mb-4"></p>
-                
+
                 <div className="flex-grow">
                   <p className="text-center text-sm text-white/80 mb-3">
                     The transcription includes: All verbal utterances such as um, uh huh, mmhm.
@@ -348,9 +350,9 @@ export const TranscriptionServicesSection = () => {
                     Does not include non-verbal communication such as laughter, crying, emotions or pauses.
                   </p>
                 </div>
-                
+
                 <div className="w-full pt-4 mt-auto">
-                  <button 
+                  <button
                     className="w-full py-2 text-white font-medium hover:text-white/80 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Full Verbatim Sample")}
                   >
@@ -359,9 +361,9 @@ export const TranscriptionServicesSection = () => {
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Time Stamps - Every 2 Minutes */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -371,15 +373,15 @@ export const TranscriptionServicesSection = () => {
               <div className="bg-[#3b82f6] text-white p-8 relative z-10 flex flex-col items-center h-full border border-white/20 shadow-sm transition-colors duration-200 group-hover:bg-[#1d4ed8]">
                 <h3 className="text-xl font-bold text-white mb-2">TIME STAMPS</h3>
                 <p className="text-xs text-white/80 mb-4"></p>
-                
+
                 <div className="flex-grow">
                   <p className="text-center text-sm text-white/80 mb-3">
                     Every 2 minutes or more.
                   </p>
                 </div>
-                
+
                 <div className="w-full pt-4 mt-auto">
-                  <button 
+                  <button
                     className="w-full py-2 text-white font-medium hover:text-white/80 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Time Stamps Sample (Every 2 Minutes)")}
                   >
@@ -388,9 +390,9 @@ export const TranscriptionServicesSection = () => {
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Time Stamps - On Speaker Change */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -400,15 +402,15 @@ export const TranscriptionServicesSection = () => {
               <div className="bg-[#3b82f6] text-white p-8 relative z-10 flex flex-col items-center h-full border border-white/20 shadow-sm transition-colors duration-200 group-hover:bg-[#1d4ed8]">
                 <h3 className="text-xl font-bold text-white mb-2">TIME STAMPS</h3>
                 <p className="text-xs text-white/80 mb-4"></p>
-                
+
                 <div className="flex-grow">
                   <p className="text-center text-sm text-white/80 mb-3">
                     On Speaker change.
                   </p>
                 </div>
-                
+
                 <div className="w-full pt-4 mt-auto">
-                  <button 
+                  <button
                     className="w-full py-2 text-white font-medium hover:text-white/80 transition-colors text-sm"
                     onClick={() => handleShowCertificate("Time Stamps Sample (On Speaker Change)")}
                   >
@@ -418,8 +420,8 @@ export const TranscriptionServicesSection = () => {
               </div>
             </motion.div>
           </div>
-          
-          
+
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -442,60 +444,60 @@ export const TranscriptionServicesSection = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-primary sm:text-4xl">Our Transcription Services</h2>
-            
+
             <p className="text-gray-600 dark:text-gray-600 max-w-2xl mx-auto">We offer a comprehensive range of professional transcription services tailored to your specific needs.</p>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             variants={staggerContainer}
             initial="initial"
-            whileInView="animate" 
+            whileInView="animate"
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto"
           >
-          {transcriptionCategories.map((category, index) => {
-            const IconComponent = category.icon;
-            return (
-              <motion.div 
-                key={category.title}
-                variants={fadeInUp}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className={cn(
-                  "p-8 relative overflow-hidden transition-all h-full", 
-                  "border border-blue-300 dark:border-blue-900/30 rounded-lg hover:border-blue-500 dark:hover:border-blue-400/50",
-                  "bg-white dark:bg-white hover:bg-blue-50 hover:bg-blue-100 shadow-sm hover:shadow"
-                )}
-              >
-                <div className="w-16 h-16 flex items-center justify-center mb-6 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-500/30 dark:to-blue-900/20 rounded-full shadow-inner shadow-blue-400/10">
-                  <IconComponent className="h-8 w-8 text-blue-600 dark:text-blue-400" strokeWidth={2} />
-                </div>
-              
-              <h3 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400 border-b border-blue-200 dark:border-blue-100 pb-2">{category.title}</h3>
-              <ul className="space-y-4">
-                {category.items.map((item) => (
-                  <li key={item} className="flex items-start group">
-                    <span className="w-2 h-2 bg-blue-500 dark:bg-primary mr-3 rounded-full mt-1.5 flex-shrink-0"></span>
-                    <span className="text-gray-700 dark:text-gray-600 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="mt-6 pt-4 border-t border-blue-200 dark:border-blue-900/30">
-                <span className="text-sm text-blue-600 dark:text-blue-400/80 font-medium">Learn More →</span>
-              </div>
-            </motion.div>
-            );
-          })}
-        </motion.div>
+            {transcriptionCategories.map((category, index) => {
+              const IconComponent = category.icon;
+              return (
+                <motion.div
+                  key={category.title}
+                  variants={fadeInUp}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className={cn(
+                    "p-8 relative overflow-hidden transition-all h-full",
+                    "border border-blue-300 dark:border-blue-900/30 rounded-lg hover:border-blue-500 dark:hover:border-blue-400/50",
+                    "bg-white dark:bg-white hover:bg-blue-50 hover:bg-blue-100 shadow-sm hover:shadow"
+                  )}
+                >
+                  <div className="w-16 h-16 flex items-center justify-center mb-6 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-500/30 dark:to-blue-900/20 rounded-full shadow-inner shadow-blue-400/10">
+                    <IconComponent className="h-8 w-8 text-blue-600 dark:text-blue-400" strokeWidth={2} />
+                  </div>
+
+                  <h3 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400 border-b border-blue-200 dark:border-blue-100 pb-2">{category.title}</h3>
+                  <ul className="space-y-4">
+                    {category.items.map((item) => (
+                      <li key={item} className="flex items-start group">
+                        <span className="w-2 h-2 bg-blue-500 dark:bg-primary mr-3 rounded-full mt-1.5 flex-shrink-0"></span>
+                        <span className="text-gray-700 dark:text-gray-600 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6 pt-4 border-t border-blue-200 dark:border-blue-900/30">
+                    <span className="text-sm text-blue-600 dark:text-blue-400/80 font-medium">Learn More →</span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 
       {/* Footer Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950"></div>
-        
+
         <div className="container relative">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -504,7 +506,7 @@ export const TranscriptionServicesSection = () => {
           >
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -516,7 +518,7 @@ export const TranscriptionServicesSection = () => {
               Our team of professional transcriptionists are ready to help with your next project.
             </p>
             <div className="mt-10">
-              <motion.a 
+              <motion.a
                 href="/contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
@@ -526,9 +528,9 @@ export const TranscriptionServicesSection = () => {
               </motion.a>
             </div>
           </motion.div>
-          
+
           <div className="mt-16 text-center text-gray-600 dark:text-gray-400 text-sm">
-            <p>&copy; {new Date().getFullYear()} Imperium Linguistics. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} imperium linguistics. All rights reserved.</p>
           </div>
         </div>
       </section>

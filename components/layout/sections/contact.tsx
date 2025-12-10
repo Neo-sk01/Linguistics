@@ -108,7 +108,7 @@ export const ContactSection = () => {
         setStatus("error");
         setServerMessage(
           data?.error ??
-            "We could not send your message. Please try again shortly.",
+          "We could not send your message. Please try again shortly.",
         );
         return;
       }
@@ -136,7 +136,7 @@ export const ContactSection = () => {
         tone: "success" as const,
         text:
           serverMessage ??
-          "Thanks for reaching out. A member of the Imperium Linguistics team will get back to you shortly.",
+          "Thanks for reaching out. A member of the imperium linguistics team will get back to you shortly.",
       };
     }
 
@@ -175,7 +175,7 @@ export const ContactSection = () => {
               Let&apos;s collaborate
             </span>
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              Contact Imperium Linguistics
+              Contact imperium linguistics
             </h1>
             <p className="mt-4 text-base text-blue-100 sm:text-lg">
               Tell us about your interpreting, transcription, or conferencing
@@ -224,42 +224,42 @@ export const ContactSection = () => {
               </Card>
             </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <Card className="border-blue-100 bg-white text-slate-900 shadow-xl">
-              <CardHeader className="space-y-3">
-                <CardTitle className="text-2xl font-semibold text-slate-900">
-                  Tell us about your project
-                </CardTitle>
-                <p className="text-sm text-slate-600">
-                  Share as much detail as you can—languages, deadlines, audience,
-                  and file types help us respond with the right plan.
-                </p>
-                <p className="text-xs font-medium uppercase tracking-[0.3em] text-blue-600">
-                  Response within one business day
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-6 pt-0">
-                {formStatusMessage && (
-                  <div
-                    className={
-                      formStatusMessage.tone === "success"
-                        ? "rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700"
-                        : "rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700"
-                    }
-                  >
-                    {formStatusMessage.text}
-                  </div>
-                )}
-                <Form {...form}>
-                  <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-5"
-                  >
+            <motion.div
+              initial={{ opacity: 0, y: 26 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+            >
+              <Card className="border-blue-100 bg-white text-slate-900 shadow-xl">
+                <CardHeader className="space-y-3">
+                  <CardTitle className="text-2xl font-semibold text-slate-900">
+                    Tell us about your project
+                  </CardTitle>
+                  <p className="text-sm text-slate-600">
+                    Share as much detail as you can—languages, deadlines, audience,
+                    and file types help us respond with the right plan.
+                  </p>
+                  <p className="text-xs font-medium uppercase tracking-[0.3em] text-blue-600">
+                    Response within one business day
+                  </p>
+                </CardHeader>
+                <CardContent className="space-y-6 pt-0">
+                  {formStatusMessage && (
+                    <div
+                      className={
+                        formStatusMessage.tone === "success"
+                          ? "rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700"
+                          : "rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700"
+                      }
+                    >
+                      {formStatusMessage.text}
+                    </div>
+                  )}
+                  <Form {...form}>
+                    <form
+                      onSubmit={form.handleSubmit(onSubmit)}
+                      className="space-y-5"
+                    >
                       <div className="grid gap-5 sm:grid-cols-2">
                         <FormField
                           control={form.control}

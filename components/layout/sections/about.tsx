@@ -34,7 +34,7 @@ export const AboutSection = () => {
             Our Story
           </span>
           <h3 className="mt-6 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            About Imperium Linguistics
+            About imperium linguistics
           </h3>
         </div>
 
@@ -46,7 +46,7 @@ export const AboutSection = () => {
                 config={{
                   width: 500,
                   height: 500,
-                  onRender: () => {},
+                  onRender: () => { },
                   devicePixelRatio: 2,
                   phi: 0,
                   theta: 0.3,
@@ -73,7 +73,7 @@ export const AboutSection = () => {
           <div className="order-1 md:order-2">
             <div className="space-y-5 text-white">
               <p className="text-lg leading-relaxed sm:text-xl">
-                Founded in 2017, Imperium Linguistics is the trusted language partner for law firms and executive teams that depend on clarity under pressure.
+                Founded in 2017, imperium linguistics is the trusted language partner for law firms and executive teams that depend on clarity under pressure.
               </p>
               <p className="text-sm leading-relaxed text-blue-100 sm:text-base">
                 Our specialists blend simultaneous and consecutive interpreting, non-literal translation, and meticulous transcription to remove barriers between multilingual stakeholders. From courtrooms to conferences, we equip teams with the technology and talent to deliver every word with weight and accuracy.

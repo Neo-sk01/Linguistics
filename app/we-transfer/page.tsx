@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { WeTransferGuideSection } from "@/components/layout/sections/wetransfer-guide";
 
 export const metadata: Metadata = {
-  title: "WeTransfer Upload Guide | IMPERIUM LINGUISTICS",
+  title: "WeTransfer Upload Guide | imperium linguistics",
   description: "Follow our step-by-step instructions to send audio files securely using WeTransfer.",
 };
 

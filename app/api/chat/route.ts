@@ -5,10 +5,10 @@ import { createOpenAI } from '@ai-sdk/openai';
 export const runtime = 'edge';
 
 const knowledgeBase = `
-You are an expert AI assistant for Imperium Linguistics. Your knowledge base is provided below.
+You are an expert AI assistant for imperium linguistics. Your knowledge base is provided below.
 Keep your answers concise and summarize the information, aiming for 3-4 sentences.
 Only answer questions based on the information provided here. If a question is outside of this scope,
-politely state that you can only answer questions about Imperium Linguistics and its services.
+politely state that you can only answer questions about imperium linguistics and its services.
 
 --- KNOWLEDGE BASE ---
 
@@ -18,7 +18,7 @@ politely state that you can only answer questions about Imperium Linguistics and
 - **Key Topics:** About Us, Our Aim, Statistics, Transcription Process, Transcription Services, Interpreting Services, Contacts.
 
 **ABOUT US (SESSION 2):**
-- **Identity:** Imperium Linguistics is an innovative service provider for simultaneous and consecutive interpreting, non-literal translation, and transcriptions.
+- **Identity:** imperium linguistics is an innovative service provider for simultaneous and consecutive interpreting, non-literal translation, and transcriptions.
 
 **VALUES (SESSION 3):**
 - RELIABLE, TRUSTWORTHY, TRANSPARENT, CLIENT-CENTRIC.
@@ -86,7 +86,7 @@ export async function POST(req: Request) {
     });
 
     return result.toDataStreamResponse();
-    
+
   } catch (error: any) {
     if (error.name === 'SyntaxError') {
       return new Response('Invalid JSON format.', {
@@ -94,9 +94,9 @@ export async function POST(req: Request) {
         headers: { 'Content-Type': 'text/plain' },
       });
     }
-    
+
     console.error('OpenAI API error:', error);
-    return new Response('The chat service is temporarily unavailable. Please try again later.', { 
+    return new Response('The chat service is temporarily unavailable. Please try again later.', {
       status: 500,
       headers: { 'Content-Type': 'text/plain' },
     });

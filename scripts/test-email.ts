@@ -35,11 +35,11 @@ async function main() {
         const { data, error } = await resend.emails.send({
             from,
             to: recipient,
-            subject: "Test Email from Imperium Linguistics Website (SDK)",
+            subject: "Test Email from imperium linguistics Website (SDK)",
             html: `
         <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
           <h2>Test Email Success! 🚀</h2>
-          <p>Your Imperium Linguistics website is now successfully configured with the Resend SDK.</p>
+          <p>Your imperium linguistics website is now successfully configured with the Resend SDK.</p>
           <hr />
           <p style="color: #666; font-size: 12px;">Timestamp: ${new Date().toISOString()}</p>
         </div>

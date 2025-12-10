@@ -17,16 +17,16 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
 
   // Toggle function for expanding/collapsing FAQ items
   const toggleItem = (index: number) => {
-    setExpandedItems(prev => 
-      prev.includes(index) 
-        ? prev.filter(item => item !== index) 
+    setExpandedItems(prev =>
+      prev.includes(index)
+        ? prev.filter(item => item !== index)
         : [...prev, index]
     );
   };
 
   const faqData = [
     {
-      question: "What services does Imperium Linguistics offer?",
+      question: "What services does imperium linguistics offer?",
       answer: (
         <>
           <p className="mb-2">We specialize in:</p>
@@ -106,7 +106,7 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
   // Filter FAQs based on search term and active category
   const filteredFaqs = faqData.filter(faq => {
     // Only search in the question text since answer can be JSX
-    const matchesSearch = searchTerm === "" || 
+    const matchesSearch = searchTerm === "" ||
       faq.question.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = activeCategory ? faq.category === activeCategory : true;
     return matchesSearch && matchesCategory;

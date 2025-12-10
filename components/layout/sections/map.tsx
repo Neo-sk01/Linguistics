@@ -19,13 +19,13 @@ export const MapSection = () => {
     script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
     script.async = true;
     script.defer = true;
-    
+
     // Define the initMap function that Google Maps will call back
     window.initMap = () => {
       if (mapRef.current && window.google) {
         // Map coordinates for Johannesburg (as example - adjust as needed)
         const location = { lat: -26.204, lng: 28.047 };
-        
+
         const map = new window.google.maps.Map(mapRef.current, {
           center: location,
           zoom: 15,
@@ -131,7 +131,7 @@ export const MapSection = () => {
         const marker = new window.google.maps.Marker({
           position: location,
           map: map,
-          title: "Imperium Linguistics",
+          title: "imperium linguistics",
           animation: window.google.maps.Animation.DROP,
         });
 
@@ -139,7 +139,7 @@ export const MapSection = () => {
         const infoWindow = new window.google.maps.InfoWindow({
           content: `
             <div style="padding: 8px;">
-              <h3 style="margin: 0 0 8px; font-weight: bold;">Imperium Linguistics</h3>
+              <h3 style="margin: 0 0 8px; font-weight: bold;">imperium linguistics</h3>
               <p style="margin: 0 0 4px;">Professional language services</p>
               <p style="margin: 0;">Visit us today!</p>
             </div>
@@ -169,7 +169,7 @@ export const MapSection = () => {
   return (
     <section className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -190,8 +190,8 @@ export const MapSection = () => {
           viewport={{ once: true }}
           className="w-full h-[500px] rounded-xl overflow-hidden shadow-xl"
         >
-          <div 
-            ref={mapRef} 
+          <div
+            ref={mapRef}
             className="w-full h-full"
             style={{ background: '#e5e7eb' }}
           >
@@ -208,9 +208,9 @@ export const MapSection = () => {
           viewport={{ once: true }}
           className="mt-8 flex justify-center"
         >
-          <a 
-            href="https://maps.google.com/maps?q=Imperium+Linguistics" 
-            target="_blank" 
+          <a
+            href="https://maps.google.com/maps?q=Imperium+Linguistics"
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
           >

@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
       subject: `New enquiry from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #0f172a;">
-          <h2 style="margin-bottom: 12px;">New enquiry from Imperium Linguistics website</h2>
+          <h2 style="margin-bottom: 12px;">New enquiry from imperium linguistics website</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone || "Not provided"}</p>

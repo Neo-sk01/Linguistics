@@ -7,24 +7,24 @@ import Image from 'next/image';
 // Define the main navigation links
 const links = [
   {
-      title: 'Features',
-      href: '/#',
+    title: 'Features',
+    href: '/#',
   },
   {
-      title: 'Solution',
-      href: '/#',
+    title: 'Solution',
+    href: '/#',
   },
   {
-      title: 'Customers',
-      href: '/#',
+    title: 'Customers',
+    href: '/#',
   },
   {
-      title: 'Help',
-      href: '/#faq',
+    title: 'Help',
+    href: '/#faq',
   },
   {
-      title: 'About',
-      href: '/#',
+    title: 'About',
+    href: '/#',
   },
 ];
 
@@ -40,19 +40,19 @@ const policySections = [
   { id: "updates", title: "Policy Updates", number: "8" },
 ];
 
-const PolicySection = ({ 
-  id, 
-  title, 
-  number, 
-  children 
-}: { 
-  id: string; 
-  title: string; 
-  number: string; 
-  children: React.ReactNode 
+const PolicySection = ({
+  id,
+  title,
+  number,
+  children
+}: {
+  id: string;
+  title: string;
+  number: string;
+  children: React.ReactNode
 }) => (
-  <section 
-    id={id} 
+  <section
+    id={id}
     className="mb-12 pb-12 border-b border-gray-100 dark:border-gray-800 scroll-mt-24"
   >
     <h2 className="text-2xl font-bold tracking-tight mb-6 group flex items-center">
@@ -62,8 +62,8 @@ const PolicySection = ({
       <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">
         {title}
       </span>
-      <a 
-        href={`#${id}`} 
+      <a
+        href={`#${id}`}
         className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500"
         aria-label={`Link to ${title} section`}
       >
@@ -86,19 +86,17 @@ const TableOfContents = ({ activeSection }: { activeSection: string }) => {
         <ul className="space-y-2">
           {policySections.map((section) => (
             <li key={section.id}>
-              <Link 
+              <Link
                 href={`#${section.id}`}
-                className={`flex items-center text-sm group ${
-                  activeSection === section.id 
-                    ? "text-blue-600 dark:text-blue-400 font-medium" 
+                className={`flex items-center text-sm group ${activeSection === section.id
+                    ? "text-blue-600 dark:text-blue-400 font-medium"
                     : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                }`}
+                  }`}
               >
-                <span className={`w-5 h-5 flex items-center justify-center rounded-full mr-2 text-xs transition-colors ${
-                  activeSection === section.id
+                <span className={`w-5 h-5 flex items-center justify-center rounded-full mr-2 text-xs transition-colors ${activeSection === section.id
                     ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 group-hover:bg-blue-100 group-hover:text-blue-600 dark:group-hover:bg-blue-900/30 dark:group-hover:text-blue-400"
-                }`}>
+                  }`}>
                   {section.number}
                 </span>
                 <span className="group-hover:translate-x-1 transition-transform">
@@ -113,14 +111,14 @@ const TableOfContents = ({ activeSection }: { activeSection: string }) => {
   );
 };
 
-const SubSection = ({ 
+const SubSection = ({
   id,
-  title, 
-  children 
-}: { 
+  title,
+  children
+}: {
   id?: string;
-  title: string; 
-  children: React.ReactNode 
+  title: string;
+  children: React.ReactNode
 }) => (
   <div className={`mb-8 ${id ? "" : ""}`} id={id}>
     <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
@@ -141,7 +139,7 @@ export default function PoliciesPage() {
     // Debounce function to prevent too many scroll event calculations
     const debounce = (fn: Function, delay: number) => {
       let timer: NodeJS.Timeout;
-      return function(...args: any[]) {
+      return function (...args: any[]) {
         clearTimeout(timer);
         timer = setTimeout(() => fn(...args), delay);
       };
@@ -152,7 +150,7 @@ export default function PoliciesPage() {
       const sections = policySections.map(section => {
         const element = document.getElementById(section.id);
         if (!element) return { id: section.id, top: 0, height: 0 };
-        
+
         const rect = element.getBoundingClientRect();
         return {
           id: section.id,
@@ -179,7 +177,7 @@ export default function PoliciesPage() {
 
     // Check active section on scroll
     window.addEventListener('scroll', debouncedHandleScroll);
-    
+
     // Check initial section
     handleScroll();
 
@@ -193,7 +191,7 @@ export default function PoliciesPage() {
       <div className="bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950 pt-24 pb-12">
         <div className="container">
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Imperium Linguistics – Company Policy Document
+            imperium linguistics – Company Policy Document
           </h1>
           <p className="text-muted-foreground max-w-3xl">
             Our commitment to providing accurate, timely, and client-focused linguistic services.
@@ -206,13 +204,13 @@ export default function PoliciesPage() {
           <div className="lg:col-span-1 order-2 lg:order-1">
             <TableOfContents activeSection={activeSection} />
           </div>
-          
+
           <div className="lg:col-span-3 order-1 lg:order-2">
             <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 md:p-8">
               <div className="max-w-3xl">
                 <PolicySection id="introduction" title="Introduction" number="1">
                   <p>
-                    Imperium Linguistics is committed to providing accurate, timely, and client-focused
+                    imperium linguistics is committed to providing accurate, timely, and client-focused
                     linguistic services. This policy outlines our professional standards, service
                     expectations, and ethical commitments to guide our operations and assure clients of
                     our quality and integrity.
@@ -235,14 +233,14 @@ export default function PoliciesPage() {
                       before handling any client material.
                     </p>
                   </SubSection>
-                  
+
                   <SubSection id="data-protection" title="3.2. Secure Data Handling">
                     <p>
                       Client files are stored and processed on secure platforms. Access is restricted to
                       authorized personnel only.
                     </p>
                   </SubSection>
-                  
+
                   <SubSection title="3.3. Data Retention">
                     <p>
                       Transcripts and recordings are stored for a maximum of 90 days unless otherwise
@@ -268,7 +266,7 @@ export default function PoliciesPage() {
                       By using our services, you agree to be bound by these terms and conditions.
                     </p>
                   </div>
-                  
+
                   <p>Our standard terms of service include:</p>
                   <ul className="list-disc pl-6">
                     <li>Clear pricing structure with no hidden fees</li>
@@ -305,7 +303,7 @@ export default function PoliciesPage() {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="flex-1 space-y-4">
                       <div className="flex items-start">
                         <div className="bg-blue-100 dark:bg-blue-900/30 p-2 rounded text-blue-600 dark:text-blue-400 mr-3">
@@ -319,7 +317,7 @@ export default function PoliciesPage() {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="flex-1 space-y-4">
                       <div className="flex items-start">
                         <div className="bg-blue-100 dark:bg-blue-900/30 p-2 rounded text-blue-600 dark:text-blue-400 mr-3">

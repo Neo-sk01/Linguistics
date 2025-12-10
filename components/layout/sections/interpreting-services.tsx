@@ -1,7 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { Languages, Mic, MessageSquareText, Globe, ArrowRight, GraduationCap, 
-  Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays, Building2, Headphones } from "lucide-react";
+import {
+  Languages, Mic, MessageSquareText, Globe, ArrowRight, GraduationCap,
+  Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays, Building2, Headphones
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { RequestQuoteDialog } from "@/components/layout/request-quote-dialog";
 
@@ -31,7 +33,7 @@ export const InterpretingServicesSection = () => {
     <>
       <section className="py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -41,7 +43,7 @@ export const InterpretingServicesSection = () => {
             {/* Decorative line removed */}
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -55,7 +57,7 @@ export const InterpretingServicesSection = () => {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
@@ -63,27 +65,27 @@ export const InterpretingServicesSection = () => {
               className="bg-[#3b82f6] text-white rounded-xl p-8 shadow-xl border border-white/30 hover:border-white/60 transition-colors relative overflow-hidden"
             >
               {/* Decorative circle removed */}
-              
+
               <Languages className="w-12 h-12 text-white mb-4 mx-auto" />
-              
+
               <h3 className="text-2xl font-bold text-white mb-6 text-center uppercase">
                 Simultaneous interpreting
               </h3>
-              
+
               <p className="mb-4 text-white/80 leading-relaxed">
                 Presentations and discussion can proceed at the same pace as a single language meeting. Each
                 attendee hears what is being said in his or her own language with the help of a wireless
                 receiver.
               </p>
-              
+
               <p className="text-white/80 leading-relaxed">
-                Imperium Linguistics provides a complete package. The simultaneous interpreting service
+                imperium linguistics provides a complete package. The simultaneous interpreting service
                 is a combination of highly talented conference interpreters and wireless electronic equipment
                 to transmit the interpreters' words to the appropriate listeners.
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -91,27 +93,27 @@ export const InterpretingServicesSection = () => {
               className="bg-[#3b82f6] text-white rounded-xl p-8 shadow-xl border border-white/30 hover:border-white/60 transition-colors relative overflow-hidden"
             >
               {/* Decorative circle removed */}
-              
+
               <Mic className="w-12 h-12 text-white mb-4 mx-auto" />
-              
+
               <h3 className="text-2xl font-bold text-white mb-6 text-center uppercase">
                 Consecutive interpreting
               </h3>
-              
+
               <p className="mb-4 text-white/80 leading-relaxed">
                 Consecutive interpreting is used often in law offices, business meetings, and various medical situations where language is a
                 barrier. A highly trained consecutive interpreter is able to interpret in two language directions, delivering the message
                 with the same intonation and emphasis as each speaker, without embellishment.
               </p>
-              
+
               <p className="text-white/80 leading-relaxed">
-                Imperium Linguistics has provided this service for oral depositions and other needs in more than 11 languages,
+                imperium linguistics has provided this service for oral depositions and other needs in more than 11 languages,
                 for attorneys, law firms, court reporters and government organizations.
               </p>
             </motion.div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -138,7 +140,7 @@ export const InterpretingServicesSection = () => {
                   <span className="text-gray-700 dark:text-gray-300">ERF1472/39 Muirfield Blvd, Silver Lakes Golf Estate, 0081</span>
                 </div>
               </div>
-              
+
               <div className="mt-8">
                 <div className="flex items-center mb-2">
                   <CalendarDays className="w-5 h-5 text-blue-600 mr-2" />
@@ -152,7 +154,7 @@ export const InterpretingServicesSection = () => {
                 </button>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-2xl font-bold mb-4 text-blue-600">Languages Supported</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
@@ -160,7 +162,7 @@ export const InterpretingServicesSection = () => {
               </p>
               <div className="grid grid-cols-2 gap-2">
                 {["Afrikaans", "English", "isiNdebele", "isiXhosa", "isiZulu", "Northern Sotho (Sepedi)", "Sesotho", "Setswana", "siSwati", "Tshivenda", "Xitsonga", "French", "Portuguese", "Spanish", "German", "Mandarin"].map((lang, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -174,9 +176,9 @@ export const InterpretingServicesSection = () => {
               </div>
             </div>
           </motion.div>
-          
+
           <div className="container relative">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -202,9 +204,9 @@ export const InterpretingServicesSection = () => {
               </div>
             </motion.div>
           </div>
-          
+
           <div className="mt-16 text-center text-gray-600 dark:text-gray-400 text-sm">
-            <p> {new Date().getFullYear()} Imperium Linguistics. All rights reserved.</p>
+            <p> {new Date().getFullYear()} imperium linguistics. All rights reserved.</p>
           </div>
         </div>
       </section>
