@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   title: "imperium linguistics",
   description: "Professional language services",
   icons: {
-    icon: '/images/sponsors/linguistics(final).png?v=4',
-    apple: '/images/sponsors/linguistics(final).png?v=4',
+    icon: '/logo.jpeg',
+    apple: '/logo.jpeg',
   },
 };
 
