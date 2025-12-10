@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -31,10 +31,7 @@ const contactSchema = z.object({
     .min(10, { message: "Message is required." }),
 });
 
-const missingEnvVars = () => {
-  const requiredVars = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS"];
-  return requiredVars.filter((key) => !process.env[key]);
-};
+// Schema validation ensures data integrity
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
@@ -58,64 +55,34 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const missing = missingEnvVars();
+  const apiKey = process.env.RESEND_API_KEY || process.env.SMTP_PASS;
 
-  if (missing.length > 0) {
-    console.error(
-      `Contact form email could not be sent. Missing environment variables: ${missing.join(", ")}`,
-    );
+  if (!apiKey) {
+    console.error("Missing RESEND_API_KEY or SMTP_PASS environment variable.");
     return NextResponse.json(
       {
         error:
-          "Email configuration is incomplete. Please try again later or use an alternate contact method.",
+          "Email configuration is incomplete. Please try again later.",
       },
       { status: 500 },
     );
   }
 
+  const resend = new Resend(apiKey);
   const { name, email, phone, company, message } = parsed.data;
 
-  const port = Number(process.env.SMTP_PORT);
-
-  if (Number.isNaN(port)) {
-    console.error("Invalid SMTP_PORT value.");
-    return NextResponse.json(
-      { error: "Email configuration is invalid." },
-      { status: 500 },
-    );
-  }
-
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port,
-    secure:
-      process.env.SMTP_SECURE?.toLowerCase() === "true" || Number(port) === 465,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
-
   const recipient =
-    process.env.CONTACT_RECIPIENT_EMAIL || "nkuna@imperiumlinguistics.com";
+    process.env.CONTACT_RECIPIENT_EMAIL || "mpho66@icloud.com";
+
+  // Use the verified domain email or the testing domain
+  const from = process.env.SMTP_FROM || "nkuna@imperiumlinguistics.com";
 
   try {
-    await transporter.sendMail({
+    const { data, error } = await resend.emails.send({
+      from,
       to: recipient,
-      from:
-        process.env.SMTP_FROM ||
-        `"Imperium Linguistics Website" <${process.env.SMTP_USER}>`,
       replyTo: email,
       subject: `New enquiry from ${name}`,
-      text: [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone || "Not provided"}`,
-        `Company: ${company || "Not provided"}`,
-        "",
-        "Message:",
-        message,
-      ].join("\n"),
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #0f172a;">
           <h2 style="margin-bottom: 12px;">New enquiry from Imperium Linguistics website</h2>
@@ -129,7 +96,15 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    return NextResponse.json({ success: true });
+    if (error) {
+      console.error("Resend API Error:", error);
+      return NextResponse.json(
+        { error: "Failed to send email. Please try again later." },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true, data });
   } catch (error) {
     console.error("Failed to send contact email", error);
     return NextResponse.json(
