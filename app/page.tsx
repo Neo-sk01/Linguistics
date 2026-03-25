@@ -2,7 +2,6 @@ import { AboutSection } from "@/components/layout/sections/about";
 import { BenefitsSection } from "@/components/layout/sections/benefits";
 import { ContactSection } from "@/components/layout/sections/contact";
 import { HeroSection } from "@/components/layout/sections/hero";
-import { SponsorsSection } from "@/components/layout/sections/sponsors";
 
 export const metadata = {
   title: "imperium linguistics",
@@ -36,7 +35,6 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <SponsorsSection />
       <AboutSection />
       <BenefitsSection />
       <ContactSection />
