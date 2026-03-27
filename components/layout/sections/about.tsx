@@ -96,7 +96,7 @@ export const AboutSection = () => {
             Purpose-driven principles that shape every interpreting, translation, and transcription engagement.
           </p>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {coreValues.map((value, index) => {
+            {coreValues.map((value) => {
               const IconComponent = value.icon;
               return (
                 <div

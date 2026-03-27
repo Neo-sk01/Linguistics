@@ -2,31 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-
-// Define the main navigation links
-const links = [
-  {
-    title: 'Features',
-    href: '/#',
-  },
-  {
-    title: 'Solution',
-    href: '/#',
-  },
-  {
-    title: 'Customers',
-    href: '/#',
-  },
-  {
-    title: 'Help',
-    href: '/#faq',
-  },
-  {
-    title: 'About',
-    href: '/#',
-  },
-];
 
 // Policy sections data for reuse
 const policySections = [
@@ -137,9 +112,12 @@ export default function PoliciesPage() {
   // Implement scroll spy to update the active section
   useEffect(() => {
     // Debounce function to prevent too many scroll event calculations
-    const debounce = (fn: Function, delay: number) => {
-      let timer: NodeJS.Timeout;
-      return function (...args: any[]) {
+    const debounce = <Args extends unknown[]>(
+      fn: (...args: Args) => void,
+      delay: number
+    ) => {
+      let timer: ReturnType<typeof setTimeout>;
+      return (...args: Args) => {
         clearTimeout(timer);
         timer = setTimeout(() => fn(...args), delay);
       };

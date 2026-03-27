@@ -1,12 +1,7 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { useTheme } from "next-themes";
-import Link from "next/link";
 import { HeroParticles } from "@/components/hero-particles";
 
 export const HeroSection = () => {
-  const { theme } = useTheme();
   return (
     <section className="relative w-full min-h-[75vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">

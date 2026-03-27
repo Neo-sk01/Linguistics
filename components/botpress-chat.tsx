@@ -3,9 +3,15 @@
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
 
+interface BotpressClient {
+  init(config: Record<string, unknown>): void;
+  on(event: string, handler: () => void): void;
+  open(): void;
+}
+
 declare global {
   interface Window {
-    botpress: any;
+    botpress: BotpressClient;
   }
 }
 

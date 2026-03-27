@@ -1,6 +1,4 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 
 // Define the content types we want to search through
 type ContentType = 'page' | 'faq' | 'service';

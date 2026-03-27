@@ -1,8 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
 import { db } from '@/lib/db';
-import { fileUploads, transcriptions, NewTranscription } from '@/lib/db/schema';
+import {
+  fileUploads,
+  transcriptions,
+  NewFileUpload,
+  NewTranscription,
+} from '@/lib/db/schema';
 import { eq, desc } from 'drizzle-orm';
+
+interface CloudinaryUploadResult {
+  public_id: string;
+  secure_url: string;
+  duration?: number;
+  pages?: number;
+}
 
 // Configure Cloudinary
 cloudinary.config({
@@ -62,7 +74,7 @@ export async function POST(request: NextRequest) {
     const folder = fileType === 'audio' ? 'linguistics/audio' : 'linguistics/documents';
     
     // Upload to Cloudinary
-    const uploadResult = await new Promise((resolve, reject) => {
+    const uploadResult = await new Promise<CloudinaryUploadResult | undefined>((resolve, reject) => {
       cloudinary.uploader.upload_stream(
         {
           resource_type: fileType === 'audio' ? 'video' : 'raw',
@@ -75,14 +87,14 @@ export async function POST(request: NextRequest) {
           else resolve(result);
         }
       ).end(buffer);
-    }) as any;
+    });
 
     if (!uploadResult) {
       throw new Error('Failed to upload to Cloudinary');
     }
 
     // Save metadata to database
-    const fileRecord: any = {
+    const fileRecord: NewFileUpload = {
       filename: uploadResult.public_id.split('/').pop() || file.name,
       originalName: file.name,
       fileType,
@@ -134,12 +146,17 @@ export async function POST(request: NextRequest) {
       },
     });
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Upload error:', error);
     return NextResponse.json(
-      { 
+      {
         error: error instanceof Error ? error.message : 'Failed to upload file',
-        details: process.env.NODE_ENV === 'development' ? error : undefined 
+        details:
+          process.env.NODE_ENV === 'development'
+            ? error instanceof Error
+              ? error.message
+              : String(error)
+            : undefined,
       },
       { status: 500 }
     );

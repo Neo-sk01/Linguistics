@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { FaqSection } from "@/components/layout/sections/faq";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "FAQ | imperium linguistics",
@@ -37,7 +36,7 @@ export default function FaqPage() {
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300">
                 Find answers to common questions about our professional language services.
-                Can't find what you're looking for? <span className="text-blue-600 font-medium">Contact us</span> for personalized assistance.
+                Can&apos;t find what you&apos;re looking for? <span className="text-blue-600 font-medium">Contact us</span> for personalized assistance.
               </p>
             </div>
           </div>

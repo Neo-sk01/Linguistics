@@ -1,34 +1,11 @@
 "use client";
-import { cn } from "@/lib/utils";
 import {
-  Languages, Mic, MessageSquareText, Globe, ArrowRight, GraduationCap,
-  Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays, Building2, Headphones
+  Languages, Mic, Phone, Mail, Clock, MapPin, CalendarDays
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { RequestQuoteDialog } from "@/components/layout/request-quote-dialog";
 
-interface ServiceCategory {
-  title: string;
-  items: string[];
-  className?: string;
-  icon: React.ElementType;
-}
-
 export const InterpretingServicesSection = () => {
-  const fadeInUp = {
-    initial: { y: 20, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    transition: { duration: 0.6 }
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
   return (
     <>
       <section className="py-12 md:py-24 bg-background">
@@ -81,7 +58,7 @@ export const InterpretingServicesSection = () => {
               <p className="text-white/80 leading-relaxed">
                 imperium linguistics provides a complete package. The simultaneous interpreting service
                 is a combination of highly talented conference interpreters and wireless electronic equipment
-                to transmit the interpreters' words to the appropriate listeners.
+                to transmit the interpreters&apos; words to the appropriate listeners.
               </p>
             </motion.div>
 

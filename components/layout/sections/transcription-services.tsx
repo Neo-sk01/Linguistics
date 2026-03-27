@@ -1,8 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import {
-  AudioWaveform, FileText, MessageSquareText, BookText, Mic, ArrowRight, GraduationCap,
-  Phone, Mail, Clock, MapPin, ChevronRight, CalendarDays, X
+  AudioWaveform, FileText, MessageSquareText, ArrowRight, GraduationCap, X
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -455,7 +454,7 @@ export const TranscriptionServicesSection = () => {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto"
           >
-            {transcriptionCategories.map((category, index) => {
+            {transcriptionCategories.map((category) => {
               const IconComponent = category.icon;
               return (
                 <motion.div

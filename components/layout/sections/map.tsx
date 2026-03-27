@@ -3,10 +3,48 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 // Define types for Google Maps API
+type Coordinates = {
+  lat: number;
+  lng: number;
+};
+
+type GoogleMapInstance = object;
+
+interface GoogleMarkerInstance {
+  addListener(event: string, handler: () => void): void;
+}
+
+interface GoogleInfoWindowInstance {
+  open(map: GoogleMapInstance, marker: GoogleMarkerInstance): void;
+}
+
+interface GoogleMapsApi {
+  maps: {
+    Map: new (
+      element: HTMLElement,
+      options: {
+        center: Coordinates;
+        zoom: number;
+        styles: Array<Record<string, unknown>>;
+      }
+    ) => GoogleMapInstance;
+    Marker: new (options: {
+      position: Coordinates;
+      map: GoogleMapInstance;
+      title: string;
+      animation: unknown;
+    }) => GoogleMarkerInstance;
+    InfoWindow: new (options: { content: string }) => GoogleInfoWindowInstance;
+    Animation: {
+      DROP: unknown;
+    };
+  };
+}
+
 declare global {
   interface Window {
     initMap: (() => void) | undefined;
-    google: any;
+    google: GoogleMapsApi | undefined;
   }
 }
 

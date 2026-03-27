@@ -6,7 +6,6 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Youtube,
 } from "lucide-react";
 import { Logo } from "@/components/logo";
 

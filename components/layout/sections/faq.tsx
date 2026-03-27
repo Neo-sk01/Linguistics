@@ -75,7 +75,7 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
       question: "What is simultaneous interpreting?",
       answer: (
         <p>
-          This service allows multilingual communication in real-time using wireless receivers. It's ideal for conferences and events with global audiences.
+          This service allows multilingual communication in real-time using wireless receivers. It&apos;s ideal for conferences and events with global audiences.
         </p>
       ),
       category: "interpreting"
@@ -222,7 +222,7 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
                   No matching questions
                 </h3>
                 <p className="max-w-xl text-[hsl(var(--muted-foreground))]">
-                  We couldn't find any FAQs matching your criteria.
+                  We couldn&apos;t find any FAQs matching your criteria.
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <Button variant="outline" onClick={() => setSearchTerm("")}>

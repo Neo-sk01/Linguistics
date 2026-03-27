@@ -2,8 +2,20 @@
 
 import { useEffect, useState } from "react";
 
+interface EnvStatus {
+  cloudinaryConfigured: {
+    cloudName: string;
+    apiKey: string;
+    apiSecret: string;
+  };
+  databaseConfigured: {
+    databaseUrl: string;
+  };
+  nodeEnv: string;
+}
+
 export default function EnvTestPage() {
-  const [envStatus, setEnvStatus] = useState<any>(null);
+  const [envStatus, setEnvStatus] = useState<EnvStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -14,7 +26,7 @@ export default function EnvTestPage() {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
-        const data = await res.json();
+        const data: EnvStatus = await res.json();
         setEnvStatus(data);
       } catch (e) {
         setError(e instanceof Error ? e.message : "Unknown error");

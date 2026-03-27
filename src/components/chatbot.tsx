@@ -2,12 +2,10 @@
 
 import { useChat } from '@ai-sdk/react'
 import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
+import { Card, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Avatar } from '@/components/ui/avatar'
-import { Send, Bot, User } from 'lucide-react'
+import { Send, Bot } from 'lucide-react'
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from './ui/chat/chat-bubble'
-import MessageLoading from './ui/chat/message-loading'
 
 export default function Chatbot() {
   const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
@@ -47,7 +45,7 @@ export default function Chatbot() {
           {messages.length === 0 && !isLoading && (
             <div className="text-center text-muted-foreground pt-8">
               <Bot className="h-12 w-12 mx-auto mb-4 text-muted-foreground/50" />
-              <p>Hi! I'm your Linguistics AI assistant.</p>
+              <p>Hi! I&apos;m your Linguistics AI assistant.</p>
               <p className="text-sm mt-2">How can I help you today?</p>
             </div>
           )}

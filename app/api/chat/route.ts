@@ -87,8 +87,8 @@ export async function POST(req: Request) {
 
     return result.toDataStreamResponse();
 
-  } catch (error: any) {
-    if (error.name === 'SyntaxError') {
+  } catch (error: unknown) {
+    if (error instanceof SyntaxError) {
       return new Response('Invalid JSON format.', {
         status: 400,
         headers: { 'Content-Type': 'text/plain' },
