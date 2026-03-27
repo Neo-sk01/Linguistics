@@ -11,7 +11,6 @@
 - [x] Navbar
 - [x] Sidebar(mobile)
 - [x] Hero
-- [x] Sponsors
 - [x] Benefits
 - [x] Features
 - [x] Testimonials
