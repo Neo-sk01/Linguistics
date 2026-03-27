@@ -6,14 +6,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-enum ProService {
-  YES = 1,
-  NO = 0,
-}
-
 interface ServiceProps {
   title: string;
-  pro: ProService;
+  pro: boolean;
   description: string;
 }
 
@@ -22,23 +17,23 @@ const serviceList: ServiceProps[] = [
     title: "Professional Translation",
     description:
       "Expert document translation services with precision and attention to cultural nuances in multiple languages.",
-    pro: 1,
+    pro: true,
   },
   {
     title: "Interpretation Services",
     description:
       "Real-time interpretation for conferences, meetings, and events with certified linguists.",
-    pro: 1,
+    pro: true,
   },
   {
     title: "Content Localization",
     description: "Adapt your content for specific markets and cultures to ensure maximum engagement.",
-    pro: 1,
+    pro: true,
   },
   {
     title: "Educational Language Services",
     description: "Custom language training programs, curriculum development, and educational consulting.",
-    pro: 0,
+    pro: false,
   },
 ];
 
@@ -69,7 +64,7 @@ export const ServicesSection = () => {
               <CardDescription>{description}</CardDescription>
             </CardHeader>
             <Badge
-              data-pro={ProService.YES === pro}
+              data-pro={pro}
               variant="secondary"
               className="absolute -top-2 -right-3 data-[pro=false]:hidden"
             >
