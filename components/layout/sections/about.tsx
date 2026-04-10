@@ -33,9 +33,9 @@ export const AboutSection = () => {
           <span className="inline-flex items-center justify-center px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.4em] bg-blue-500/50 rounded-full text-white">
             Our Story
           </span>
-          <h3 className="mt-6 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            About imperium linguistics
-          </h3>
+          <h2 className="mt-6 text-3xl font-bold tracking-tight text-white md:text-4xl">
+            Language support built for South Africa&apos;s high-stakes conversations
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14 lg:items-center">
@@ -73,15 +73,15 @@ export const AboutSection = () => {
           <div className="order-1 md:order-2">
             <div className="space-y-5 text-white">
               <p className="text-lg leading-relaxed sm:text-xl">
-                Founded in 2017, imperium linguistics is the trusted language partner for law firms and executive teams that depend on clarity under pressure.
+                Founded in 2017, imperium linguistics supports legal teams, public institutions, businesses, and conference organisers across South Africa with trusted language services.
               </p>
               <p className="text-sm leading-relaxed text-blue-100 sm:text-base">
-                Our specialists blend simultaneous and consecutive interpreting, non-literal translation, and meticulous transcription to remove barriers between multilingual stakeholders. From courtrooms to conferences, we equip teams with the technology and talent to deliver every word with weight and accuracy.
+                From courtroom recordings to multilingual conferences, our transcription specialists and interpreters help clients move quickly without sacrificing accuracy, context, or confidentiality.
               </p>
               <div className="inline-flex flex-wrap items-baseline gap-3 rounded-2xl border border-white/30 bg-white/10 backdrop-blur-sm px-4 py-3">
-                <span className="text-3xl font-bold text-white">6+ Years</span>
+                <span className="text-3xl font-bold text-white">South Africa-wide</span>
                 <span className="text-sm font-medium text-blue-100">
-                  of expertise in language services
+                  coverage for transcription and interpreting projects
                 </span>
               </div>
             </div>

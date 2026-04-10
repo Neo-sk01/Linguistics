@@ -1,21 +1,16 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
-interface BenefitsProps {
-  title: string;
-  description: string;
-}
-
-const benefitList: BenefitsProps[] = [
+const benefitList = [
   {
-    title: "",
+    title: "Legal-ready accuracy",
     description:
-      "Our legal system is inundated with matters as they are postponed on a daily, due to scarcity of interpreters which has resulted in major inadequacies.",
+      "We support recordings and live matters where accuracy, context, and confidentiality matter from the first brief to final delivery.",
   },
   {
-    title: "",
+    title: "Responsive South Africa coverage",
     description:
-      "Due to the immense pressure on the legal system there is a backlog which causes extreme delay in the application of obtaining court transcripts.",
+      "From urgent transcription requests to multilingual interpreting support, we help teams across South Africa move with practical turnaround options.",
   },
 ];
 
@@ -25,31 +20,23 @@ export const BenefitsSection = () => {
       <div className="grid lg:grid-cols-2 place-items-center lg:gap-24">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Our Aim
+            Why South African teams choose imperium linguistics
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            We help our clients accomplish their business
-            goals by providing them with legal
-            transcriptions and legal Interpreting services
-            they can rely on.
+            We combine professional transcription and interpreting support with clear communication, secure handling, and dependable delivery.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-4 w-full">
-          {benefitList.map(({ title, description }, index) => (
+          {benefitList.map(({ title, description }) => (
             <Card
-              key={title || index}
-              className={`transition-all delay-75 group/number ${
-                index <= 1
-                  ? "bg-[#3b82f6] text-white hover:bg-[#1d4ed8]"
-                  : "bg-muted/50 dark:bg-card hover:bg-background"
-              }`}
+              key={title}
+              className="bg-[#3b82f6] text-white hover:bg-[#1d4ed8] transition-colors"
             >
-              <CardContent
-                className={`pt-6 ${
-                  index <= 1 ? "text-white" : "text-muted-foreground"
-                }`}
-              >
+              <CardHeader className="pb-2">
+                <CardTitle className="text-white">{title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-white/90">
                 {description}
               </CardContent>
             </Card>
@@ -58,23 +45,19 @@ export const BenefitsSection = () => {
           <div className="relative rounded-lg overflow-hidden h-full aspect-square">
             <Image
               src="/handcuffs.jpg"
-              alt="Legal handcuffs"
+              alt="Legal transcription and interpreting support"
               fill
               className="object-cover"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-4">
-            </div>
           </div>
           
           <div className="relative rounded-lg overflow-hidden h-full aspect-square">
             <Image
               src="/magistrate.jpg"
-              alt="Magistrate Court"
+              alt="Courtroom and legal service support in South Africa"
               fill
               className="object-cover"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-4">
-            </div>
           </div>
         </div>
       </div>

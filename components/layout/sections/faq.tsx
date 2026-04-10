@@ -1,8 +1,10 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown, Search, PlusCircle, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { faqItems } from "@/lib/faq";
 import { cn } from "@/lib/utils";
 
 interface FaqSectionProps {
@@ -10,103 +12,23 @@ interface FaqSectionProps {
 }
 
 export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
-  // State to track which FAQ items are expanded
-  const [expandedItems, setExpandedItems] = useState<number[]>([]);
+  const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  // Toggle function for expanding/collapsing FAQ items
-  const toggleItem = (index: number) => {
-    setExpandedItems(prev =>
-      prev.includes(index)
-        ? prev.filter(item => item !== index)
-        : [...prev, index]
+  const toggleItem = (question: string) => {
+    setExpandedItems((prev) =>
+      prev.includes(question)
+        ? prev.filter((item) => item !== question)
+        : [...prev, question],
     );
   };
 
-  const faqData = [
-    {
-      question: "What services does imperium linguistics offer?",
-      answer: (
-        <>
-          <p className="mb-2">We specialize in:</p>
-          <ul className="list-disc pl-5 space-y-1 mb-2">
-            <li>Transcription Services (Legal, Business, Educational, General)</li>
-            <li>Interpreting Services (Simultaneous & Consecutive)</li>
-          </ul>
-        </>
-      ),
-      category: "general"
-    },
-    {
-      question: "What types of transcription do you provide?",
-      answer: (
-        <>
-          <p className="mb-2">We offer:</p>
-          <ul className="list-disc pl-5 space-y-1 mb-2">
-            <li>Legal Transcriptions – hearings, testimonies, depositions</li>
-            <li>Business Transcriptions – meetings, interviews, market research</li>
-            <li>Educational Transcriptions – seminars, oral histories, academic interviews</li>
-            <li>General Transcriptions – audio, cassette, CD/DVD/MP3 formats</li>
-          </ul>
-        </>
-      ),
-      category: "transcription"
-    },
-    {
-      question: "How fast can I receive a transcription?",
-      answer: (
-        <p>
-          Turnaround times include same day, next day, or custom scheduling to meet your deadlines.
-        </p>
-      ),
-      category: "transcription"
-    },
-    {
-      question: "How accurate are your transcriptions?",
-      answer: (
-        <p>
-          Our process combines advanced AI software and human verification, followed by thorough proofreading, ensuring high accuracy and reliability.
-        </p>
-      ),
-      category: "transcription"
-    },
-    {
-      question: "What is simultaneous interpreting?",
-      answer: (
-        <p>
-          This service allows multilingual communication in real-time using wireless receivers. It&apos;s ideal for conferences and events with global audiences.
-        </p>
-      ),
-      category: "interpreting"
-    },
-    {
-      question: "What is consecutive interpreting?",
-      answer: (
-        <p>
-          This is best for meetings, depositions, or one-on-one conversations. The interpreter waits for the speaker to finish before translating, maintaining tone and emphasis.
-        </p>
-      ),
-      category: "interpreting"
-    },
-    {
-      question: "In how many languages do you provide interpretation?",
-      answer: (
-        <p>
-          We support all official South African languages plus many international languages including English, French, Portuguese, Spanish, German, and Mandarin.
-        </p>
-      ),
-      category: "interpreting"
-    },
-  ];
+  const categories = Array.from(new Set(faqItems.map((faq) => faq.category)));
 
-  // Get unique categories
-  const categories = Array.from(new Set(faqData.map(faq => faq.category)));
-
-  // Filter FAQs based on search term and active category
-  const filteredFaqs = faqData.filter(faq => {
-    // Only search in the question text since answer can be JSX
-    const matchesSearch = searchTerm === "" ||
+  const filteredFaqs = faqItems.filter((faq) => {
+    const matchesSearch =
+      searchTerm === "" ||
       faq.question.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = activeCategory ? faq.category === activeCategory : true;
     return matchesSearch && matchesCategory;
@@ -236,11 +158,11 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
             ) : (
               <div className="space-y-5">
                 {filteredFaqs.map((faq, index) => {
-                  const isExpanded = expandedItems.includes(index);
+                  const isExpanded = expandedItems.includes(faq.question);
 
                   return (
                     <motion.div
-                      key={index}
+                      key={faq.question}
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
@@ -248,7 +170,7 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
                       className="overflow-hidden rounded-2xl border border-white/20 bg-[#3b82f6] text-white shadow-lg transition-colors"
                     >
                       <button
-                        onClick={() => toggleItem(index)}
+                        onClick={() => toggleItem(faq.question)}
                         className="flex w-full items-center justify-between gap-6 rounded-[inherit] bg-transparent px-6 py-5 text-left transition-all hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#3b82f6]"
                       >
                         <div className="pr-4">
@@ -259,34 +181,26 @@ export const FaqSection = ({ hideTitle = false }: FaqSectionProps) => {
                             {faq.question}
                           </h3>
                         </div>
-                        <div
+                        <ChevronDown
                           className={cn(
-                            "grid h-10 w-10 place-items-center rounded-full bg-white/15 transition-transform duration-300 ease-out",
-                            isExpanded && "rotate-180 bg-white/25"
+                            "h-5 w-5 shrink-0 text-white transition-transform duration-200",
+                            isExpanded && "rotate-180",
                           )}
-                        >
-                          <ChevronDown className="h-5 w-5 text-white" />
-                        </div>
+                        />
                       </button>
 
-                      <motion.div
-                        initial={false}
-                        animate={{
-                          height: isExpanded ? "auto" : 0,
-                          opacity: isExpanded ? 1 : 0
-                        }}
-                        transition={{
-                          height: { duration: 0.3, ease: "easeInOut" },
-                          opacity: { duration: 0.2, delay: isExpanded ? 0.1 : 0 }
-                        }}
-                        className="overflow-hidden border-t border-white/20 bg-[#3b82f6]"
-                      >
-                        <div className="px-6 pb-6 pt-4 text-white/90">
-                          <div className="prose prose-invert max-w-none text-white/90">
-                            {faq.answer}
-                          </div>
+                      {isExpanded && (
+                        <div className="border-t border-white/15 px-6 pb-5 pt-4 text-sm text-blue-100">
+                          <p>{faq.answer}</p>
+                          {faq.bullets && (
+                            <ul className="mt-3 list-disc space-y-1 pl-5">
+                              {faq.bullets.map((bullet) => (
+                                <li key={bullet}>{bullet}</li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
-                      </motion.div>
+                      )}
                     </motion.div>
                   );
                 })}

@@ -1,5 +1,9 @@
 "use client";
+
+import Link from "next/link";
+
 import { HeroParticles } from "@/components/hero-particles";
+import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
   return (
@@ -10,11 +14,26 @@ export const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[50vh] bg-blue-500/25 rounded-full blur-[120px] -z-10"></div>
       
       <div className="w-full py-20 md:py-32 z-10">
-        <div className="text-center space-y-16 w-full mx-auto">
-          <div className="w-screen left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] relative">
-            <h1 className="text-blue-500 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-none">
-              We are the first to be different
-            </h1>
+        <div className="mx-auto flex max-w-5xl flex-col items-center px-4 text-center">
+          <span className="inline-flex items-center rounded-full border border-blue-200 bg-white/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-blue-700 backdrop-blur">
+            South Africa-wide language services
+          </span>
+          <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+            Transcription and interpreting services in South Africa
+          </h1>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-700 sm:text-xl">
+            Imperium Linguistics supports legal teams, businesses, institutions, and event organisers with accurate transcription and professional interpreting across South Africa.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Button asChild size="lg">
+              <Link href="/contact">Request a quote</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/transcription">Explore transcription</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/interpreting">Explore interpreting</Link>
+            </Button>
           </div>
         </div>
       </div>

@@ -69,11 +69,16 @@ const supportHighlights = [
   },
 ];
 
-export const ContactSection = () => {
+interface ContactSectionProps {
+  standalone?: boolean;
+}
+
+export const ContactSection = ({ standalone = false }: ContactSectionProps) => {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle",
   );
   const [serverMessage, setServerMessage] = useState<string | null>(null);
+  const HeadingTag = standalone ? "h1" : "h2";
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -174,13 +179,11 @@ export const ContactSection = () => {
             <span className="mb-5 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/80">
               Let&apos;s collaborate
             </span>
-            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            <HeadingTag className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
               Contact imperium linguistics
-            </h1>
+            </HeadingTag>
             <p className="mt-4 text-base text-blue-100 sm:text-lg">
-              Tell us about your interpreting, transcription, or conferencing
-              needs. Our language specialists will craft a tailored response and
-              next steps within one business day.
+              Tell us about your interpreting, transcription, or conferencing needs in South Africa. Our language specialists will craft a tailored response and next steps within one business day.
             </p>
           </motion.div>
 
