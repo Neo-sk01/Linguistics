@@ -31,48 +31,42 @@ export const TranscriptionServicesSection = () => {
   const transcriptionCategories: ServiceCategory[] = [
     {
       title: "LEGAL TRANSCRIPTION",
-      items: [
-        "Hearings",
-        "Pleadings",
-        "Arbitrations",
-        "Testimonies",
-        "Depositions"
-      ],
+      items: ["Hearings", "Pleadings", "Arbitrations", "Testimonies", "Depositions"],
       className: "bg-gradient-to-br from-blue-600/20 to-blue-600/5 dark:from-blue-600/10 dark:to-blue-600/5 border-blue-600/30 dark:border-blue-600/20",
       icon: FileText
     },
     {
-      title: "BUSINESS TRANSCRIPTIONS",
+      title: "BUSINESS TRANSCRIPTION",
       items: [
-        "Conference Call",
-        "Group Discussions",
-        "Business Marketing",
+        "Conference calls",
+        "Board meetings",
         "Interviews",
-        "Market Research",
-        "Support Services"
+        "Market research",
+        "Internal communications"
       ],
       className: "bg-gradient-to-br from-gray-50/40 to-white dark:from-gray-900/20 dark:to-gray-900/10 border-gray-200/50 dark:border-blue-100/30",
       icon: MessageSquareText
     },
     {
-      title: "EDUCATIONAL TRANSCRIPTS",
+      title: "EDUCATIONAL TRANSCRIPTION",
       items: [
-        "Seminar",
-        "Oral History",
-        "Academic",
-        "Interviews",
-        "Research"
+        "Seminars",
+        "Lectures",
+        "Research interviews",
+        "Oral histories",
+        "Academic recordings"
       ],
       className: "bg-gradient-to-br from-blue-600/20 to-blue-600/5 dark:from-blue-600/10 dark:to-blue-600/5 border-blue-600/30 dark:border-blue-600/20",
       icon: GraduationCap
     },
     {
-      title: "GENERAL TRANSCRIPTIONS",
+      title: "GENERAL TRANSCRIPTION",
       items: [
-        "Audio Transcriptions",
-        "Digital Transcriptions",
-        "Casette Transcriptions",
-        "CD/DVD/MP3 Transcriptions"
+        "Audio files",
+        "Digital recordings",
+        "Legacy media",
+        "CD or DVD audio",
+        "MP3 and WAV files"
       ],
       className: "bg-gradient-to-br from-gray-50/40 to-white dark:from-gray-900/20 dark:to-gray-900/10 border-gray-200/50 dark:border-blue-100/30",
       icon: AudioWaveform
@@ -150,12 +144,31 @@ export const TranscriptionServicesSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="mb-10 text-center"
+            className="mx-auto mb-10 max-w-4xl text-center"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              TRANSCRIPTION <span className="text-primary">SERVICES</span>
-            </h2>
-            <div className="w-16 h-0.5 bg-blue-600/50 mx-auto mt-3"></div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.35em] text-blue-600">
+              South Africa-wide transcription support
+            </p>
+            <h1 className="text-4xl font-bold text-gray-900 md:text-5xl">
+              Professional transcription services in South Africa
+            </h1>
+            <p className="mt-6 text-lg text-gray-600">
+              Imperium Linguistics delivers professional transcription services for legal, business, educational, and general audio projects with practical turnaround options and human-reviewed output.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="rounded-md bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700"
+              >
+                Request a transcription quote
+              </Link>
+              <Link
+                href="/we-transfer"
+                className="rounded-md border border-blue-600 px-6 py-3 font-medium text-blue-600 transition-colors hover:bg-blue-50"
+              >
+                Send us your files
+              </Link>
+            </div>
           </motion.div>
 
           <div className="flex justify-center">
@@ -183,14 +196,13 @@ export const TranscriptionServicesSection = () => {
 
                   {/* Process Description below video */}
                   <div className="mb-8 text-center max-w-3xl mx-auto">
-                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-white relative inline-block">
-                      Our Transcription Process
+                    <h2 className="text-xl md:text-2xl font-bold mb-4 text-white relative inline-block">
+                      Our transcription process
                       <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-white/60"></span>
-                    </h3>
+                    </h2>
 
                     <p className="text-white/80 mb-6 text-sm">
-                      Audio is transcribed using advanced AI software for accuracy instead of manual transcription,
-                      which has associated risks of typographical errors, and a secondary human for review.
+                      We combine AI-assisted drafting with human review and proofreading so the final transcript reflects the recording accurately and clearly.
                     </p>
                   </div>
 
@@ -512,9 +524,11 @@ export const TranscriptionServicesSection = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center mb-16 mt-20"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Need transcription support for your next project?
+            </h2>
             <p className="text-lg text-gray-600 dark:text-gray-600 max-w-2xl mx-auto">
-              Our team of professional transcriptionists are ready to help with your next project.
+              Tell us about your recording, deadline, and preferred transcript format and our team will come back with the right next step.
             </p>
             <div className="mt-10">
               <motion.a
@@ -523,7 +537,7 @@ export const TranscriptionServicesSection = () => {
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md hover:shadow-lg transition-all no-underline rounded-md"
               >
-                Contact Us
+                Contact our transcription team
               </motion.a>
             </div>
           </motion.div>

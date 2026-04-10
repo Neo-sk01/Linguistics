@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import {
   Languages, Mic, Phone, Mail, Clock, MapPin, CalendarDays
 } from "lucide-react";
@@ -27,9 +28,14 @@ export const InterpretingServicesSection = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Interpreting Services</h1>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.35em] text-blue-600">
+              South Africa-wide interpreting support
+            </p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Interpreting services in South Africa
+            </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Bridge language barriers with our professional interpreting services, delivered by expert linguists in multiple languages.
+              Imperium Linguistics provides simultaneous and consecutive interpreting for conferences, meetings, legal matters, and multilingual events across South Africa.
             </p>
           </motion.div>
 
@@ -126,9 +132,12 @@ export const InterpretingServicesSection = () => {
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                   Schedule a consultation to discuss your interpreting needs.
                 </p>
-                <button className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-2 text-white transition-colors hover:bg-blue-700"
+                >
                   Contact Us
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -158,16 +167,18 @@ export const InterpretingServicesSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center mb-16 mt-20"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Our team of professional interpreters are ready to help with your next project.
-              </p>
-              <div className="mt-10">
-                <RequestQuoteDialog
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-16 mt-20"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to book interpreting support?
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Share your languages, location, audience size, and event format and our team will help you plan the right interpreting setup.
+            </p>
+            <div className="mt-10">
+              <RequestQuoteDialog
                   trigger={(
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -183,10 +194,10 @@ export const InterpretingServicesSection = () => {
           </div>
 
           <div className="mt-16 text-center text-gray-600 dark:text-gray-400 text-sm">
-            <p> {new Date().getFullYear()} imperium linguistics. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} imperium linguistics. All rights reserved.</p>
           </div>
         </div>
       </section>
     </>
   );
-}; 
+};

@@ -290,8 +290,8 @@ export default function PoliciesPage() {
                           </svg>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">Phone</p>
-                          <p className="font-medium">+27 123 456 789</p>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">Response time</p>
+                          <p className="font-medium">Within one business day</p>
                         </div>
                       </div>
                     </div>
@@ -305,8 +305,8 @@ export default function PoliciesPage() {
                           </svg>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">Address</p>
-                          <p className="font-medium">123 Business Avenue, Cape Town, South Africa</p>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">Service area</p>
+                          <p className="font-medium">South Africa</p>
                         </div>
                       </div>
                     </div>

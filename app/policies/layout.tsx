@@ -1,14 +1,18 @@
-import { Metadata } from 'next';
+import type { ReactNode } from "react";
 
-export const metadata: Metadata = {
-  title: 'Company Policies | imperium linguistics',
-  description: 'Learn about our professional standards, service expectations, and ethical commitments.',
-};
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata({
+  title: "Company Policies",
+  description:
+    "Learn about Imperium Linguistics' professional standards, confidentiality approach, and service expectations for clients in South Africa.",
+  path: "/policies",
+});
 
 export default function PoliciesLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return <>{children}</>;
-} 
+}
