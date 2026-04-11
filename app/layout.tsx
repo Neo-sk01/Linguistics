@@ -12,6 +12,11 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 const organizationSchema = getOrganizationSchema();
+const clarityScript = `(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "w6x2n5g17v");`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
@@ -58,6 +63,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={siteConfig.language} suppressHydrationWarning>
+      <head>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{ __html: clarityScript }}
+        />
+      </head>
       <body className={cn("min-h-screen bg-background flex flex-col", inter.className)}>
         <JsonLd data={organizationSchema} />
         <Navbar />
