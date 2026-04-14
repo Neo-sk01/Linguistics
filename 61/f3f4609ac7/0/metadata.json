@@ -1,0 +1,33 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "61f3f4609ac7",
+  "session_id": "ead870c1-806a-4c51-9e5d-96f39a0a41ab",
+  "strategy": "manual-commit",
+  "created_at": "2026-04-14T23:02:01.30019Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "app/layout.tsx",
+    "components/clarity-analytics.tsx"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "cbe8db3dd077",
+  "checkpoint_transcript_start": 40,
+  "transcript_lines_at_start": 40,
+  "token_usage": {
+    "input_tokens": 25,
+    "cache_creation_tokens": 11452,
+    "cache_read_tokens": 475911,
+    "output_tokens": 2181,
+    "api_call_count": 15
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-04-14T23:02:01.250483Z",
+    "agent_lines": 16,
+    "human_added": 12,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 28,
+    "agent_percentage": 57.14285714285714
+  }
+}
