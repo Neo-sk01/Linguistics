@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import ChatWidget from "@/components/ChatWidget";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Navbar } from "@/components/layout/navbar";
@@ -58,6 +59,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={siteConfig.language} suppressHydrationWarning>
+      <head>
+        <Script
+          id="microsoft-clarity"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "w6x2n5g17v");
+            `,
+          }}
+        />
+      </head>
       <body className={cn("min-h-screen bg-background flex flex-col", inter.className)}>
         <JsonLd data={organizationSchema} />
         <Navbar />
