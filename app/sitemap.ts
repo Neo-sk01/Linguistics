@@ -11,13 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency:
       route === "/"
         ? "weekly"
-        : route === "/transcription" || route === "/interpreting"
+        : route === "/transcription" || route === "/legal-transcription" || route === "/interpreting"
           ? "weekly"
           : "monthly",
     priority:
       route === "/"
         ? 1
-        : route === "/transcription" || route === "/interpreting"
+        : route === "/transcription" || route === "/legal-transcription" || route === "/interpreting"
           ? 0.9
           : 0.7,
   }));

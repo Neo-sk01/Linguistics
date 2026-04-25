@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import { getFaqSchema } from "@/lib/structured-data";
 
 export const metadata = buildPageMetadata({
-  title: "FAQ",
+  title: "FAQ South Africa",
   description:
     "Frequently asked questions about Imperium Linguistics' transcription and interpreting services in South Africa.",
   path: "/faq",

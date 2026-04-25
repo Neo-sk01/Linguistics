@@ -1,5 +1,5 @@
 "use client";
-import { ChevronsDown, Menu, FileText, Languages } from "lucide-react";
+import { ChevronsDown, Menu, FileText, Languages, Scale } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import {
   Sheet,
@@ -68,6 +68,12 @@ const servicesItems: ServiceItemProps[] = [
     label: "Transcription",
     description: "Professional linguistic transcription services",
     icon: <FileText className="h-5 w-5 text-[hsl(var(--accent-layer-2))]" />
+  },
+  {
+    href: "/legal-transcription",
+    label: "Legal Transcription",
+    description: "Court-ready transcripts for legal matters",
+    icon: <Scale className="h-5 w-5 text-[hsl(var(--accent-layer-2))]" />
   },
   {
     href: "/interpreting",

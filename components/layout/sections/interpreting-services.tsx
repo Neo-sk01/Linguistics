@@ -108,7 +108,7 @@ export const InterpretingServicesSection = () => {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700 dark:text-gray-300">+27 12 345 6789</span>
+                  <span className="text-gray-700 dark:text-gray-300">+27 67 747 2124</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 text-blue-600 mr-3" />

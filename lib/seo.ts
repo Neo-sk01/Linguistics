@@ -15,6 +15,7 @@ export const siteConfig = {
 export const publicRoutes = [
   "/",
   "/transcription",
+  "/legal-transcription",
   "/interpreting",
   "/faq",
   "/contact",
