@@ -71,16 +71,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={siteConfig.language} suppressHydrationWarning>
+      <head>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
+        <script dangerouslySetInnerHTML={{ __html: googleAnalyticsScript }} />
+      </head>
       <body className={cn("min-h-screen bg-background flex flex-col", inter.className)}>
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-          strategy="afterInteractive"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: googleAnalyticsScript }}
-        />
         <Script
           id="microsoft-clarity"
           strategy="afterInteractive"
