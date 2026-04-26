@@ -1,5 +1,9 @@
 import { streamText } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
+import {
+  getChatErrorResponse,
+  getChatStreamErrorMessage,
+} from '@/lib/chat-service-errors';
 
 // IMPORTANT! Set the runtime to edge
 export const runtime = 'edge';
@@ -85,7 +89,9 @@ export async function POST(req: Request) {
       messages,
     });
 
-    return result.toDataStreamResponse();
+    return result.toDataStreamResponse({
+      getErrorMessage: getChatStreamErrorMessage,
+    });
 
   } catch (error: unknown) {
     if (error instanceof SyntaxError) {
@@ -96,8 +102,10 @@ export async function POST(req: Request) {
     }
 
     console.error('OpenAI API error:', error);
-    return new Response('The chat service is temporarily unavailable. Please try again later.', {
-      status: 500,
+    const { status, message } = getChatErrorResponse(error);
+
+    return new Response(message, {
+      status,
       headers: { 'Content-Type': 'text/plain' },
     });
   }

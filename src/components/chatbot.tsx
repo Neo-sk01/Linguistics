@@ -1,14 +1,15 @@
 'use client'
 
 import { useChat } from '@ai-sdk/react'
+import { AlertCircle, Bot, Send } from 'lucide-react'
+import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Send, Bot } from 'lucide-react'
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from './ui/chat/chat-bubble'
 
 export default function Chatbot() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
     api: '/api/chat',
   })
 
@@ -17,7 +18,7 @@ export default function Chatbot() {
       <CardHeader className="p-4 border-b">
         <CardTitle className="text-lg">Linguistics AI Assistant</CardTitle>
       </CardHeader>
-      
+
       <ScrollArea className="flex-1 p-4">
         <div className="space-y-4">
           {messages.map((message) => (
@@ -51,22 +52,31 @@ export default function Chatbot() {
           )}
         </div>
       </ScrollArea>
-      
-      <CardFooter className="p-4 border-t">
-        <form onSubmit={handleSubmit} className="w-full">
-          <div className="flex gap-2">
-            <input
-              className="flex-1 px-3 py-2 text-sm rounded-md border border-input bg-background"
-              placeholder="Type your message..."
-              value={input}
-              onChange={handleInputChange}
-              disabled={isLoading}
-            />
-            <Button type="submit" size="icon" disabled={isLoading}>
-              <Send className="h-4 w-4" />
-            </Button>
-          </div>
-        </form>
+
+      <CardFooter className="border-t p-4">
+        <div className="w-full space-y-3">
+          {error && (
+            <Alert variant="destructive" className="py-3">
+              <AlertCircle className="h-4 w-4" />
+              <AlertDescription>{error.message}</AlertDescription>
+            </Alert>
+          )}
+
+          <form onSubmit={handleSubmit} className="w-full">
+            <div className="flex gap-2">
+              <input
+                className="flex-1 px-3 py-2 text-sm rounded-md border border-input bg-background"
+                placeholder="Type your message..."
+                value={input}
+                onChange={handleInputChange}
+                disabled={isLoading}
+              />
+              <Button type="submit" size="icon" disabled={isLoading}>
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
+          </form>
+        </div>
       </CardFooter>
     </Card>
   )
