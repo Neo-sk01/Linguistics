@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import ChatWidget from "@/components/ChatWidget";
+import ClarityAnalytics from "@/components/clarity-analytics";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Navbar } from "@/components/layout/navbar";
 import { cn } from "@/lib/utils";
@@ -14,11 +14,6 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 const organizationSchema = getOrganizationSchema();
 const gaMeasurementId = "G-5Q34YN5GMC";
-const clarityScript = `(function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "w6x2n5g17v");`;
 const googleAnalyticsScript = `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -76,11 +71,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: googleAnalyticsScript }} />
       </head>
       <body className={cn("min-h-screen bg-background flex flex-col", inter.className)}>
-        <Script
-          id="microsoft-clarity"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: clarityScript }}
-        />
+        <ClarityAnalytics />
         <JsonLd data={organizationSchema} />
         <Navbar />
         <main className="flex-1">{children}</main>
